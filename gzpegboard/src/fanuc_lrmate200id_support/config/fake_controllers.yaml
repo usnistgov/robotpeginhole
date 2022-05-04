@@ -1,0 +1,13 @@
+controller_list:
+  - name: fake_arm_controller
+    joints:
+      - fanuc_joint_1
+      - fanuc_joint_2
+      - fanuc_joint_3
+      - fanuc_joint_4
+      - fanuc_joint_5
+      - fanuc_joint_6
+  - name: fake_gripper_controller
+    joints:
+      - fanuc_prism1
+      - fanuc_prism2

@@ -1,0 +1,68 @@
+xform:
+  retract: [0.0,0.0,0.04,0.0,0.0,0.0]
+  base: [-0.169, -1.140, 0.934191,  0.0,0.0,0.0]
+  #qbend: [1.0,0.0,0.0,0.0]
+  qbend: [0,0.707107,0,0.707107]
+  tool: [0.0, 0.0, .182, 0.0,0.0,0.0]
+  gripper: [0.0, 0.0, .182, 0.0,0.0,0.0]
+ 
+offset:
+  vesselslot: [0.00,0.00, 0.035, 0.0, 0.0.,0.0]
+  largegear:  [0.0,0.0, 0.015, 0.0, 0.0.,0.0]
+  mediumgear: [0.0,0.0, 0.015, 0.0, 0.0.,0.0]
+  smallgear:  [0.0,0.0, 0.015, 0.0, 0.0.,0.00]
+
+moveit:
+  joint_state_publisher_topic: /lrmate/joint_states
+  gripper_topic: /fanuc_lrmate200id/control
+  robot_model_name: lrmate
+  use_gazebo: 1
+
+nc:
+  baselink: fanuc_base_link
+  tiplink: fanuc_link_6
+
+gazebo:
+  modeltopicname: /gazebo/default/ariac/model
+  gzJointPrefix: 'lrmate::fanuc_lrmate200id::'
+  gzLeftFingerContactTopic: /gazebo/default/lrmate/fanuc_lrmate200id/motoman_left_finger/left_finger_contact
+  gzRightFingerContactTopic: /gazebo/default/lrmate/fanuc_lrmate200id/motoman_right_finger/right_finger_contact
+  gzRobotCmdTopicName: /gazebo/default/fanuc/robotcmd
+  gzRobotStatusTopicName: /gazebo/default/fanuc/robotstatus
+  gzGripperCmdTopicName: /gazebo/default/gripper/fanuc_lrmate200id/control
+  gzGripperStatusTopicName: /gazebo/default/gripper/fanuc_lrmate200id/state
+
+model:
+  parts: [sku_kit_m2l1_vessel14,sku_kit_m2l1_vessel15,sku_medium_gear_vessel16,sku_part_medium_gear17,sku_part_medium_gear18,sku_part_medium_gear19,sku_part_medium_gear20,sku_large_gear_vessel21,sku_part_large_gear22,sku_part_large_gear23]
+  debug: 
+    model: 0
+    inferences: 0
+
+
+app:
+  bSingleThread: 1
+  bCmdLineInterface: 0
+  bCrclStreaming: 1
+  moveit: 
+    use: 0
+    eef_step: 0.01
+    jump_threshold: 0.0
+    avoid_collisions: 0
+
+  debug: 
+    demo: 1
+    transforms: 0
+  closest:
+    free: 0
+    openslot: 0
+  dwell:
+    time: 1.0
+    grasping: 2.0
+  test:
+    bDemoTest: 1
+    bRawTest: 0
+    bModelTest: 0
+    bHighLevelCrclApiTest: 0
+
+
+ 

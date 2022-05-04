@@ -1,0 +1,30 @@
+#ifdef MOTOMAN 
+    <model name="sku_taskboard_base">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-base</uri>
+         </include>
+         <pose frame="">0.258805 -0.627349 0.910184 0 -0 3.14</pose>
+      </model>
+      <model name="sku_taskboard_pegarray1">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-pegarray1</uri>
+         </include>
+         <pose frame="">0.258805 -0.5891 0.9866 0 -0 3.14</pose>
+      </model>
+       <model name="sku_taskboard_baseback">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-baseback</uri>
+         </include>
+         <pose frame="">0.264969 -0.722122 0.99865 0 -0 3.14</pose>
+      </model>
+     <model name="sku_taskboard_pegarray2">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-pegarray2</uri>
+         </include>
+         <pose frame="">0.271253 -0.695914 0.9987 0 -0 3.14</pose>
+      </model>
+#endif

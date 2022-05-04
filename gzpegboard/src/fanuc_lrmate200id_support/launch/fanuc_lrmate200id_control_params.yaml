@@ -1,0 +1,33 @@
+joint_state_controller:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 50
+
+joint_s_controller:
+  type: "position_controllers/JointPositionController"
+  joint: fanuc_joint_1
+  pid: {p: 100.0, i: 0.5, d: 10.0}
+
+joint_l_controller:
+  type: "position_controllers/JointPositionController"
+  joint: fanuc_joint_2
+  pid: {p: 100.0, i: 0.5, d: 10.0}
+
+joint_u_controller:
+  type: "position_controllers/JointPositionController"
+  joint: fanuc_joint_3
+  pid: {p: 100.0, i: 0.5, d: 10.0}
+
+joint_r_controller:
+  type: "position_controllers/JointPositionController"
+  joint: fanuc_joint_4
+  pid: {p: 100.0, i: 0.5, d: 10.0}
+
+joint_b_controller:
+  type: "position_controllers/JointPositionController"
+  joint: fanuc_joint_5
+  pid: {p: 100.0, i: 0.5, d: 10.0}
+
+joint_t_controller:
+  type: "position_controllers/JointPositionController"
+  joint: jfanuc_joint_6
+  pid: {p: 100.0, i: 0.5, d: 10.0}

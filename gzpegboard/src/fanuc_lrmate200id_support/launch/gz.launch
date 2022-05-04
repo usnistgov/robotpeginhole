@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+   <arg name="world_name" default="$(find fanuc_lrmate200id_support)/world/aprs-fanuc.world" />
+
+   <arg name="debug" default="false" />
+   <arg name="extra_gazebo_args" default="" />
+   <arg name="gui" default="true" />
+   <arg name="headless" default="false" />
+   <arg name="paused" default="false" />
+   <arg name="physics" default="ode" />
+   <arg name="pub_clock_frequency" default="100" />
+   <arg name="recording" default="false" />
+   <arg name="respawn_gazebo" default="false" />
+   <arg name="use_clock_frequency" default="false" />
+   <arg name="use_sim_time" default="true" />
+   <arg name="verbose" value="true" />
+
+   <!-- set command arguments -->
+   <arg unless="$(arg paused)" name="command_arg1" value="" />
+   <arg if="$(arg paused)" name="command_arg1" value="-u" />
+   <arg unless="$(arg recording)" name="command_arg2" value="" />
+   <arg if="$(arg recording)" name="command_arg2" value="-r" />
+   <arg unless="$(arg verbose)" name="command_arg3" value="" />
+   <arg if="$(arg verbose)" name="command_arg3" value="-s libgazebo_ros_api_plugin.so --verbose" />
+   <arg unless="$(arg debug)" name="script_type" value="gzserver" />
+   <arg if="$(arg debug)" name="script_type" value="debug" />
+
+   <!-- start gazebo server-->
+   <group if="$(arg use_clock_frequency)">
+      <param name="gazebo/pub_clock_frequency" value="$(arg pub_clock_frequency)" />
+   </group>
+   <node name="gazebo" pkg="gazebo_ros" type="$(arg script_type)" respawn="$(arg respawn_gazebo)" output="screen" 
+      args="$(arg command_arg1) $(arg command_arg2) $(arg command_arg3) -e $(arg physics) $(arg extra_gazebo_args) $(arg world_name)">
+      <env name="GAZEBO_PLUGIN_PATH" value="/home/michalos/ros/agility/devel/lib:$(optenv GAZEBO_PLUGIN_PATH)" />
+      <env name="GAZEBO_MODEL_PATH" value="/home/michalos/src/gzgwendolen/gzdatabase/models:$(optenv GAZEBO_MODEL_PATH)" />
+   </node>
+   <!-- start gazebo client -->
+   <group if="$(arg gui)">
+      <node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" respawn="false" output="screen" />
+   </group>
+</launch>

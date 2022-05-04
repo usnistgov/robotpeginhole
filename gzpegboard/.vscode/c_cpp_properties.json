@@ -1,0 +1,25 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "C:\\opt\\ros\\noetic\\x64\\tools\\vcpkg\\installed\\x64-windows\\include\\**",
+        "c:\\opt\\ros\\noetic\\x64\\include\\**",
+        "C:\\opt\\ros\\noetic\\gzpegboard\\devel\\include\\**",
+        "C:\\opt\\ros\\noetic\\x64\\tools\\vcpkg\\installed\\x64-windows\\include\\**",
+        "C:\\opt\\ros\\noetic\\gzpegboard\\src\\crpi_math\\include\\**",
+        "C:\\opt\\ros\\noetic\\gzpegboard\\src\\gazebo_plugins2\\include\\**",
+        "C:\\opt\\ros\\noetic\\gzpegboard\\src\\gripper_plugin\\include\\**",
+        "C:\\opt\\ros\\noetic\\gzpegboard\\src\\guardedmove_plugin\\include\\**",
+        "C:\\opt\\ros\\noetic\\gzpegboard\\src\\orocos_kdl\\include\\**",
+        "C:\\opt\\ros\\noetic\\gzpegboard\\src\\test_gazebo_package\\include\\**",
+        "C:\\opt\\ros\\noetic\\gzpegboard\\src\\ulapi\\include\\**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}

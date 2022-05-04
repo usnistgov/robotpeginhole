@@ -1,0 +1,8 @@
+cd noetic\gztaskboard
+cd bin
+gztaskboard.bat
+cd ..
+gztaskboard.bat
+
+:: To save the history
+doskey.exe /history > command.txt

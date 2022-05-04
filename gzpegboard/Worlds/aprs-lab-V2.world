@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+    <world name="default">
+        <physics type="ode" default="true">
+            <ode>
+                <solver>
+                    <iters>100</iters>
+                </solver>
+            </ode>
+        </physics>
+        <include>
+            <uri>model://ground_plane</uri>
+        </include>
+        <include>
+            <uri>model://sun</uri>
+        </include>
+ 
+#include "robots.world"
+#include "gzvisionsim.world"
+
+     <!-- Motoman gears -->
+#include  "motoman_taskboard.world"
+
+
+    <!-- Fanuc gears -->
+#include  "fanuc_taskboards.world"
+
+    </world>
+</sdf>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<robot name="fanuc_lrmate200id" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find fanuc_lrmate200id_support)/urdf/lrmate200id_macro.xacro"/>
+  <xacro:include filename="$(find fanuc_lrmate200id_support)/urdf/shunkgripper.xacro"/>
+
+
+  <link name="world" />
+  
+   <joint name="fanuc_base_link-base" type="fixed">
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <parent link="world" />
+      <child link="fanuc_base_link" />
+   </joint>
+
+  <xacro:fanuc_lrmate200id prefix="fanuc_" />
+  <xacro:shunk_gripper_model prefix="fanuc_" />
+  <xacro:fanuc_arm_transmission prefix="fanuc_" hw_interface="hardware_interface/EffortJointInterface" />
+
+</robot>

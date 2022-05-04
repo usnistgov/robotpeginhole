@@ -1,0 +1,14 @@
+<model>
+  <name>My Robot</name>
+  <version>1.0</version>
+  <sdf version='1.3'>/usr/local/michalos/gazebo_experiments/sia20d.urdf</sdf>
+ 
+  <author>
+   <name>My Name</name>
+   <email>john.michaloski@nist.gov</email>
+  </author>
+ 
+  <description>
+    My awesome robot.
+  </description>
+</model>

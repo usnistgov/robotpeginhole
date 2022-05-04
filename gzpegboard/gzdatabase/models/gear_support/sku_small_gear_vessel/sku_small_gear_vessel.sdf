@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.5">
+   <model name="sku_small_gear_vessel">
+            <link name="link1">
+                <collision name="collision1">
+                    <pose frame="">0 0 0 0 0 0</pose>
+                    <geometry>
+                        <mesh>
+                            <scale>0.0254 0.0254 0.0254</scale>
+                            <uri>model://gear_support/meshes/small_gear_holder_Centered_ZeroZmin.stl</uri>
+                        </mesh>
+                    </geometry>
+                    <max_contacts>10</max_contacts>
+                    <surface>
+                        <contact>
+                            <ode />
+                        </contact>
+                        <bounce />
+                        <friction>
+                            <torsional>
+                                <ode />
+                            </torsional>
+                            <ode />
+                        </friction>
+                    </surface>
+                </collision>
+                <visual name="visual1">
+                    <pose frame="">0 0 0 0 0 0</pose>
+                    <geometry>
+                        <mesh>
+                            <scale>0.0254 0.0254 0.0254</scale>
+                            <uri>model://gear_support/meshes/small_gear_holder_Centered_ZeroZmin.stl</uri>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <script>
+                            <name>Gazebo/Orange</name>
+                            <uri>__default__</uri>
+                        </script>
+                    </material>
+                </visual>
+                <inertial>
+                    <mass>0.39</mass>
+                    <inertia>
+                        <ixx>1.91071229e+01</ixx>
+                        <ixy>2.84737024e-07</ixy>
+                        <ixz>2.16999641e-07</ixz>
+                        <iyy>1.91071221e+01</iyy>
+                        <iyz>-1.18455844e-07</iyz>
+                        <izz>3.74139992e+01</izz>
+                    </inertia>
+                </inertial>
+                <self_collide>0</self_collide>
+                <kinematic>0</kinematic>
+                <gravity>1</gravity>
+            </link>
+   </model>
+</sdf>

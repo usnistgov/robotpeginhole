@@ -1,0 +1,289 @@
+<model name="sku_large_gear_vessel1">
+    <static>1</static>
+    <link name="link1">
+        <collision name="collision1">
+            <pose frame="">0 0 0.0 0 0 1.570796</pose>
+            <geometry>
+                <mesh>
+                    <scale>0.0254 0.0254 0.0254</scale>
+                    <uri>model://gear_support/meshes/large_gear_holder_Centered_ZeroZmin.stl</uri>
+                </mesh>
+            </geometry>
+            <max_contacts>10</max_contacts>
+        </collision>
+        <visual name="visual1">
+            <pose frame="">0 0 0.0 0 0 1.570796</pose>
+            <geometry>
+                <mesh>
+                    <scale>0.0254 0.0254 0.0254</scale>
+                    <uri>model://gear_support/meshes/large_gear_holder_Centered_ZeroZmin.stl</uri>
+                </mesh>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/Purple</name>
+                    <uri>__default__</uri>
+                </script>
+            </material>
+        </visual>
+        <inertial>
+            <mass>12</mass>
+            <inertia>
+                <ixx>1.19794657e+02</ixx>
+                <ixy>-8.44035782e-03</ixy>
+                <ixz>-2.33453848e-04</ixz>
+                <iyy>3.57882366e+01</iyy>
+                <iyz>1.11958400e-03</iyz>
+                <izz>1.54252131e+02</izz>
+            </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <kinematic> 0</kinematic>
+        <gravity>1</gravity>
+    </link>
+    <pose frame="">0.140269 -0.541795 0.910000 0 0 0.041089</pose>
+</model>
+<model name="sku_large_gear_vessel2">
+    <static>1</static>
+    <link name="link1">
+        <collision name="collision1">
+            <pose frame="">0 0 0.0 0 0 1.570796</pose>
+            <geometry>
+                <mesh>
+                    <scale>0.0254 0.0254 0.0254</scale>
+                    <uri>model://gear_support/meshes/large_gear_holder_Centered_ZeroZmin.stl</uri>
+                </mesh>
+            </geometry>
+            <max_contacts>10</max_contacts>
+        </collision>
+        <visual name="visual1">
+            <pose frame="">0 0 0.0 0 0 1.570796</pose>
+            <geometry>
+                <mesh>
+                    <scale>0.0254 0.0254 0.0254</scale>
+                    <uri>model://gear_support/meshes/large_gear_holder_Centered_ZeroZmin.stl</uri>
+                </mesh>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/Purple</name>
+                    <uri>__default__</uri>
+                </script>
+            </material>
+        </visual>
+        <inertial>
+            <mass>12</mass>
+            <inertia>
+                <ixx>1.19794657e+02</ixx>
+                <ixy>-8.44035782e-03</ixy>
+                <ixz>-2.33453848e-04</ixz>
+                <iyy>3.57882366e+01</iyy>
+                <iyz>1.11958400e-03</iyz>
+                <izz>1.54252131e+02</izz>
+            </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+    </link>
+    <pose frame="">-0.345217 -0.710361 0.910000 0 0 0.041089</pose>
+</model>
+<model name="sku_kit_s2l2_vessel3">
+    <static>1</static>
+    <link name="link1">
+        <collision name="collision1">
+            <pose frame="">0 0 0 0 0 0</pose>
+            <geometry>
+                <mesh>
+                    <scale>0.001 0.001 0.001</scale>
+                    <uri>model://gear_support/meshes/newKitTray_2Large_2Small_Centered_ZeroZmin.stl</uri>
+                </mesh>
+            </geometry>
+            <max_contacts>10</max_contacts>
+        </collision>
+        <visual name="visual1">
+            <pose frame="">0 0 0 0 0 0</pose>
+            <geometry>
+                <mesh>
+                    <scale>0.001 0.001 0.001</scale>
+                    <uri>model://gear_support/meshes/newKitTray_2Large_2Small_Centered_ZeroZmin.stl</uri>
+                </mesh>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/Red</name>
+                    <uri>__default__</uri>
+                </script>
+            </material>
+        </visual>
+        <inertial>
+            <mass>12</mass>
+            <inertia>
+                <ixx>8.54977215e+01</ixx>
+                <ixy>5.18963385e-03</ixy>
+                <ixz>-6.49974690e-05</ixz>
+                <iyy>7.01009727e+01</iyy>
+                <iyz>-7.13569718e-02</iyz>
+                <izz>1.54056453e+02</izz>
+            </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+    </link>
+    <pose frame="">0.147261 -0.701542 0.910000 0 0 0.041003</pose>
+</model>
+<model name="sku_kit_s2l2_vessel4">
+    <static>1</static>
+    <link name="link1">
+        <collision name="collision1">
+            <pose frame="">0 0 0 0 0 0</pose>
+            <geometry>
+                <mesh>
+                    <scale>0.001 0.001 0.001</scale>
+                    <uri>model://gear_support/meshes/newKitTray_2Large_2Small_Centered_ZeroZmin.stl</uri>
+                </mesh>
+            </geometry>
+            <max_contacts>10</max_contacts>
+        </collision>
+        <visual name="visual1">
+            <pose frame="">0 0 0 0 0 0</pose>
+            <geometry>
+                <mesh>
+                    <scale>0.001 0.001 0.001</scale>
+                    <uri>model://gear_support/meshes/newKitTray_2Large_2Small_Centered_ZeroZmin.stl</uri>
+                </mesh>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/Red</name>
+                    <uri>__default__</uri>
+                </script>
+            </material>
+        </visual>
+        <inertial>
+            <mass>12</mass>
+            <inertia>
+                <ixx>8.54977215e+01</ixx>
+                <ixy>5.18963385e-03</ixy>
+                <ixz>-6.49974690e-05</ixz>
+                <iyy>7.01009727e+01</iyy>
+                <iyz>-7.13569718e-02</iyz>
+                <izz>1.54056453e+02</izz>
+            </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+    </link>
+    <pose frame="">-0.097735 -0.710875 0.910000 0 0 0.041003</pose>
+</model>
+<model name="sku_part_large_gear5">
+    <static>0</static>
+    <pose frame="">0.195344 -0.538446 0.914176 -0.000058 -0.000084 0.006938</pose>
+    <include>
+        <static>false</static>
+        <uri>model://Large_Gear</uri>
+    </include>
+</model>
+<model name="sku_part_large_gear6">
+    <static>0</static>
+    <pose frame="">0.085441 -0.542957 0.914191 0.000096 -0.000074 0.003484</pose>
+    <include>
+        <static>false</static>
+        <uri>model://Large_Gear</uri>
+    </include>
+</model>
+<model name="sku_part_large_gear7">
+    <static>0</static>
+    <pose frame="">-0.290145 -0.706995 0.914084 0.000096 -0.000074 0.003484</pose>
+    <include>
+        <static>false</static>
+        <uri>model://Large_Gear</uri>
+    </include>
+</model>
+<model name="sku_part_large_gear8">
+    <static>0</static>
+    <pose frame="">-0.400062 -0.711537 0.914472 0.001713 0.000046 0.003484</pose>
+    <include>
+        <static>false</static>
+        <uri>model://Large_Gear</uri>
+    </include>
+</model>
+<model name="sku_small_gear_vessel9">
+    <static>1</static>
+    <link name="link1">
+        <collision name="collision1">
+            <pose frame="">0 0 0 0 0 0</pose>
+            <geometry>
+                <mesh>
+                    <scale>0.0254 0.0254 0.0254</scale>
+                    <uri>model://gear_support/meshes/small_gear_holder_Centered_ZeroZmin.stl</uri>
+                </mesh>
+            </geometry>
+            <max_contacts>10</max_contacts>
+        </collision>
+        <visual name="visual1">
+            <pose frame="">0 0 0 0 0 0</pose>
+            <geometry>
+                <mesh>
+                    <scale>0.0254 0.0254 0.0254</scale>
+                    <uri>model://gear_support/meshes/small_gear_holder_Centered_ZeroZmin.stl</uri>
+                </mesh>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/Orange</name>
+                    <uri>__default__</uri>
+                </script>
+            </material>
+        </visual>
+        <inertial>
+            <mass>12</mass>
+            <inertia>
+                <ixx>1.91071229e+01</ixx>
+                <ixy>2.84737024e-07</ixy>
+                <ixz>2.16999641e-07</ixz>
+                <iyy>1.91071221e+01</iyy>
+                <iyz>-1.18455844e-07</iyz>
+                <izz>3.74139992e+01</izz>
+            </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <kinematic> 0 </kinematic>
+        <gravity>1</gravity>
+    </link>
+    <pose frame="">-0.050956 -0.548444 0.910000 0 0 0.046160</pose>
+</model>
+<model name="sku_part_small_gear10">
+    <static>0</static>
+    <pose frame="">-0.021698 -0.575129 0.914502 -0.000402 0.000283 0.002914</pose>
+    <include>
+        <static>false</static>
+        <uri>model://Small_Gear</uri>
+    </include>
+</model>
+<model name="sku_part_small_gear11">
+    <static>0</static>
+    <pose frame="">-0.023930 -0.519273 0.914802 -0.008747 -0.014455 0.017272</pose>
+    <include>
+        <static>false</static>
+        <uri>model://Small_Gear</uri>
+    </include>
+</model>
+<model name="sku_part_small_gear12">
+    <static>0</static>
+    <pose frame="">-0.079890 -0.521528 0.914769 0.008884 -0.013243 0.012764</pose>
+    <include>
+        <static>false</static>
+        <uri>model://Small_Gear</uri>
+    </include>
+</model>
+<model name="sku_part_small_gear13">
+    <static>0</static>
+    <pose frame="">-0.077729 -0.577831 0.914607 -0.007612 0.004265 0.013346</pose>
+    <include>
+        <static>false</static>
+        <uri>model://Small_Gear</uri>
+    </include>
+</model>

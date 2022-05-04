@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.5">
+   <model name="sku_kit_m2l1_vessel">
+           <link name="link1">
+                <collision name="collision1">
+                    <pose frame="">0 0 0 0 0 0</pose>
+                    <geometry>
+                        <mesh>
+                            <scale>0.0254 0.0254 0.0254</scale>
+                            <uri>model://gear_support/meshes/newKitTray_1Large_2Medium_Centered_ZeroZmin.stl</uri>
+                        </mesh>
+                    </geometry>
+                    <max_contacts>10</max_contacts>
+                    <surface>1
+                        <contact>
+                            <ode />
+                        </contact>
+                        <bounce />
+                        <friction>
+                            <torsional>
+                                <ode />
+                            </torsional>
+                            <ode />
+                        </friction>
+                    </surface>
+                </collision>
+                <visual name="visual1">
+                    <pose frame="">0 0 0 0 0 0</pose>
+                    <geometry>
+                        <mesh>
+                            <scale>0.0254 0.0254 0.0254</scale>
+                            <uri>model://gear_support/meshes/newKitTray_1Large_2Medium_Centered_ZeroZmin.stl</uri>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <script>
+                            <name>Gazebo/Wood</name>
+                            <uri>__default__</uri>
+                        </script>
+                    </material>
+                </visual>
+                <inertial>
+                    <mass>0.39</mass>
+                    <inertia>
+                        <ixx>8.54977215e+01</ixx>
+                        <ixy>5.18963385e-03</ixy>
+                        <ixz>-6.49974690e-05</ixz>
+                        <iyy>7.01009727e+01</iyy>
+                        <iyz>-7.13569718e-02</iyz>
+                        <izz>1.54056453e+02</izz>
+                    </inertia>
+                </inertial>
+                <self_collide>0</self_collide>
+                <kinematic>0</kinematic>
+                <gravity>1</gravity>
+            </link>
+   </model>
+</sdf>
+
+

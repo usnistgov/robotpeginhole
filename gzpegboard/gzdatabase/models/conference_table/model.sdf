@@ -1,0 +1,32 @@
+<?xml version='1.0'?>
+<sdf version='1.5'>
+  <model name='Conference_Table'>
+    <static>true</static>
+    <link name="link">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="visual">
+            <geometry>
+                <mesh>
+                    <uri>model://conference_table/meshes/conference_table.dae</uri>
+                </mesh>
+            </geometry>
+
+            <material>
+                <script>
+                    <uri>file://media/materials/scripts/gazebo.material</uri>
+                    <name>Gazebo/Wood</name>
+                </script>
+            </material>
+         
+        </visual>
+        <collision name="collision">
+            <geometry>
+                <mesh>
+                   <uri>model://conference_table/meshes/conference_table.dae</uri>
+                </mesh>
+            </geometry>
+        </collision>
+    </link>
+  </model>
+</sdf>
+

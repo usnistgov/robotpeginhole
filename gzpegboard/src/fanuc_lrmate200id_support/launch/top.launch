@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+<arg name="package" value="$(eval find('fanuc_lrmate200id_support'))" />
+
+<include file="$(find fanuc_lrmate200id_support)/launch/robot_ns.launch">
+    <arg name="my_ns" value="lrmate" /> 
+    <arg name="package" value="$(eval find('fanuc_lrmate200id_support'))" />
+    <arg name="dosimmove" value="true"/>
+    <arg name="armgroup" value="fanucarm"/>
+    <arg name="qtbreak" value="0"/>
+    <arg name="robot" value="fanuc_lrmate200id"/>
+    <arg name="jnt_source_list" value="['/lrmate/joint_states']"/>
+
+</include>
+
+<!--<include file="$(find fanuc_lrmate200id_support)/launch/robot_ns.launch">
+    <arg name="my_ns" value="r2" /> 
+</include> -->
+
+<include file="$(find fanuc_lrmate200id_support)/launch/gz.launch">
+   <arg name="world_name" value="$(find fanuc_lrmate200id_support)/world/aprs-fanuc.world" />
+</include> 
+
+</launch>

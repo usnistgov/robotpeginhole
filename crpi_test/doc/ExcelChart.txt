@@ -1,0 +1,6 @@
+
+
+1) Insert table using text value with paragraph
+2) Copy and insert into Excel
+3) Add autonumber column   =ROW() then copy/paste each row
+4) Scatter plot, change Y axis to number format 4 decimal places

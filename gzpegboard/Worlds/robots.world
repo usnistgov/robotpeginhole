@@ -1,0 +1,54 @@
+  <!-- Fanuc Robot -->
+         <model name="lrmate">
+            <include>
+                <static>false</static>
+                <uri>model://fanuc_lrmate200id</uri>
+                <pose>-0.169 -1.140 0.934191 0 0 0</pose>
+            </include>
+            <plugin name="ParallelGripperPlugin" filename="libgzparallelgripperplugin.so">
+                <grip_force_close>5</grip_force_close>
+                <joint1>fanuc_lrmate200id::fanuc_prism1</joint1>
+                <joint2>fanuc_lrmate200id::fanuc_prism2</joint2>
+                <grip_kp>10000</grip_kp>
+                <control_topic> ~/gripper/fanuc_lrmate200id/control </control_topic>
+                <state_topic> ~/gripper/fanuc_lrmate200id/state </state_topic>
+                <debug> 0 </debug>
+                <collisions> 1 </collisions>
+            </plugin>
+        </model>
+    <!-- Motoman Robot -->
+       <model name="sia20d">
+            <include>
+                <static>false</static>
+                <uri>model://motoman_aprs</uri>
+                <pose>0 0 0.910 0 0 0.0</pose>
+            </include>
+            <joint name="joint_fix" type="revolute">
+                <child>motoman_sia20d::motoman_base_link</child>
+                <parent>world</parent>
+                <axis>
+                    <limit>
+                        <lower>0</lower>
+                        <upper>0</upper>
+                    </limit>
+                    <dynamics>
+                        <damping>0</damping>
+                        <friction>0</friction>
+                        <spring_reference>0</spring_reference>
+                        <spring_stiffness>0</spring_stiffness>
+                    </dynamics>
+                    <use_parent_model_frame>1</use_parent_model_frame>
+                    <xyz>0 0 1</xyz>
+                </axis>
+            </joint>
+            <plugin name="ParallelGripperPlugin" filename="libgzparallelgripperplugin.so">
+            <grip_force_close>5</grip_force_close>
+            <joint1>motoman_sia20d::motoman_left_finger_joint</joint1>
+            <joint2>motoman_sia20d::motoman_right_finger_joint</joint2>
+            <grip_kp>10000</grip_kp>
+                <control_topic> ~/gripper/motoman_sia20d/control </control_topic>
+                <state_topic> ~/gripper/motoman_sia20d/state </state_topic>
+                <debug> 0 </debug>
+            <collisions> 1 </collisions>
+         </plugin>
+        </model>

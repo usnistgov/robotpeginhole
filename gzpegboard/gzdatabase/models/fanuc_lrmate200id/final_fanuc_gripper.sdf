@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.6">
+    <model name="fanuc_lrmate200id">
+        <link name="link0">
+            <pose frame="">0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <mass>4</mass>
+                <inertia>
+                    <ixx>0.0216667</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.0216667</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.0240667</izz>
+                </inertia>
+            </inertial>
+            <collision name="link0_fixed_joint_lump__fanuc_base_link_collision">
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>model://fanuc_lrmate200id_support/meshes/lrmate200id/visual/base_link.stl</uri>
+                    </mesh>
+                </geometry>
+                <surface>
+                    <contact>
+                        <ode />
+                    </contact>
+                    <friction>
+                        <ode />
+                    </friction>
+                </surface>
+            </collision>
+            <visual name="link0_fixed_joint_lump__fanuc_base_link_visual">
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>model://fanuc_lrmate200id_support/meshes/lrmate200id/visual/base_link.stl</uri>
+                    </mesh>
+                </geometry>
+                <material>
+                    <script>
+                        <name>Gazebo/Grey</name>
+                        <uri>file://media/materials/scripts/gazebo.material</uri>
+                    </script>
+                </material>
+            </visual>
+            <gravity>0</gravity>
+            <velocity_decay />
+            <self_collide>0</self_collide>
+        </link>
+        <joint name="world_joint" type="revolute">
+            <child>link0</child>
+            <parent>world</parent>
+            <axis>
+                <limit>
+                    <lower>0</lower>
+                    <upper>0</upper>
+                </limit>
+                <dynamics>
+                    <damping>0</damping>
+                    <friction>0</friction>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+                <use_parent_model_frame>1</use_parent_model_frame>
+                <xyz>0 0 1</xyz>
+            </axis>
+        </joint>
+        <link name="fanuc_link_1">
+            <pose frame="">0 0 0.33 0 -0 0</pose>
+            <inertial>
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <mass>4</mass>
+                <inertia>
+                    <ixx>0.0322667</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.0226667</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.0226667</izz>
+                </inertia>
+            </inertial>
+            <collision name="fanuc_link_1_collision">
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>model://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_1.stl</uri>
+                    </mesh>
+                </geometry>
+                <surface>
+                    <contact>
+                        <ode />
+                    </contact>
+                    <friction>
+                        <ode />
+                    </friction>
+                </surface>
+            </collision>
+            <visual name="fanuc_link_1_visual">
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>model://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_1.stl</uri>
+                    </mesh>
+                </geometry>
+                <material>
+                    <script>
+                        <name>Gazebo/Yellow</name>
+                        <uri>file://media/materials/scripts/gazebo.material</uri>
+                    </script>
+                </material>
+            </visual>
+            <gravity>0</gravity>
+            <velocity_decay />
+            <self_collide>0</self_collide>
+        </link>
+        <joint name="fanuc_joint_1" type="revolute">
+            <child>fanuc_link_1</child>
+            <parent>link0</parent>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-2.965</lower>
+                    <upper>2.965</upper>
+                    <effort>0</effort>
+                    <velocity>7.85</velocity>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+                <use_parent_model_frame>1</use_parent_model_frame>
+            </axis>
+        </joint>
+        <link name="fanuc_link_2">
+            <pose frame="">0.05 0 0.33 0 -0 0</pose>
+            <inertial>
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <mass>5</mass>
+                <inertia>
+                    <ixx>0.0973333</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.0888333</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.0248333</izz>
+                </inertia>
+            </inertial>
+            <collision name="fanuc_link_2_collision">
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>model://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_2.stl</uri>
+                    </mesh>
+                </geometry>
+                <surface>
+                    <contact>
+                        <ode />
+                    </contact>
+                    <friction>
+                        <ode />
+                    </friction>
+                </surface>
+            </collision>
+            <visual name="fanuc_link_2_visual">
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>model://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_2.stl</uri>
+                    </mesh>
+                </geometry>
+                <material>
+                    <script>
+                        <name>Gazebo/Yellow</name>
+                        <uri>file://media/materials/scripts/gazebo.material</uri>
+                    </script>
+                </material>
+            </visual>
+            <gravity>0</gravity>
+            <velocity_decay />
+            <self_collide>0</self_collide>
+        </link>
+        <joint name="fanuc_joint_2" type="revolute">
+            <child>fanuc_link_2</child>
+            <parent>fanuc_link_1</parent>
+            <axis>
+                <xyz>0 1 0</xyz>
+                <limit>
+                    <lower>-1.74533</lower>
+                    <upper>2.53073</upper>
+                    <effort>0</effort>
+                    <velocity>6.63</velocity>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+                <use_parent_model_frame>1</use_parent_model_frame>
+            </axis>
+        </joint>
+        <link name="fanuc_link_3">
+            <pose frame="">0.05 0 0.66 0 -0 0</pose>
+            <inertial>
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <mass>4</mass>
+                <inertia>
+                    <ixx>0.0104333</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.0121667</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.0113333</izz>
+                </inertia>
+            </inertial>
+            <collision name="fanuc_link_3_collision">
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>model://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_3.stl</uri>
+                    </mesh>
+                </geometry>
+                <surface>
+                    <contact>
+                        <ode />
+                    </contact>
+                    <friction>
+                        <ode />
+                    </friction>
+                </surface>
+            </collision>
+            <visual name="fanuc_link_3_visual">
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>model://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_3.stl</uri>
+                    </mesh>
+                </geometry>
+                <material>
+                    <script>
+                        <name>Gazebo/Yellow</name>
+                        <uri>file://media/materials/scripts/gazebo.material</uri>
+                    </script>
+                </material>
+            </visual>
+            <gravity>0</gravity>
+            <velocity_decay />
+            <self_collide>0</self_collide>
+        </link>
+        <joint name="fanuc_joint_3" type="revolute">
+            <child>fanuc_link_3</child>
+            <parent>fanuc_link_2</parent>
+            <axis>
+                <xyz>0 -1 0</xyz>
+                <limit>
+                    <lower>-2.45097</lower>
+                    <upper>4.88692</upper>
+                    <effort>0</effort>
+                    <velocity>9.08</velocity>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+                <use_parent_model_frame>1</use_parent_model_frame>
+            </axis>
+        </joint>
+        <link name="fanuc_link_4">
+            <pose frame="">0.05 0 0.695 0 -0 0</pose>
+            <inertial>
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <mass>5</mass>
+                <inertia>
+                    <ixx>0.00833333</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.0368333</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.0368333</izz>
+                </inertia>
+            </inertial>
+            <collision name="fanuc_link_4_collision">
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>model://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_4.stl</uri>
+                    </mesh>
+                </geometry>
+                <surface>
+                    <contact>
+                        <ode />
+                    </contact>
+                    <friction>
+                        <ode />
+                    </friction>
+                </surface>
+            </collision>
+            <visual name="fanuc_link_4_visual">
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>model://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_4.stl</uri>
+                    </mesh>
+                </geometry>
+                <material>
+                    <script>
+                        <name>Gazebo/Yellow</name>
+                        <uri>file://media/materials/scripts/gazebo.material</uri>
+                    </script>
+                </material>
+            </visual>
+            <gravity>0</gravity>
+            <velocity_decay />
+            <self_collide>0</self_collide>
+        </link>
+        <joint name="fanuc_joint_4" type="revolute">
+            <child>fanuc_link_4</child>
+            <parent>fanuc_link_3</parent>
+            <axis>
+                <xyz>-1 0 0</xyz>
+                <limit>
+                    <lower>-3.315</lower>
+                    <upper>3.315</upper>
+                    <effort>0</effort>
+                    <velocity>9.6</velocity>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+                <use_parent_model_frame>1</use_parent_model_frame>
+            </axis>
+        </joint>
+        <link name="fanuc_link_5">
+            <pose frame="">0.385 0 0.695 0 -0 0</pose>
+            <inertial>
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <mass>1.5</mass>
+                <inertia>
+                    <ixx>0.0018125</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.0023125</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.002525</izz>
+                </inertia>
+            </inertial>
+            <collision name="fanuc_link_5_collision">
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>model://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_5.stl</uri>
+                    </mesh>
+                </geometry>
+                <surface>
+                    <contact>
+                        <ode />
+                    </contact>
+                    <friction>
+                        <ode />
+                    </friction>
+                </surface>
+            </collision>
+            <visual name="fanuc_link_5_visual">
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>model://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_5.stl</uri>
+                    </mesh>
+                </geometry>
+                <material>
+                    <script>
+                        <name>Gazebo/Yellow</name>
+                        <uri>file://media/materials/scripts/gazebo.material</uri>
+                    </script>
+                </material>
+            </visual>
+            <gravity>0</gravity>
+            <velocity_decay />
+            <self_collide>0</self_collide>
+        </link>
+        <joint name="fanuc_joint_5" type="revolute">
+            <child>fanuc_link_5</child>
+            <parent>fanuc_link_4</parent>
+            <axis>
+                <xyz>0 -1 0</xyz>
+                <limit>
+                    <lower>-2.18</lower>
+                    <upper>2.18</upper>
+                    <effort>0</effort>
+                    <velocity>9.51</velocity>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+                <use_parent_model_frame>1</use_parent_model_frame>
+            </axis>
+        </joint>
+        <!--    Peters gripper with changes                                          -->
+        <joint name="fanuc_joint_6" type="revolute">
+            <child>fanuc_gripperbase</child>
+            <parent>fanuc_link_5</parent>
+            <axis>
+                <xyz>-1 0 0</xyz>
+                <limit>
+                    <lower>-6.285</lower>
+                    <upper>6.285</upper>
+                    <effort>0</effort>
+                    <velocity>17.45</velocity>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+                <use_parent_model_frame>1</use_parent_model_frame>
+            </axis>
+        </joint>
+        <link name="fanuc_gripperbase">
+            <pose frame="">0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose frame="">0.012996 0.067257 -0.020009 0 -0 0</pose>
+                <mass>0.27006</mass>
+                <inertia>
+                    <ixx>1</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>1</iyy>
+                    <iyz>0</iyz>
+                    <izz>1</izz>
+                </inertia>
+            </inertial>
+            <collision name="fanuc_gripperbase_collision">
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <!-- CHANGE fanuc_lrmate200id to wherever you put the meshes -->
+                        <uri>model://fanuc_lrmate200id/meshes/fanuc_gripperbase.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="fanuc_gripperbase_visual">
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>model://fanuc_lrmate200id/meshes/fanuc_gripperbase.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <link name="fanuc_finger1">
+            <pose frame="">0.021 0.044616 -0.0318 1.5708 -0 -3.14159</pose>
+            <inertial>
+                <pose frame="">0.009219 0.002122 0.029068 0 -0 0</pose>
+                <mass>5</mass>
+                <inertia>
+                    <ixx>1</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>1</iyy>
+                    <iyz>0</iyz>
+                    <izz>1</izz>
+                </inertia>
+            </inertial>
+            <collision name="fanuc_finger1_collision">
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>model://fanuc_lrmate200id/meshes/fanuc_finger1.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="fanuc_finger1_visual">
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>model://fanuc_lrmate200id/meshes/fanuc_finger1.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name="fanuc_prism1" type="prismatic">
+            <child>fanuc_finger1</child>
+            <parent>fanuc_gripperbase</parent>
+            <axis>
+                <xyz>7e-06 -1 4e-06</xyz>
+                <limit>
+                    <lower>-0.05</lower>
+                    <upper>0.05</upper>
+                    <effort>1000</effort>
+                    <velocity>1000</velocity>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+                <use_parent_model_frame>1</use_parent_model_frame>
+            </axis>
+        </joint>
+        <link name="fanuc_finger2">
+            <pose frame="">0.005 -0.008275 -0.0318 1.5708 -0 0</pose>
+            <inertial>
+                <pose frame="">0.009219 0.002122 0.029068 0 -0 0</pose>
+                <mass>5</mass>
+                <inertia>
+                    <ixx>1</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>1</iyy>
+                    <iyz>0</iyz>
+                    <izz>1</izz>
+                </inertia>
+            </inertial>
+            <collision name="fanuc_finger2_collision">
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>model://fanuc_lrmate200id/meshes/fanuc_finger2.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="fanuc_finger2_visual">
+                <pose frame="">0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>model://fanuc_lrmate200id/meshes/fanuc_finger2.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name="fanuc_prism2" type="prismatic">
+            <child>fanuc_finger2</child>
+            <parent>fanuc_gripperbase</parent>
+            <axis>
+                <xyz>0 -1 -4e-06</xyz>
+                <limit>
+                    <lower>-0.05</lower>
+                    <upper>0.05</upper>
+                    <effort>1000</effort>
+                    <velocity>1000</velocity>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+                <use_parent_model_frame>1</use_parent_model_frame>
+            </axis>
+        </joint>
+    </model>
+</sdf>

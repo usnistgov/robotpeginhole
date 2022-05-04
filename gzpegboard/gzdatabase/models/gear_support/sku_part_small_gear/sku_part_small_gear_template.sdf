@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.5">
+    <model name="sku_part_small_gear">
+           <static>0</static>
+            <link name="link1">
+                <velocity_decay>
+                    <angular>
+             		.0005
+             		</angular>
+                </velocity_decay>
+                <collision name="collision1">
+                    <pose frame="">0 0 0 0 0 0</pose>
+                    <geometry>
+                        <mesh>
+#ifdef HANDLES
+                            <scale>1 1 1</scale>
+                            <uri>model://gear_support/meshes/new_small_gear_Rotatex_Centered_ZeroZmin.stl</uri>
+#else
+                            <scale>0.0254 0.0254 0.0254</scale>
+                            <uri>model://gear_support/meshes/small_gear_Centered_ZeroZmin.stl</uri>
+#endif
+                        </mesh>
+                    </geometry>
+                    <max_contacts>10</max_contacts>
+#ifdef ODE
+                    <surface>
+                        <contact>
+                            <ode>
+                                <max_vel>0.1</max_vel>
+                                <min_depth>0.001</min_depth>
+                            </ode>
+                        </contact>
+                        <bounce />
+                        <friction>
+                            <ode>
+                                <mu>1.0</mu>
+                                <mu2>1.0</mu2>
+                            </ode>
+                        </friction>
+                    </surface>
+#endif
+                </collision>
+                <visual name="visual1">
+                    <pose frame="">0 0 0 0 0 0</pose>
+                    <geometry>
+                        <mesh>
+#ifdef HANDLES
+                            <scale>1 1 1</scale>
+                            <uri>model://gear_support/meshes/new_small_gear_Rotatex_Centered_ZeroZmin.stl</uri>
+#else
+                            <scale>0.0254 0.0254 0.0254</scale>
+                            <uri>model://gear_support/meshes/small_gear_Centered_ZeroZmin.stl</uri>
+#endif
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <script>
+                            <name>Gazebo/Yellow</name>
+                            <uri>__default__</uri>
+                        </script>
+                    </material>
+                </visual>
+                <inertial>
+                    <mass>0.008</mass>
+                    <inertia>
+                        <ixx>-1.8069</ixx>
+                        <ixy>-1.38183</ixy>
+                        <ixz>9.8929e-10</ixz>
+                        <iyy>-1.8069</iyy>
+                        <iyz>2.90322e-12</iyz>
+                        <izz>0.113621</izz>
+                    </inertia>
+                </inertial>
+                <self_collide>0</self_collide>
+                <kinematic> KINEMATIC </kinematic>
+                <gravity>1</gravity>
+            </link>
+    </model>
+</sdf>

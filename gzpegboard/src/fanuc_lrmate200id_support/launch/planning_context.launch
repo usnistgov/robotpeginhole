@@ -1,0 +1,29 @@
+<launch>
+  <arg name="printfsep" default="-------------------"/>
+  <!-- By default we do not overwrite the URDF. Change the following to true to change the default behavior -->
+  <arg name="load_robot_description" default="false"/>
+
+  <!-- The name of the parameter under which the URDF is loaded -->
+  <arg name="robot_description" default="robot_description"/>
+
+  <!-- Load universal robot description format (URDF) -->
+  <param if="$(arg load_robot_description)" name="$(arg robot_description)" textfile="$(find fanuc_lrmate200id_support)/urdf/lrmate200id.urdf"/>
+
+  <!-- The semantic description that corresponds to the URDF 
+  <param name="$(arg robot_description)_semantic" textfile="$(find fanuc_lrmate200id_support)/config/fanuc_lrmate200id.srdf" />-->
+
+  <!-- The semantic description that corresponds to the URDF - TWO CHOICES WHY DO WE NEED THIS WHEN WE ALREADY HAVE SET IT?-->
+  <param if="$(arg aprs)" name="$(arg ns)robot_description_semantic" textfile="$(find fanuc_lrmate200id_support)/config/aprs.srdf" />
+  <param unless="$(arg aprs)" name="$(arg ns)robot_description_semantic" textfile="$(find fanuc_lrmate200id_support)/config/fanuc_lrmate200id.srdf" />
+
+  <!-- Load updated joint limits (override information from URDF) -->
+  <group ns="$(arg robot_description)_planning">
+    <rosparam command="load" file="$(find fanuc_lrmate200id_support)/config/joint_limits.yaml"/>
+  </group>
+
+  <!-- Load default settings for kinematics; these settings are overridden by settings in a node's namespace -->
+  <group ns="$(arg robot_description)_kinematics">
+    <rosparam command="load" file="$(find fanuc_lrmate200id_support)/config/kinematics.yaml"/>
+  </group>
+
+</launch>

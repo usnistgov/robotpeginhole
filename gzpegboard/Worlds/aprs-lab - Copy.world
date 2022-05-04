@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.6">
+   <world name="default">
+      <gravity>0 0 -9.8</gravity>
+      <physics type="ode" default="true">
+         <ode>
+            <solver>
+               <type>quick</type>
+               <iters>100</iters>
+            </solver>
+            <constraints>
+               <cfm>1</cfm>
+               <erp>0.8</erp>
+            </constraints>
+         </ode>
+      </physics>
+      <include>
+         <uri>model://ground_plane</uri>
+      </include>
+      <include>
+         <uri>model://sun</uri>
+      </include>
+      <model name="Lab_Wall">
+         <include>
+            <static>true</static>
+            <uri>model://Lab_Wall</uri>
+         </include>
+         <pose frame="">6.589073 -9.422110 0 0 0 1.570461</pose>
+      </model>
+      <model name="Lab_Tables">
+         <static>1</static>
+         <link name="link">
+            <pose frame="">0 0 0 0 0 0</pose>
+            <visual name="visual">
+               <geometry>
+                  <mesh>
+                     <uri>model://Lab_Tables/meshes/REVISED.dae</uri>
+                     <scale>1 1 1</scale>
+                  </mesh>
+               </geometry>
+               <material>
+                  <script>
+                     <uri>model://Lab_Tables/materials/textures</uri>
+                     <name>__default__</name>
+                  </script>
+               </material>
+            </visual>
+            <collision name="collision">
+               <geometry>
+                  <mesh>
+                     <uri>model://Lab_Tables/meshes/REVISED.dae</uri>
+                     <scale>1 1 1</scale>
+                  </mesh>
+               </geometry>
+               <max_contacts>10</max_contacts>
+               <surface>
+                  <contact>
+                     <ode />
+                  </contact>
+                  <bounce />
+                  <friction>
+                     <torsional>
+                        <ode />
+                     </torsional>
+                     <ode />
+                  </friction>
+               </surface>
+            </collision>
+            <self_collide>0</self_collide>
+            <kinematic>0</kinematic>
+            <gravity>1</gravity>
+         </link>
+         <pose frame="">-1.712127 -0.487201 0 0 0 1.572189</pose>
+      </model>
+      <!-- Motoman gears -->
+      <model name="sku_taskboard_base">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-base</uri>
+         </include>
+         <pose frame="">0.258805 -0.627349 0.910184 0 -0 3.14</pose>
+      </model>
+      <model name="sku_taskboard_pegarray1">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-pegarray1</uri>
+         </include>
+         <pose frame="">0.258805 -0.5891 0.9866 0 -0 3.14</pose>
+      </model>
+  
+      <model name="sku_taskfeeder_base">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-base</uri>
+         </include>
+         <pose frame="">-0.098805 -0.627349 0.910184 0 -0 3.14</pose>
+      </model>
+      <model name="sku_taskfeeder_pegarray1">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-pegarray1</uri>
+         </include>
+         <pose frame="">-0.09888 -0.5891 0.9866 0 -0 3.14</pose>
+      </model>
+      <model name="sku_taskfeeder_peg1">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-roundpeg</uri>
+         </include>
+         <pose frame="">-0.04808 -0.639 0.9494 0 0 0</pose>
+      </model>
+      <model name="sku_taskfeeder_peg2">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-squarepeg</uri>
+         </include>
+         <pose frame="">-0.04808 -0.5891 0.9351 0 0 0</pose>
+      </model>
+      <model name="sku_taskfeeder_peg3">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-roundpeg</uri>
+         </include>
+         <pose frame="">-0.04808 -0.5383 0.9222 0 0 0</pose>
+      </model>
+      <model name="sku_taskfeeder_peg4">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-squarepeg</uri>
+         </include>
+         <pose frame="">-0.09888 -0.6399 0.9494 0 0 0</pose>
+      </model>
+      <model name="sku_taskfeeder_peg5">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-roundpeg</uri>
+         </include>
+         <pose frame="">-0.09888 -0.5891 0.935123 0 0 0</pose>
+      </model>
+      <model name="sku_taskfeeder_peg6">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-squarepeg</uri>
+         </include>
+         <pose frame="">-0.09888 -0.5383 0.9222 0 0 0</pose>
+      </model>
+      <model name="sku_taskfeeder_peg7">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-roundpeg</uri>
+         </include>
+         <pose frame="">-0.14968 -0.639 0.9494 0 0 0</pose>
+      </model>
+      <model name="sku_taskfeeder_peg8">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-squarepeg</uri>
+         </include>
+         <pose frame="">-0.14968 -0.5891 0.9351 0 0 0</pose>
+      </model>
+      <model name="sku_taskfeeder_peg9">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-roundpeg</uri>
+         </include>
+         <pose frame="">-0.14968 -0.5383 0.9222 0 0 0</pose>
+      </model>
+      <!-- Fanuc gears -->
+      <!--- Start of fanuc gear object -->
+     <model name="sku_taskfeeder_base_fanuc1">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-base</uri>
+         </include>
+         <pose frame=""> 0.183254 -1.053015 0.915990 0 -0 1.57079632679</pose>
+      </model>
+      <model name="sku_taskfeeder_pegarray_fanuc1">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-pegarray1</uri>
+         </include>
+         <pose frame="">0.2189 -1.0538 0.991 0 -0 1.57079632679</pose>
+      </model>
+     <model name="sku_fanuctaskfeeder_peg1">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-roundpeg</uri>
+         </include>
+         <pose frame="">0.2697	-1.1046	1.0053 0 0 0</pose>
+      </model>
+      <model name="sku_fanuctaskfeeder_peg2">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-squarepeg</uri>
+         </include>
+         <pose frame=""> 0.2697	-1.0538	0.991 0 0 0</pose>
+      </model>
+      <model name="sku_fanuctaskfeeder_peg3">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-roundpeg</uri>
+         </include>
+         <pose frame="">0.2697	-1.003	0.9781 0 0 0</pose>
+      </model>
+      <model name="sku_fanuctaskfeeder_peg4">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-squarepeg</uri>
+         </include>
+         <pose frame="">0.2189	-1.1046	1.0053 0 0 0</pose>
+      </model>
+      <model name="sku_fanuctaskfeeder_peg5">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-roundpeg</uri>
+         </include>
+         <pose frame="">0.2189	-1.0538	0.991 0 0 0</pose>
+      </model>
+      <model name="sku_fanuctaskfeeder_peg6">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-squarepeg</uri>
+         </include>
+         <pose frame="">0.21897	-1.003	0.9781 0 0 0</pose>
+      </model>
+
+      <model name="sku_fanuctaskfeeder_peg7">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-roundpeg</uri>
+         </include>
+         <pose frame="">0.1681	-1.1046	1.0053 0 0 0</pose>
+      </model>
+      <model name="sku_fanuctaskfeeder_peg8">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-squarepeg</uri>
+         </include>
+         <pose frame=""> 0.1681	-1.0538	0.991 0 0 0</pose>
+      </model>
+      <model name="sku_fanuctaskfeeder_peg9">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-roundpeg</uri>
+         </include>
+         <pose frame=""> 0.1681	-1.003	0.9781 0 0 0</pose>
+      </model>
+
+      <model name="motoman_camera">
+         <static>true</static>
+         <link name="camera_link">
+            <collision name="collision">
+               <geometry>
+                  <mesh>
+                     <!--scale>0.001 0.001 0.001</scale-->
+                     <uri>model://fanuc_camera_test/meshes/new_model.dae</uri>
+                  </mesh>
+               </geometry>
+            </collision>
+            <visual name="visual">
+               <geometry>
+                  <mesh>
+                     <!--scale>0.001 0.001 0.001</scale-->
+                     <uri>model://fanuc_camera_test/meshes/new_model.dae</uri>
+                  </mesh>
+               </geometry>
+            </visual>
+            <sensor name="CAMERA" type="camera">
+               <pose>0 0 0 -1.57 0 -1.57</pose>
+               <always_on>true</always_on>
+               <update_rate>30.0</update_rate>
+               <camera>
+                  <horizontal_fov>0.837</horizontal_fov>
+                  <image>
+                     <width>2048</width>
+                     <height>2048</height>
+                  </image>
+                  <clip>
+                     <near>0.1</near>
+                     <far>100</far>
+                  </clip>
+                  <noise>
+                     <type>gaussian</type>
+                     <mean>0.0</mean>
+                     <stddev>0.007</stddev>
+                  </noise>
+               </camera>
+            </sensor>
+         </link>
+         <pose frame="">0.030841 -0.690050 2.004990 1.569999 0.000004 1.574377</pose>
+      </model>
+      <model name="fanuc_camera">
+         <static>true</static>
+         <link name="camera_link">
+            <collision name="collision">
+               <geometry>
+                  <mesh>
+                     <!--scale>0.001 0.001 0.001</scale-->
+                     <uri>model://fanuc_camera_test/meshes/new_model.dae</uri>
+                  </mesh>
+               </geometry>
+            </collision>
+            <visual name="visual">
+               <geometry>
+                  <mesh>
+                     <!--scale>0.001 0.001 0.001</scale-->
+                     <uri>model://fanuc_camera_test/meshes/new_model.dae</uri>
+                  </mesh>
+               </geometry>
+            </visual>
+            <sensor name="CAMERA" type="camera">
+               <pose>0 0 0 -1.57 0 -1.57</pose>
+               <always_on>true</always_on>
+               <update_rate>30.0</update_rate>
+               <camera>
+                  <horizontal_fov>0.837</horizontal_fov>
+                  <image>
+                     <width>2048</width>
+                     <height>2048</height>
+                  </image>
+                  <clip>
+                     <near>0.1</near>
+                     <far>100</far>
+                  </clip>
+                  <noise>
+                     <type>gaussian</type>
+                     <mean>0.0</mean>
+                     <stddev>0.007</stddev>
+                  </noise>
+               </camera>
+            </sensor>
+         </link>
+         <pose frame="">0.359072 -1.157340 1.962610 1.569998 0.000002 1.571644</pose>
+      </model>
+      <!-- Fanuc Robot -->
+      <model name="lrmate">
+         <include>
+            <static>false</static>
+            <uri>model://fanuc_lrmate200id</uri>
+            <pose>-0.169 -1.140 0.934191 0 0 0</pose>
+         </include>
+         <plugin name="ParallelGripperPlugin" filename="libgzparallelgripperplugin.so">
+            <grip_force_close>5</grip_force_close>
+            <joint1>fanuc_lrmate200id::fanuc_prism1</joint1>
+            <joint2>fanuc_lrmate200id::fanuc_prism2</joint2>
+            <grip_kp>10000</grip_kp>
+            <control_topic>~/gripper/fanuc_lrmate200id/control</control_topic>
+            <state_topic>~/gripper/fanuc_lrmate200id/state</state_topic>
+            <debug>0</debug>
+            <collisions>1</collisions>
+         </plugin>
+      </model>
+      <!-- Motoman Robot -->
+      <model name="sia20d">
+         <include>
+            <static>false</static>
+            <uri>model://motoman_aprs</uri>
+            <pose>0 0 0.910 0 0 0.0</pose>
+         </include>
+         <joint name="joint_fix" type="revolute">
+            <child>motoman_sia20d::motoman_base_link</child>
+            <parent>world</parent>
+            <axis>
+               <limit>
+                  <lower>0</lower>
+                  <upper>0</upper>
+               </limit>
+               <dynamics>
+                  <damping>0</damping>
+                  <friction>0</friction>
+                  <spring_reference>0</spring_reference>
+                  <spring_stiffness>0</spring_stiffness>
+               </dynamics>
+               <use_parent_model_frame>1</use_parent_model_frame>
+               <xyz>0 0 1</xyz>
+            </axis>
+         </joint>
+         <plugin name="ParallelGripperPlugin" filename="libgzparallelgripperplugin.so">
+            <grip_force_close>5</grip_force_close>
+            <joint1>motoman_sia20d::motoman_left_finger_joint</joint1>
+            <joint2>motoman_sia20d::motoman_right_finger_joint</joint2>
+            <grip_kp>10000</grip_kp>
+            <control_topic>~/gripper/motoman_sia20d/control</control_topic>
+            <state_topic>~/gripper/motoman_sia20d/state</state_topic>
+            <debug>0</debug>
+            <collisions>1</collisions>
+         </plugin>
+      </model>
+      <model name="Computer_Table1">
+         <include>
+            <static>true</static>
+            <uri>model://computer_table</uri>
+         </include>
+         <pose frame="">-2.568999 -6.568235 0 0 0 0</pose>
+      </model>
+      <model name="Computer_Table2">
+         <include>
+            <static>true</static>
+            <uri>model://computer_table</uri>
+         </include>
+         <pose frame="">6.535435 -6.578433 0 0 0 1.568747</pose>
+      </model>
+      <model name="monitor1">
+         <include>
+            <static>true</static>
+            <uri>model://monitor_1</uri>
+         </include>
+         <pose frame="">0.846932 -3.055306 0.793659 0 0 0</pose>
+      </model>
+      <model name="monitor2">
+         <include>
+            <static>true</static>
+            <uri>model://monitor_2</uri>
+         </include>
+         <pose frame="">1.581318 -3.057039 0.792187 0 0 0</pose>
+      </model>
+      <model name="monitor3">
+         <include>
+            <static>true</static>
+            <uri>model://monitor_3</uri>
+         </include>
+         <pose frame="">2.328654 -3.058509 0.792639 0 0 0</pose>
+      </model>
+      <model name="monitor4">
+         <include>
+            <static>true</static>
+            <uri>model://monitor_4</uri>
+         </include>
+         <pose frame="">3.101792 -2.819043 0.796560 0 0 1.584804</pose>
+      </model>
+      <model name="monitor5">
+         <include>
+            <static>true</static>
+            <uri>model://monitor_2</uri>
+         </include>
+         <pose frame="">3.084432 -1.933557 0.793026 0 0 1.568442</pose>
+      </model>
+      <model name="computer_case1">
+         <include>
+            <static>true</static>
+            <uri>model://computer_case</uri>
+         </include>
+         <pose frame="">0.724868 -3.078337 0.002320 0 0 3.134487</pose>
+      </model>
+      <model name="computer_case2">
+         <include>
+            <static>true</static>
+            <uri>model://computer_case</uri>
+         </include>
+         <pose frame="">1.575020 -3.076530 0.001695 0 0 -3.133227</pose>
+      </model>
+      <model name="computer_case3">
+         <include>
+            <static>true</static>
+            <uri>model://computer_case</uri>
+         </include>
+         <pose frame="">2.443258 -3.075446 0.001423 0 0 -3.136379</pose>
+      </model>
+      <model name="computer_case4">
+         <include>
+            <static>true</static>
+            <uri>model://computer_case</uri>
+         </include>
+         <pose frame="">2.941647 -3.016007 0.000527 0 0 -1.562693</pose>
+      </model>
+      <model name="computer_case5">
+         <include>
+            <static>true</static>
+            <uri>model://computer_case</uri>
+         </include>
+         <pose frame="">2.940856 -1.867571 0.000497 0 0 -1.562568</pose>
+      </model>
+      <model name="keyboard1">
+         <include>
+            <static>true</static>
+            <uri>model://keyboard</uri>
+         </include>
+         <pose frame="">0.664424 -3.446298 0.798140 0 0 0</pose>
+      </model>
+      <model name="keyboard2">
+         <include>
+            <static>true</static>
+            <uri>model://keyboard</uri>
+         </include>
+         <pose frame="">1.419794 -3.449152 0.789514 0 0 0</pose>
+      </model>
+      <model name="keyboard3">
+         <include>
+            <static>true</static>
+            <uri>model://keyboard</uri>
+         </include>
+         <pose frame="">2.169536 -3.446143 0.797640 0 0 0</pose>
+      </model>
+      <model name="keyboard4">
+         <include>
+            <static>true</static>
+            <uri>model://keyboard</uri>
+         </include>
+         <pose frame="">3.314045 -3.044487 0.797640 0 0 1.570936</pose>
+      </model>
+      <model name="keyboard5">
+         <include>
+            <static>true</static>
+            <uri>model://keyboard</uri>
+         </include>
+         <pose frame="">3.305567 -2.067268 0.789514 0 0 1.575841</pose>
+      </model>
+      <model name="mouse_pad1">
+         <include>
+            <static>true</static>
+            <uri>model://mouse_pad</uri>
+         </include>
+         <pose frame="">0.899351 -3.366318 0.792325 0 0 0</pose>
+      </model>
+      <model name="mouse_pad2">
+         <include>
+            <static>true</static>
+            <uri>model://mouse_pad</uri>
+         </include>
+         <pose frame="">1.641818 -3.368774 0.792348 0 0 0</pose>
+      </model>
+      <model name="mouse_pad3">
+         <include>
+            <static>true</static>
+            <uri>model://mouse_pad</uri>
+         </include>
+         <pose frame="">2.393255 -3.369696 0.791977 0 0 0</pose>
+      </model>
+      <model name="mouse_pad4">
+         <include>
+            <static>true</static>
+            <uri>model://mouse_pad</uri>
+         </include>
+         <pose frame="">3.461037 -2.771012 0.791977 0 0 1.571706</pose>
+      </model>
+      <model name="mouse_pad5">
+         <include>
+            <static>true</static>
+            <uri>model://mouse_pad</uri>
+         </include>
+         <pose frame="">3.462044 -1.791097 0.792348 0 0 1.575830</pose>
+      </model>
+      <model name="mouse1">
+         <include>
+            <static>true</static>
+            <uri>model://mouse</uri>
+         </include>
+         <pose frame="">1.177393 -3.355958 0.792933 0 0 1.105599</pose>
+      </model>
+      <model name="mouse2">
+         <include>
+            <static>true</static>
+            <uri>model://mouse</uri>
+         </include>
+         <pose frame="">1.912844 -3.345191 0.792933 0 0 1.105599</pose>
+      </model>
+      <model name="mouse3">
+         <include>
+            <static>true</static>
+            <uri>model://mouse</uri>
+         </include>
+         <pose frame="">2.646565 -3.353451 0.792933 0 0 1.105599</pose>
+      </model>
+      <model name="mouse4">
+         <include>
+            <static>true</static>
+            <uri>model://mouse</uri>
+         </include>
+         <pose frame="">3.373104 -2.501179 0.792933 0 0 2.753324</pose>
+      </model>
+      <model name="mouse5">
+         <include>
+            <static>true</static>
+            <uri>model://mouse</uri>
+         </include>
+         <pose frame="">3.384619 -1.504131 0.792933 0 0 2.753324</pose>
+      </model>
+      <model name="TV">
+         <include>
+            <static>true</static>
+            <uri>model://TV</uri>
+         </include>
+         <pose frame="">-3.174602 -9.475804 0 0 0 1.571651</pose>
+      </model>
+      <model name="Conference_Table">
+         <include>
+            <static>true</static>
+            <uri>model://conference_table</uri>
+         </include>
+         <pose frame="">2.841950 -6.686168 0 0 0 1.574130</pose>
+      </model>
+      <model name="Cabinet">
+         <include>
+            <static>true</static>
+            <uri>model://cabinet_test</uri>
+         </include>
+         <pose frame="">-3.238440 -10.412200 0 0 0 1.576210</pose>
+      </model>
+      <model name="chair1">
+         <include>
+            <static>true</static>
+            <uri>model://chair</uri>
+         </include>
+         <pose frame="">0.126830 -7.044606 0 0 0 -3.139429</pose>
+      </model>
+      <model name="chair2">
+         <include>
+            <static>true</static>
+            <uri>model://chair</uri>
+         </include>
+         <pose frame="">0.912117 -7.043122 0 0 0 -3.139429</pose>
+      </model>
+      <model name="chair3">
+         <include>
+            <static>true</static>
+            <uri>model://chair</uri>
+         </include>
+         <pose frame="">1.694904 -7.040320 0 0 0 -3.139429</pose>
+      </model>
+      <model name="chair4">
+         <include>
+            <static>true</static>
+            <uri>model://chair</uri>
+         </include>
+         <pose frame="">2.458971 -7.041728 0 0 0 -3.139429</pose>
+      </model>
+      <model name="chair5">
+         <include>
+            <static>true</static>
+            <uri>model://chair</uri>
+         </include>
+         <pose frame="">3.112309 -6.178398 0 0 0 -1.579021</pose>
+      </model>
+      <model name="chair6">
+         <include>
+            <static>true</static>
+            <uri>model://chair</uri>
+         </include>
+         <pose frame="">0.146723 -5.280884 0 0 0 0.001720</pose>
+      </model>
+      <model name="chair7">
+         <include>
+            <static>true</static>
+            <uri>model://chair</uri>
+         </include>
+         <pose frame="">0.899159 -5.272725 0 0 0 0.008982</pose>
+      </model>
+      <model name="chair8">
+         <include>
+            <static>true</static>
+            <uri>model://chair</uri>
+         </include>
+         <pose frame="">1.664302 -5.252617 0 0 0 0.034372</pose>
+      </model>
+      <model name="chair9">
+         <include>
+            <static>true</static>
+            <uri>model://chair</uri>
+         </include>
+         <pose frame="">2.448952 -5.247874 0 0 0 0.003686</pose>
+      </model>
+      <model name="chair10">
+         <include>
+            <static>true</static>
+            <uri>model://chair</uri>
+         </include>
+         <pose frame="">1.038385 -3.859772 0 0 0 -3.118850</pose>
+      </model>
+      <model name="chair11">
+         <include>
+            <static>true</static>
+            <uri>model://chair</uri>
+         </include>
+         <pose frame="">1.940029 -3.859193 0 0 0 -3.126523</pose>
+      </model>
+      <model name="chair12">
+         <include>
+            <static>true</static>
+            <uri>model://chair</uri>
+         </include>
+         <pose frame="">3.802846 -2.925306 0 0 0 -1.557395</pose>
+      </model>
+      <model name="chair13">
+         <include>
+            <static>true</static>
+            <uri>model://chair</uri>
+         </include>
+         <pose frame="">3.807487 -1.955593 0 0 0 -1.570163</pose>
+      </model>
+      <include>
+         <uri>model://conveyor</uri>
+         <pose>-1.869440 -6.984981 0.0700 0 0 0</pose>
+      </include>
+      <!--include>
+      <uri>model://conveyor_belt</uri>
+      <pose>-0.022178 -0.493344 0.91 0 0 0</pose>
+  </include-->
+   </world>
+</sdf>

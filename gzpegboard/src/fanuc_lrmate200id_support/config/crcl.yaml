@@ -1,0 +1,16 @@
+crcl:
+  length_units: METER
+  angle_units: RADIAN
+  StopIgnore: 1
+  Ip: 127.0.0.1
+  Port: 64444
+  PublishStatusPeriod: 0.05
+  AutoStatus: 1
+  flywhee: 0
+  processAllCrclMessages: 0
+  Debug: 
+    General: 1
+    StatusMsg: 0
+    CommandMsg: 0
+    XML: 0
+

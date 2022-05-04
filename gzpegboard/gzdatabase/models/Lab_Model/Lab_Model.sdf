@@ -1,0 +1,28 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='Lab_Model'>
+    <static>true</static>
+    <link name="link">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="visual">
+            <geometry>
+                <mesh>
+                    <uri>model://Lab_Model/meshes/Agility_Lab_Robot_Area.dae</uri>
+                </mesh>
+            </geometry>
+          <material>
+          <script>
+               <uri>model://Lab_Model/materials/textures</uri>
+               </script>
+          </material>
+        </visual>
+        <collision name="collision">
+            <geometry>
+                <mesh>
+                   <uri>model://Lab_Model/meshes/Agility_Lab_Robot_Area.dae</uri>
+                </mesh>
+            </geometry>
+        </collision>
+    </link>
+  </model>
+</sdf>

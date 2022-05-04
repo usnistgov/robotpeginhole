@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.5">
+   <model name="kit_tray2">
+      <static>true</static>
+      <link name="link1">
+         <collision name="collision1">
+            <pose>0 0 0.0 0 0 0</pose>
+            <geometry>
+               <mesh>
+                  <scale>0.0254 0.0254 0.0254</scale>
+                  <uri>model://gear_support/meshes/kit_tray2_Centered_Zge0.stl</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="visual1">
+            <pose>0 0 0 0 0 0</pose>
+            <geometry>
+               <mesh>
+                  <scale>0.0254 0.0254 0.0254</scale>
+                  <uri>model://gear_support/meshes/kit_tray2_Centered_Zge0.stl</uri>
+               </mesh>
+            </geometry>
+            <material>
+               <script>
+                  <name>Gazebo/Red</name>
+                  <uri>__default__</uri>
+               </script>
+            </material>
+         </visual>
+      </link>
+   </model>
+</sdf>
+
+

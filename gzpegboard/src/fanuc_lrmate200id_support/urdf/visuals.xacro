@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+<xacro:macro name="insert_mesh_base_link">
+        <geometry>
+          <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/visual/base_link.stl"
+	  scale = "1.0 1.0 1.0" />
+        </geometry>
+</xacro:macro>
+
+
+<xacro:macro name="insert_mesh_link1">
+       <geometry>
+          <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_1.stl"
+	  scale = "1.0 1.0 1.0" />
+        </geometry>
+</xacro:macro>
+
+<xacro:macro name="insert_mesh_link2">
+       <geometry>
+          <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_2.stl"
+	  scale = "1.0 1.0 1.0" />
+        </geometry>
+</xacro:macro>
+
+
+<xacro:macro name="insert_mesh_link3">
+       <geometry>
+          <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_3.stl"
+	  scale = "1.0 1.0 1.0" />
+        </geometry>
+</xacro:macro>
+
+
+<xacro:macro name="insert_mesh_link4">
+       <geometry>
+          <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_4.stl"
+	  scale = "1.0 1.0 1.0" />
+        </geometry>
+</xacro:macro>
+
+<xacro:macro name="insert_mesh_link5">
+       <geometry>
+          <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_5.stl"
+	  scale = "1.0 1.0 1.0" />
+        </geometry>
+</xacro:macro>
+
+
+<xacro:macro name="insert_mesh_link6">
+       <geometry>
+          <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_6.stl"
+ 	  scale = "1.0 1.0 1.0" />
+       </geometry>
+</xacro:macro>
+
+</robot>
+
+
+

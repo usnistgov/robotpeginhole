@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+     <arg name="package" default="$(eval find('fanuc_lrmate200id_support'))" />
+
+     <param name="robot_description" command="$(find xacro)/xacro --inorder '$(arg package)/urdf/myrobot.xacro'" /> 
+ 
+      <node name="joint_state_publisher1" pkg="py_joint_state_pub" type="py_joint_state_pub">
+         <param name="/use_gui" value="true" />
+         <rosparam param="source_list">["/crcl2ros/joint_states"]</rosparam>
+         <remap from="robot_description" to="robot_description" />
+      </node>
+
+
+</launch>

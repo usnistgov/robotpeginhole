@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "catkin_make",
+            "type": "shell",
+            "command": "catkin_make",
+            "args": [
+                 "-DCMAKE_BUILD_TYPE=Debug",
+                 "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+             ],
+            "problemMatcher": ["$msCompile"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "crpi_simulation",
+            "type": "shell",
+            "command": "roslaunch panda_simulation simulation.launch",
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        }
+    ]
+}

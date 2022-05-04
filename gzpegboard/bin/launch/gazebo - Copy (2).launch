@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+   <arg name="paused" default="false" />
+   <arg name="gazebo_gui" default="true" />
+   <arg name="urdf_path1" default="$(env robot1_urdf)" />
+   <arg name="urdf_path2" default="$(env robot2_urdf)" />
+
+   <!-- startup simulated world -->
+   <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="world_name" value="$(env aprs)" />
+      <arg name="paused" value="$(arg paused)" />
+      <arg name="gui" value="$(arg gazebo_gui)" />
+   </include>
+
+   <!-- send robot urdf to param server  -->
+   <param name="/lrmate/robot_description" command="cat $(arg urdf_path2)" />
+   <param name="/lrmate/tiplink" value="fanuc_link_6" />
+   <param name="/lrmate/baselink" value="fanuc_base_link" />
+   <param name="robot_description1" command="cat $(arg urdf_path1)" />
+   <param name="robot_description2" command="cat $(arg urdf_path2)" />
+
+   <!-- fanuc urdf to param server for joint state pub -->
+   <param name="robot_description" command="cat $(arg urdf_path2)" />
+
+   <!-- push robot_description to factory and spawn robot in gazebo at the origin, change x,y,z arguments to spawn in a different position -->
+   <node name="spawn_gazebo_model1" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description1 -model robot1 -x 0 -y 0 -z 0.910" respawn="false" output="screen" />
+   <node name="spawn_gazebo_model2" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description2 -model lrmate -x -0.169  -y -1.140 -z 0.934191" respawn="false" output="screen" />
+
+   <node name="joint_state_publisher2" pkg="joint_state_publisher" type="joint_state_publisher">
+      <param name="/use_gui" value="false" />
+      <!--<rosparam param="source_list" subst_value="True">$(arg jnt_source_list)</rosparam>-->
+      <rosparam param="source_list">["/lrmate/joint_states"]</rosparam> 
+      <remap from="robot_description2" to="robot_description" />
+   </node>
+
+   <node name="robot_state_publisher2" pkg="robot_state_publisher" type="robot_state_publisher">
+      <!--<param name="tf_prefix" value="$(arg my_ns)" />-->
+      <remap from="robot_description2" to="robot_description" />
+   </node>
+</launch>

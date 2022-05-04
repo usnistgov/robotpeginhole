@@ -1,0 +1,328 @@
+<sdf version='1.6'>
+  <world name='default'>
+        <gravity>0 0 -9.8</gravity>
+        <physics type="ode" default="true">
+            <ode>
+                <solver>
+                    <type>quick</type>
+                    <iters>100</iters>
+                </solver>
+                <constraints>
+                    <cfm>1</cfm>
+                    <erp>0.8</erp>
+                </constraints>
+            </ode>
+        </physics>
+        <include>
+            <uri>model://ground_plane</uri>
+        </include>
+        <include>
+            <uri>model://sun</uri>
+        </include>
+    <model name="Lab_Wall">
+        <include>
+          <static>true</static>
+          <uri>model://Lab_Wall</uri>
+        </include>
+       <pose frame=''>6.589073 -9.422110 0 0 0 1.570461</pose>
+      </model>
+    <model name='Lab_Tables'>
+      <static>1</static>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://Lab_Tables/meshes/REVISED.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://Lab_Tables/materials/textures</uri>
+              <name>__default__</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://Lab_Tables/meshes/REVISED.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <pose frame=''>-1.712127 -0.487201 0 0 0 1.572189</pose>
+    </model>
+     <!-- Motoman gears -->
+    <!-- Fanuc gears -->
+        <!--- Start of fanuc gear object -->
+        <model name="sku_kit_m2l1_vessel14">
+            <static>1</static>
+            <link name="link1">
+                <collision name="collision1">
+                    <pose frame="">0 0 0 0 0 0</pose>
+                    <geometry>
+                        <mesh>
+                            <scale>0.0254 0.0254 0.0254</scale>
+                            <uri>model://gear_support/meshes/newKitTray_1Large_2Medium_Centered_ZeroZmin.stl</uri>
+                        </mesh>
+                    </geometry>
+                </collision>
+                <visual name="visual1">
+                    <pose frame="">0 0 0 0 0 0</pose>
+                    <geometry>
+                        <mesh>
+                            <scale>0.0254 0.0254 0.0254</scale>
+                            <uri>model://gear_support/meshes/newKitTray_1Large_2Medium_Centered_ZeroZmin.stl</uri>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <script>
+                            <name>Gazebo/Wood</name>
+                            <uri>__default__</uri>
+                        </script>
+                    </material>
+                </visual>
+                <inertial>
+                    <mass>12</mass>
+                    <inertia>
+                        <ixx>8.54977215e+01</ixx>
+                        <ixy>5.18963385e-03</ixy>
+                        <ixz>-6.49974690e-05</ixz>
+                        <iyy>7.01009727e+01</iyy>
+                        <iyz>-7.13569718e-02</iyz>
+                        <izz>1.54056453e+02</izz>
+                    </inertia>
+                </inertial>
+                <self_collide>0</self_collide>
+                <kinematic>0</kinematic>
+                <gravity>1</gravity>
+            </link>
+ <!-- <pose frame="">0.399147 -1.045060 0.915990 0 0 1.607711</pose> -->
+           <pose frame="">0.399147 -1.045060 0.915990 0 0 -1.607711</pose>
+        </model>
+        <model name="sku_kit_m2l1_vessel15">
+            <static>1</static>
+            <link name="link1">
+                <collision name="collision1">
+                    <pose frame="">0 0 0 0 0 0</pose>
+                    <geometry>
+                        <mesh>
+                            <scale>0.0254 0.0254 0.0254</scale>
+                            <uri>model://gear_support/meshes/newKitTray_1Large_2Medium_Centered_ZeroZmin.stl</uri>
+                        </mesh>
+                    </geometry>
+                </collision>
+                <visual name="visual1">
+                    <pose frame="">0 0 0 0 0 0</pose>
+                    <geometry>
+                        <mesh>
+                            <scale>0.0254 0.0254 0.0254</scale>
+                            <uri>model://gear_support/meshes/newKitTray_1Large_2Medium_Centered_ZeroZmin.stl</uri>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <script>
+                            <name>Gazebo/Wood</name>
+                            <uri>__default__</uri>
+                        </script>
+                    </material>
+                </visual>
+                <inertial>
+                    <mass>12</mass>
+                    <inertia>
+                        <ixx>8.54977215e+01</ixx>
+                        <ixy>5.18963385e-03</ixy>
+                        <ixz>-6.49974690e-05</ixz>
+                        <iyy>7.01009727e+01</iyy>
+                        <iyz>-7.13569718e-02</iyz>
+                        <izz>1.54056453e+02</izz>
+                    </inertia>
+                </inertial>
+                <self_collide>0</self_collide>
+                <kinematic>0</kinematic>
+                <gravity>1</gravity>
+            </link>
+ <!-- <pose frame="">0.183254 -1.053015 0.915990 0 0 1.607711</pose> -->
+            <pose frame="">0.183254 -1.053015 0.915990 0 0 -1.607711</pose>
+        </model>
+        <model name="sku_medium_gear_vessel16">
+             <pose frame="">0.190185 -1.238050 0.923173 0 0 0.033886</pose>
+           <static>1</static>
+            <link name="link1">
+                <collision name="collision1">
+                    <pose frame="">0 0 0 0 0 0</pose>
+                    <geometry>
+                        <mesh>
+                            <scale>0.0254 0.0254 0.0254</scale>
+    <uri>model://gear_support/meshes/medium_gear_holder_centered.stl</uri>
+                        </mesh>
+                    </geometry>
+                    <max_contacts>10</max_contacts>
+                </collision>
+                <visual name="visual1">
+                    <pose frame="">0 0 0 0 0 0</pose>
+                    <geometry>
+                        <mesh>
+                            <scale>0.0254 0.0254 0.0254</scale>
+                            <uri>model://gear_support/meshes/medium_gear_holder_centered.stl</uri>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <script>
+                            <name>Gazebo/SkyBlue</name>
+                            <uri>__default__</uri>
+                        </script>
+                    </material>
+                </visual>
+                <inertial>
+                    <mass>12</mass>
+                    <inertia>
+                        <ixx>1.91071229e+01</ixx>
+                        <ixy>2.84737024e-07</ixy>
+                        <ixz>2.16999641e-07</ixz>
+                        <iyy>1.91071221e+01</iyy>
+                        <iyz>-1.18455844e-07</iyz>
+                        <izz>3.74139992e+01</izz>
+                    </inertia>
+                </inertial>
+                <self_collide>0</self_collide>
+                <kinematic>0</kinematic>
+                <gravity>1</gravity>
+            </link>
+        </model>
+        <model name="sku_part_medium_gear17">
+           <pose frame="">0.229373 -1.196554 0.938279 -0.001788 0.016204 0.041080</pose>
+           <include>
+                <static>false</static>
+                <uri>model://Medium_Gear</uri>
+            </include>
+       </model>
+        <model name="sku_part_medium_gear18">
+            <pose frame="">0.148352 -1.198983 0.937735 -0.001646 0.000102 0.034288</pose>
+            <include>
+                <static>false</static>
+                <uri>model://Medium_Gear</uri>
+            </include>
+       </model>
+        <model name="sku_part_medium_gear19">
+             <pose frame="">0.151079 -1.279876 0.937667 -0.000063 0.000043 0.034650</pose>
+             <include>
+                <static>false</static>
+                <uri>model://Medium_Gear</uri>
+            </include>
+        </model>
+        <model name="sku_part_medium_gear20">
+           <pose frame="">0.232109 -1.277260 0.938185 -0.003122 0.013361 0.025510</pose>
+           <include>
+                <static>false</static>
+                <uri>model://Medium_Gear</uri>
+            </include>
+         </model>
+        <model name="sku_large_gear_vessel21">
+            <static>1</static>
+            <link name="link1">
+                <collision name="collision1">
+                    <pose frame="">0 0 0.0 0 0 1.570796</pose>
+                    <geometry>
+                        <mesh>
+                            <scale>0.0254 0.0254 0.0254</scale>
+                            <uri>model://gear_support/meshes/large_gear_holder_Centered_ZeroZmin.stl</uri>
+                        </mesh>
+                    </geometry>
+                    <max_contacts>10</max_contacts>
+                </collision>
+                <visual name="visual1">
+                    <pose frame="">0 0 0.0 0 0 1.570796</pose>
+                    <geometry>
+                        <mesh>
+                            <scale>0.0254 0.0254 0.0254</scale>
+                            <uri>model://gear_support/meshes/large_gear_holder_Centered_ZeroZmin.stl</uri>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <script>
+                            <name>Gazebo/Purple</name>
+                            <uri>__default__</uri>
+                        </script>
+                    </material>
+                </visual>
+                <inertial>
+                    <mass>12</mass>
+                    <inertia>
+                        <ixx>1.19794657e+02</ixx>
+                        <ixy>-8.44035782e-03</ixy>
+                        <ixz>-2.33453848e-04</ixz>
+                        <iyy>3.57882366e+01</iyy>
+                        <iyz>1.11958400e-03</iyz>
+                        <izz>1.54252131e+02</izz>
+                    </inertia>
+                </inertial>
+                <self_collide>0</self_collide>
+                <kinematic>0</kinematic>
+                <gravity>1</gravity>
+            </link>
+            <pose frame="">0.392182 -1.262896 0.915207 0 0 1.611510</pose>
+        </model>
+        <model name="sku_part_large_gear22">
+             <pose>0.388982 -1.207739 0.919364 0.002634 -0.001664 0.031733</pose>
+             <include>
+                <static>false</static>
+                 <uri>model://Large_Gear</uri>
+            </include>
+         </model>
+        <model name="sku_part_large_gear23">
+             <pose frame="">0.393681 -1.318176 0.919728 -0.009486 -0.004019 0.378023</pose>
+             <include>
+                <static>false</static>
+                 <uri>model://Large_Gear</uri>
+            </include>
+       </model>
+  <!-- Fanuc Robot -->
+         <model name="lrmate">
+            <include>
+                <static>false</static>
+                <uri>model://fanuc_lrmate200id</uri>
+                <pose>-0.169 -1.140 0.934191 0 0 0</pose>
+            </include>
+              <plugin name="GZParallelGripperPlugin" filename="libgzparallelgripperplugin.so">
+               <robotNamespace>/fanuc_lrmate200id</robotNamespace>
+                <grip_force_close>5</grip_force_close>
+                <joint1>fanuc_lrmate200id::fanuc_prism1</joint1>
+                <joint2>fanuc_lrmate200id::fanuc_prism2</joint2>
+                <grip_kp>10000</grip_kp>
+                <control_topic>/fanuc_lrmate200id/control </control_topic>
+                <state_topic> /fanuc_lrmate200id/state </state_topic>
+                <debug> 0 </debug>
+                <collisions> 1 </collisions>
+                <synchronous> 0 </synchronous>
+            </plugin>
+        </model>
+  <include>
+      <uri>model://conveyor</uri>
+      <pose>-1.869440 -6.984981 0.0700 0 0 0</pose>
+  </include>
+   <!--include>
+      <uri>model://conveyor_belt</uri>
+      <pose>-0.022178 -0.493344 0.91 0 0 0</pose>
+  </include-->
+  </world>
+</sdf>

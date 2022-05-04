@@ -1,0 +1,83 @@
+ #ifdef FANUC
+        <!--- Start of fanuc gear object -->
+    <model name="sku_fanuctaskfeeder_base">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-base</uri>
+         </include>
+         <pose frame=""> 0.183254 -1.053015 0.915990 0 -0 1.57079632679</pose>
+      </model>
+      <model name="sku_fanuctaskfeeder_pegarray">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-pegarray1</uri>
+         </include>
+         <pose frame="">0.2189 -1.0538 0.991 0 -0 1.57079632679</pose>
+      </model>
+
+      <model name="sku_fanuctaskfeeder_peg1">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-roundpeg</uri>
+         </include>
+         <pose frame="">0.0508	-0.0508	1.0053 0 0 0</pose>
+      </model>
+      <model name="sku_fanuctaskfeeder_peg2">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-squarepeg</uri>
+         </include>
+         <pose frame=""> 0.2697	-1.0538	0.991 0 0 0</pose>
+      </model>
+      <model name="sku_fanuctaskfeeder_peg3">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-roundpeg</uri>
+         </include>
+         <pose frame="">0.2697	-1.003	0.9781 0 0 0</pose>
+      </model>
+      <model name="sku_fanuctaskfeeder_peg4">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-squarepeg</uri>
+         </include>
+         <pose frame="">0.2189	-1.1046	1.0053 0 0 0</pose>
+      </model>
+      <model name="sku_fanuctaskfeeder_peg5">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-roundpeg</uri>
+         </include>
+         <pose frame="">0.2189	-1.0538	0.991 0 0 0</pose>
+      </model>
+      <model name="sku_fanuctaskfeeder_peg6">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-squarepeg</uri>
+         </include>
+         <pose frame="">0.2697	-1.003	0.9781 0 0 0</pose>
+      </model>
+
+      <model name="sku_fanuctaskfeeder_peg7">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-roundpeg</uri>
+         </include>
+         <pose frame="">0.1681	-1.1046	1.0053 0 0 0</pose>
+      </model>
+      <model name="sku_fanuctaskfeeder_peg8">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-squarepeg</uri>
+         </include>
+         <pose frame=""> 0.1681	-1.0538	0.991 0 0 0</pose>
+      </model>
+      <model name="sku_fanuctaskfeeder_peg9">
+         <include>
+            <static>true</static>
+            <uri>model://taskboard-roundpeg</uri>
+         </include>
+         <pose frame=""> 0.1681	-1.003	0.9781 0 0 0</pose>
+      </model>
+
+#endif

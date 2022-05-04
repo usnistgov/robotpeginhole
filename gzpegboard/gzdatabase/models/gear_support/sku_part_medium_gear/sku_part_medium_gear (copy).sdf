@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.5">
+    <model name="sku_part_medium_gear">
+        <link name="link1">
+            <collision name="collision1">
+                <pose frame="">0 0 0 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>0.0254 0.0254 0.0254</scale>
+                        <uri>model://gear_support/meshes/medium_gear.stl</uri>
+                    </mesh>
+                </geometry>
+                <max_contacts>10</max_contacts>
+                <surface>
+                    <contact>
+                        <ode />
+                    </contact>
+                    <bounce />
+                    <friction>
+                        <torsional>
+                            <ode />
+                        </torsional>
+                        <ode />
+                    </friction>
+                </surface>
+            </collision>
+            <visual name="visual1">
+                <pose frame="">0 0 0 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>0.0254 0.0254 0.0254</scale>
+                        <uri>model://gear_support/meshes/medium_gear.stl</uri>
+                    </mesh>
+                </geometry>
+                <material>
+                    <script>
+                        <name>Gazebo/Orange</name>
+                        <uri>__default__</uri>
+                    </script>
+                </material>
+            </visual>
+            <inertial>
+                <mass>0.39</mass>
+                <inertia>
+                    <ixx>4.78233711e+00</ixx>
+                    <ixy>2.06443170e-09</ixy>
+                    <ixz>3.14256508e-00</ixz>
+                    <iyy>4.78233728e+00</iyy>
+                    <iyz>1.83990112e-08</iyz>
+                    <izz>2.44284722e-01</izz>
+                </inertia>
+            </inertial>
+            <self_collide>0</self_collide>
+            <kinematic>0</kinematic>
+            <gravity>1</gravity>
+        </link>
+    </model>
+</sdf>

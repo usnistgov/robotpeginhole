@@ -1,0 +1,16 @@
+string move_name                         # name of guarded move - unidirectional move for now
+geometry_msgs/Point direction            # guarded move in this direction e.g., 0,0,-1 down
+geometry_msgs/Point maxforce		     # maximum foce in given direction. 0 signifies zero.
+
+string[] joint_names
+trajectory_msgs/JointTrajectoryPoint[] jt_traj # joints trajectory
+geometry_msgs/Pose[] pose_traj              # poses trajectory
+duration duration                         # optional duration of guarded move application time (seconds)
+                                          # if duration < 0, guarded move continuously without end
+                                          # if duration = 0, do nothing
+                                          # if duration < step size, perform guarded move
+                                          # for one step size
+
+---
+bool success                              # return true if set wrench successful
+string status_message                     # comments if available

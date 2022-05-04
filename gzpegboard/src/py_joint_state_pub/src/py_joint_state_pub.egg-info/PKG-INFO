@@ -1,0 +1,12 @@
+Metadata-Version: 1.2
+Name: py-joint-state-pub
+Version: 1.15.0
+Summary: This package contains a GUI tool for setting and publishing joint state values for a given URDF.
+Home-page: https://github.com/nistgov/crcl2ros
+Author: John Michaloski
+Author-email: john.michaloski@nist.gov
+Maintainer: John Michaloski
+Maintainer-email: john.michaloski@nist.gov
+License: None
+Description: UNKNOWN
+Platform: UNKNOWN

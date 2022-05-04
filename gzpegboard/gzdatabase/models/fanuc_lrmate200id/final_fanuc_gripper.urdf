@@ -1,0 +1,159 @@
+<robot
+  name="final_fanuc_gripper">
+  <link
+    name="fanuc_gripperbase">
+    <inertial>
+      <origin
+        xyz="0.012996 0.067257 -0.020009"
+        rpy="0 0 0" />
+      <mass
+        value="0.27006" />
+      <inertia
+        ixx="1"
+        ixy="0"
+        ixz="0"
+        iyy="1"
+        iyz="0"
+        izz="1" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://final_fanuc_gripper/meshes/fanuc_gripperbase.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://final_fanuc_gripper/meshes/fanuc_gripperbase.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="fanuc_finger1">
+    <inertial>
+      <origin
+        xyz="0.0092185 0.0021216 0.029068"
+        rpy="0 0 0" />
+      <mass
+        value="5" />
+      <inertia
+        ixx="1"
+        ixy="0"
+        ixz="0"
+        iyy="1"
+        iyz="0"
+        izz="1" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://final_fanuc_gripper/meshes/fanuc_finger1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://final_fanuc_gripper/meshes/fanuc_finger1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fanuc_prism1"
+    type="prismatic">
+    <origin
+      xyz="0.021 0.044616 -0.0318"
+      rpy="1.5708 0 3.1416" />
+    <parent
+      link="fanuc_gripperbase" />
+    <child
+      link="fanuc_finger1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.05"
+      upper="0.05"
+      effort="1000"
+      velocity="1000" />
+  </joint>
+  <link
+    name="fanuc_finger2">
+    <inertial>
+      <origin
+        xyz="0.0092185 0.0021216 0.029068"
+        rpy="0 0 0" />
+      <mass
+        value="5" />
+      <inertia
+        ixx="1"
+        ixy="0"
+        ixz="0"
+        iyy="1"
+        iyz="0"
+        izz="1" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://final_fanuc_gripper/meshes/fanuc_finger2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://final_fanuc_gripper/meshes/fanuc_finger2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fanuc_prism2"
+    type="prismatic">
+    <origin
+      xyz="0.005 -0.0082749 -0.0318"
+      rpy="1.5708 0 0" />
+    <parent
+      link="fanuc_gripperbase" />
+    <child
+      link="fanuc_finger2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.05"
+      upper="0.05"
+      effort="1000"
+      velocity="1000" />
+  </joint>
+</robot>

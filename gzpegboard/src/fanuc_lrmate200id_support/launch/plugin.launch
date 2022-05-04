@@ -1,0 +1,66 @@
+<launch>
+
+     <!-- overwriting these args -->
+ <arg name="rvizconfig" default="$(find fanuc_lrmate200id_support)/config/urdf.rviz" />
+
+        <arg name="debug" default="false" />
+        <arg name="gui" default="true" />
+        <arg name="pause" default="false" />
+       <arg name="world" default="$(find fanuc_lrmate200id_support)/world/aprs-lab.world" /> -->
+
+   <!-- Load the URDF into the ROS Parameter Server-->
+   <param name="robot_description"  textfile="$(find fanuc_lrmate200id_support)/urdf/lrmate200id.urdf" />
+   <!-- The semantic description that corresponds to the URDF OR USE move_group.launch -->
+   <param name="robot_description_semantic" textfile="$(find fanuc_lrmate200id_support)/config/fanuc_lrmate200id.srdf" /> 
+
+        <!-- include gazebo_ros launcher -->
+        <include file="$(find gazebo_ros)/launch/empty_world.launch">
+                <arg name="world_name" value="$(arg world)" />
+                <arg name="debug" value="$(arg debug)" />
+                <arg name="gui" value="$(arg gui)" />
+                <arg name="paused" value="$(arg pause)" />
+                <arg name="use_sim_time" value="true" />
+        </include>
+
+  <!-- Set the param that trajectory_execution_manager needs to find the controller plugin -->
+  <param name="moveit_controller_manager" value="moveit_fake_controller_manager/MoveItFakeControllerManager"/>
+
+  <!-- The rest of the params are specific to this plugin -->
+  <rosparam file="$(find fanuc_lrmate200id_support)/config/fake_controllers.yaml"/>
+
+
+
+  <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot 
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf -model fanuc_lrmate200id -param robot_description"/>  -->
+ 
+
+
+<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -x -0.169  -y -1.140 -z 0.934191 -model fanuc_lrmate200id" respawn="false" output="screen"/>  
+
+  <!-- Run the main MoveIt executable without trajectory execution (we do not have controllers configured by default) -->
+  <include file="$(find fanuc_lrmate200id_support)/launch/move_group.launch">
+    <arg name="allow_trajectory_execution" value="true"/>
+    <arg name="fake_execution" value="true"/>
+    <arg name="info" value="true"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+
+
+  <param name="use_gui" value="true"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher_gui" 
+  type="joint_state_publisher_gui" >
+</node>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+  <!--
+ <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+-->
+
+<!--
+  <group ns="ma1400">
+    <include file="$(find moveittest)/launch/fanuclrmate.gazebo.launch" />
+  </group>
+-->
+
+</launch>

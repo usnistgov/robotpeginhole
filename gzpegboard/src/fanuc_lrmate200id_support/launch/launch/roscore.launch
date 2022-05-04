@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<launch>
+  	<param name="robot_description" 
+		command="cat $(env myfolder)/MotomanSia20d.urdf" />
+
+	<param name="tip_name" value="link_6" />
+	<param name="root_name" value="base_link" />
+	
+	<arg name="debug" default="0" />
+	<arg name="cam1" default="5001" />
+	<arg name="cam2" default="5002" />
+
+	<!-- These params are for aprs_object vision simulator   -->
+	<param name="debug" value="31" type="int" />
+	
+	<param name="cam1" value="5001" type="int" />
+	<param name="cam2" value="5002" type="int" />
+
+	<param name="cam1_x_min" value="0" type="double" />
+	<param name="cam1_y_min" value="-1.5" type="double" />
+	<param name="cam1_x_max" value="1" type="double" />
+	<param name="cam1_y_max" value="-0.8" type="double" />
+
+	<param name="cam2_x_min" value="-1" type="double" />
+	<param name="cam2_y_min" value="-0.75" type="double" />
+	<param name="cam2_x_max" value="1" type="double" />
+	<param name="cam2_y_max" value="1" type="double" />
+
+</launch>
+

@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find fanuc_lrmate200id_support)/urdf/jointlimits.xacro"/>
+  <xacro:include filename="$(find fanuc_lrmate200id_support)/urdf/fanuc_transmission.xacro"/>
+
+  <xacro:macro name="fanuc_lrmate200id" params="prefix">
+
+
+   <!-- links: main serial chain -->
+   <link name="${prefix}base_link">
+      <visual>
+         <origin rpy="0 0 0" xyz="0 0 0" />
+         <geometry>
+            <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/visual/base_link.stl" />
+         </geometry>
+         <material name="">
+            <color rgba="0.278431372549 0.278431372549 0.278431372549 1.0" />
+         </material>
+      </visual>
+      <collision>
+         <origin rpy="0 0 0" xyz="0 0 0" />
+         <geometry>
+            <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/collision/base_link.stl" />
+         </geometry>
+      </collision>
+      <inertial>
+         <mass value="0.1" />
+         <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+      </inertial>
+   </link>
+   <link name="${prefix}link_1">
+      <visual>
+         <origin rpy="0 0 0" xyz="0 0 0" />
+         <geometry>
+            <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_1.stl" />
+         </geometry>
+         <material name="">
+            <color rgba="0.96 0.76 0.13 1.0" />
+         </material>
+      </visual>
+      <collision>
+         <origin rpy="0 0 0" xyz="0 0 0" />
+         <geometry>
+            <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/collision/link_1.stl" />
+         </geometry>
+      </collision>
+      <inertial>
+         <origin xyz="0 0 0" rpy="0 0 0" />
+         <mass value="1" />
+         <inertia ixx="0.0226667" ixy="0.0" ixz="0.0" iyy="0.0226667" iyz="0.0" izz="0.0226667" />
+      </inertial>
+   </link>
+   <link name="${prefix}link_2">
+      <visual>
+         <origin rpy="0 0 0" xyz="0 0 0" />
+         <geometry>
+            <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_2.stl" />
+         </geometry>
+         <material name="">
+            <color rgba="0.96 0.76 0.13 1.0" />
+         </material>
+      </visual>
+      <collision>
+         <origin rpy="0 0 0" xyz="0 0 0" />
+         <geometry>
+            <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/collision/link_2.stl" />
+         </geometry>
+      </collision>
+      <inertial>
+         <origin xyz="0 0 0" rpy="0 0 0" />
+         <mass value="1" />
+         <inertia ixx="0.0226667" ixy="0.0" ixz="0.0" iyy="0.0226667" iyz="0.0" izz="0.0226667" />
+      </inertial>
+   </link>
+   <link name="${prefix}link_3">
+      <visual>
+         <origin rpy="0 0 0" xyz="0 0 0" />
+         <geometry>
+            <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_3.stl" />
+         </geometry>
+         <material name="">
+            <color rgba="0.96 0.76 0.13 1.0" />
+         </material>
+      </visual>
+      <collision>
+         <origin rpy="0 0 0" xyz="0 0 0" />
+         <geometry>
+            <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/collision/link_3.stl" />
+         </geometry>
+      </collision>
+      <inertial>
+         <origin xyz="0 0 0" rpy="0 0 0" />
+         <mass value="1" />
+         <inertia ixx="0.0226667" ixy="0.0" ixz="0.0" iyy="0.0226667" iyz="0.0" izz="0.0226667" />
+      </inertial>
+   </link>
+   <link name="${prefix}link_4">
+      <visual>
+         <origin rpy="0 0 0" xyz="0 0 0" />
+         <geometry>
+            <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_4.stl" />
+         </geometry>
+         <material name="">
+            <color rgba="0.96 0.76 0.13 1.0" />
+         </material>
+      </visual>
+      <collision>
+         <origin rpy="0 0 0" xyz="0 0 0" />
+         <geometry>
+            <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/collision/link_4.stl" />
+         </geometry>
+      </collision>
+      <inertial>
+         <origin xyz="0 0 0" rpy="0 0 0" />
+         <mass value="1" />
+         <inertia ixx="0.0226667" ixy="0.0" ixz="0.0" iyy="0.0226667" iyz="0.0" izz="0.0226667" />
+      </inertial>
+   </link>
+   <link name="${prefix}link_5">
+      <visual>
+         <origin rpy="0 0 0" xyz="0 0 0" />
+         <geometry>
+            <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_5.stl" />
+         </geometry>
+         <material name="">
+            <color rgba="0.96 0.76 0.13 1.0" />
+         </material>
+      </visual>
+      <collision>
+         <origin rpy="0 0 0" xyz="0 0 0" />
+         <geometry>
+            <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/collision/link_5.stl" />
+         </geometry>
+      </collision>
+      <inertial>
+         <origin xyz="0 0 0" rpy="0 0 0" />
+         <mass value="1" />
+         <inertia ixx="0.0226667" ixy="0.0" ixz="0.0" iyy="0.0226667" iyz="0.0" izz="0.0226667" />
+      </inertial>
+   </link>
+   <link name="${prefix}link_6">
+      <visual>
+         <origin rpy="0 0 0" xyz="0 0 0" />
+         <geometry>
+            <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/visual/link_6.stl" />
+         </geometry>
+         <material name="">
+            <color rgba="0.15 0.15 0.15 1.0" />
+         </material>
+      </visual>
+      <collision>
+         <origin rpy="0 0 0" xyz="0 0 0" />
+         <geometry>
+            <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/collision/link_6.stl" />
+         </geometry>
+      </collision>
+      <inertial>
+         <origin xyz="0 0 0" rpy="0 0 0" />
+         <mass value="1" />
+         <inertia ixx="0.0226667" ixy="0.0" ixz="0.0" iyy="0.0226667" iyz="0.0" izz="0.0226667" />
+      </inertial>
+   </link>
+
+ <!--   <link name="${prefix}tool0" /> -->
+ 
+
+    <joint name="${prefix}joint_1" type="revolute">
+      <origin xyz="0 0 0.330" rpy="0 0 0" />
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}link_1" />
+      <axis xyz="0 0 1" />
+      <limit effort="${joint1effort}" lower="${joint1lower}" upper="${joint1upper}" velocity="${joint1velocity}" />
+    </joint>
+    <joint name="${prefix}joint_2" type="revolute">
+      <origin xyz="0.050 0 0" rpy="0 0 0"/>
+      <parent link="${prefix}link_1" />
+      <child link="${prefix}link_2" />
+      <axis xyz="0 1 0" />
+      <limit effort="${joint2effort}" lower="${joint2lower}" upper="${joint2upper}" velocity="${joint2velocity}" />
+    </joint>
+    <joint name="${prefix}joint_3" type="revolute">
+      <origin xyz="0 0 0.330" rpy="0 0 0"/>
+      <parent link="${prefix}link_2" />
+      <child link="${prefix}link_3" />
+      <axis xyz="0 -1 0" />
+      <limit effort="${joint3effort}" lower="${joint3lower}" upper="${joint3upper}" velocity="${joint3velocity}" />
+    </joint>
+    <joint name="${prefix}joint_4" type="revolute">
+      <origin xyz="0 0 0.035" rpy="0 0 0"/>
+      <parent link="${prefix}link_3"/>
+      <child link="${prefix}link_4"/>
+      <axis xyz="-1 0 0"/>
+      <limit effort="${joint4effort}" lower="${joint4lower}" upper="${joint4upper}" velocity="${joint4velocity}" />
+    </joint>
+    <joint name="${prefix}joint_5" type="revolute">
+      <origin xyz="0.335 0 0" rpy="0 0 0"/>
+      <parent link="${prefix}link_4"/>
+      <child link="${prefix}link_5"/>
+      <axis xyz="0 -1 0"/>
+      <limit effort="${joint5effort}" lower="${joint5lower}" upper="${joint5upper}" velocity="${joint5velocity}" />
+    </joint>
+    <joint name="${prefix}joint_6" type="revolute">
+      <origin xyz="0.080 0 0" rpy="0 0 0"/>
+      <parent link="${prefix}link_5"/>
+      <child link="${prefix}link_6"/>
+      <axis xyz="-1 0 0"/>
+      <limit effort="${joint6effort}" lower="${joint6lower}" upper="${joint6upper}" velocity="${joint6velocity}" />
+    </joint>
+
+
+
+
+   <gazebo reference="${prefix}base_link">
+      <material>Gazebo/Grey</material>
+      <turnGravityOff>true</turnGravityOff>
+   </gazebo>
+   <gazebo reference="${prefix}link_1">
+      <material>Gazebo/Yellow</material>
+      <turnGravityOff>true</turnGravityOff>
+   </gazebo>
+   <gazebo reference="${prefix}link_2">
+      <material>Gazebo/Yellow</material>
+      <turnGravityOff>true</turnGravityOff>
+   </gazebo>
+   <gazebo reference="${prefix}link_3">
+      <material>Gazebo/Yellow</material>
+      <turnGravityOff>true</turnGravityOff>
+   </gazebo>
+   <gazebo reference="${prefix}link_4">
+      <material>Gazebo/Yellow</material>
+      <turnGravityOff>true</turnGravityOff>
+   </gazebo>
+   <gazebo reference="${prefix}link_5">
+      <material>Gazebo/Yellow</material>
+      <turnGravityOff>true</turnGravityOff>
+   </gazebo>
+   <gazebo reference="${prefix}link_6">
+      <material>Gazebo/Yellow</material>
+      <turnGravityOff>true</turnGravityOff>
+   </gazebo>
+
+  </xacro:macro>
+
+</robot>

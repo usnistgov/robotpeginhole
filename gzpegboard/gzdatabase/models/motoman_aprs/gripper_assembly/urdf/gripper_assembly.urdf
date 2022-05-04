@@ -1,0 +1,155 @@
+<robot
+  name="gripper_assembly">
+  <link
+    name="GripperBase">
+    <inertial>
+      <origin
+        xyz="0.029072 0.059306 -0.024512"
+        rpy="0 0 0" />
+      <mass
+        value="1.1697" />
+      <inertia
+        ixx="9.7204E-07"
+        ixy="-1.2761E-13"
+        ixz="4.8457E-10"
+        iyy="9.7204E-07"
+        iyz="2.5598E-10"
+        izz="3.0898E-13" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper_assembly/meshes/GripperBase.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper_assembly/meshes/GripperBase.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Finger1">
+    <inertial>
+      <origin
+        xyz="-0.01775 0.077561 -0.0015192"
+        rpy="0 0 0" />
+      <mass
+        value="0.004984" />
+      <inertia
+        ixx="1.4851E-07"
+        ixy="3.1016E-08"
+        ixz="-7.3639E-10"
+        iyy="6.565E-09"
+        iyz="3.524E-09"
+        izz="1.5491E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper_assembly/meshes/Finger1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper_assembly/meshes/Finger1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint1"
+    type="prismatic">
+    <origin
+      xyz="0 -0.070202 0.059329"
+      rpy="6.123E-17 4.5912E-49 3.1416" />
+    <parent
+      link="GripperBase" />
+    <child
+      link="Finger1" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Finger2">
+    <inertial>
+      <origin
+        xyz="-0.0025535 0.011322 -0.030358"
+        rpy="0 0 0" />
+      <mass
+        value="0.004984" />
+      <inertia
+        ixx="1.5491E-07"
+        ixy="-7.3639E-10"
+        ixz="-3.524E-09"
+        iyy="1.4851E-07"
+        iyz="-3.1016E-08"
+        izz="6.565E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper_assembly/meshes/Finger2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper_assembly/meshes/Finger2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint2"
+    type="prismatic">
+    <origin
+      xyz="0.029072 -0.1174 0.060364"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="GripperBase" />
+    <child
+      link="Finger2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<robot name="motoman_sia20d" xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:include filename="motoman_aprs.xacro" />
+    <xacro:include filename="peter_moto_gripper.xacro" />
+    <xacro:motoman_sia20d prefix="motoman_" />
+    <xacro:peter_moto_gripper prefix="motoman_" />
+</robot>

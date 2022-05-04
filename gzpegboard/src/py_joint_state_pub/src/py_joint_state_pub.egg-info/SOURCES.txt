@@ -1,0 +1,7 @@
+setup.py
+src/py_joint_state_pub/__init__.py
+src/py_joint_state_pub/gazebo_joint_publisher.py
+src/py_joint_state_pub.egg-info/PKG-INFO
+src/py_joint_state_pub.egg-info/SOURCES.txt
+src/py_joint_state_pub.egg-info/dependency_links.txt
+src/py_joint_state_pub.egg-info/top_level.txt

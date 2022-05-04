@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.6">
+    <model name="taskboard_base">
+          <static>1</static>
+            <link name="link1">
+            <pose frame="">0 0 0 0 0 0</pose>
+                <velocity_decay>
+                    <angular>
+             		.0005
+             		</angular>
+                </velocity_decay>
+                <collision name="collision1">
+                    <pose frame="">0 0 0 0 0 0</pose>
+                    <geometry>
+                        <mesh>
+                            <scale>0.002 0.002 0.002</scale>
+                            <uri>model://taskboard-base/taskboard_arraybase-1_Rotatex_Centered_ZeroZmin.stl</uri>
+                        </mesh>
+                    </geometry>
+                    <max_contacts>10</max_contacts>            
+                </collision>
+                <visual name="visual1">
+                    <pose frame="">0 0 0 0 0 0</pose>
+                    <geometry>
+                        <mesh>
+                            <scale>0.002 0.002 0.002</scale>
+                            <uri>model://taskboard-base/taskboard_arraybase-1_Rotatex_Centered_ZeroZmin.stl</uri>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <script>
+                            <name>Gazebo/Orange</name>
+                            <uri>__default__</uri>
+                        </script>
+                    </material>
+                </visual>
+                <inertial>
+                    <mass>0.0385</mass>
+                    <inertia>
+                        <ixx>4.78233711e+00</ixx>
+                        <ixy>2.06443170e-09</ixy>
+                        <ixz>3.14256508e-00</ixz>
+                        <iyy>4.78233728e+00</iyy>
+                        <iyz>1.83990112e-08</iyz>
+                        <izz>2.44284722e-01</izz>
+                    </inertia>
+                </inertial>
+                <self_collide>0</self_collide>
+               <gravity>0</gravity>
+            </link>
+    </model>
+</sdf>

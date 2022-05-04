@@ -1,0 +1,39 @@
+<?xml version='1.0'?>
+<sdf version='1.5'>
+  <model name='White_Board'>
+    <static>true</static>
+    <link name="link">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="visual">
+            <geometry>
+                <mesh>
+                    <uri>model://white_board/meshes/white_board.dae</uri>
+                </mesh>
+            </geometry>
+
+            <material>
+                <script>
+                    <uri>file://media/materials/scripts/gazebo.material</uri>
+                    <name>Gazebo/White</name>
+                </script>
+            </material>
+
+          <!--material>
+          <script>
+               <uri>model://chair/materials/textures</uri>
+               </script>
+          </material-->
+
+
+        </visual>
+        <collision name="collision">
+            <geometry>
+                <mesh>
+                   <uri>model://white_board/meshes/white_board.dae</uri>
+                </mesh>
+            </geometry>
+        </collision>
+    </link>
+  </model>
+</sdf>
+

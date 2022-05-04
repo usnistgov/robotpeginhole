@@ -1,0 +1,17 @@
+<package format="2">
+  <name>py_joint_state_pub</name>
+  <version>1.15.0</version>
+  <description>
+    This package contains a GUI tool for setting and publishing joint state values for a given URDF.
+  </description>
+  <author email="john.michaloski@nist.gov">John Michaloski</author>
+  <maintainer email="john.michaloski@nist.gov">John Michaloski</maintainer>
+ 
+  <license>None</license>
+  <url type="repository">https://github.com/nistgov/crcl2ros</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>python_qt_binding</exec_depend>
+  <exec_depend>rospy</exec_depend>
+</package>

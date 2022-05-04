@@ -1,0 +1,3674 @@
+   <model name="pole1">
+   <static>1</static>
+
+    <link name="body">
+    <inertial>	
+	<mass>2</mass>
+	<inertia>
+	 <ixx>0.00038054</ixx>
+	 <iyy>0.00038054</iyy>
+	 <izz>0.00064533</izz>
+	 <ixy>0</ixy>
+	 <ixz>0</ixz>
+	 <iyz>0</iyz>
+	</inertia>
+       </inertial>
+	
+<!--pole Collision-->
+     <collision name="pc1">
+      <geometry>
+        <box>
+	  <size> 0.045 0.044 1.703672 </size>
+	</box>
+      </geometry>
+     </collision>
+    
+ <!--pole Visual-->
+    <visual name="pv1">
+        <material>
+            <script>
+              <name>Gazebo/Yellow</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+
+      <!--material>
+        <diffuse>1 1 0.5 1.0</diffuse>
+	<ambient>0.4 0.4 0.4 1.0</ambient>
+	<specular>0.4 0.4 0.4 1.0</specular>
+	<emissive>0.4 0.4 0.4 1.0</emissive>
+      </material-->
+      <geometry>
+        <box>
+	  <size> 0.045 0.044 1.703672 </size>
+	</box>
+      </geometry>
+     </visual>
+    <sensor name="laser1" type="ray">
+        <pose>0 0 0.84 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam1/laser/scan</topicName>
+        <frameName>hokuyo1</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser2" type="ray">
+        <pose>0 0 0.80 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam2/laser/scan</topicName>
+        <frameName>hokuyo2</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser3" type="ray">
+        <pose>0 0 0.76 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam3/laser/scan</topicName>
+        <frameName>hokuyo3</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser4" type="ray">
+        <pose>0 0 0.72 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam4/laser/scan</topicName>
+        <frameName>hokuyo4</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser5" type="ray">
+        <pose>0 0 0.68 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam5/laser/scan</topicName>
+        <frameName>hokuyo5</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+ <sensor name="laser6" type="ray">
+        <pose>0 0 0.64 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam6/laser/scan</topicName>
+        <frameName>hokuyo6</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser7" type="ray">
+        <pose>0 0 0.60 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam7/laser/scan</topicName>
+        <frameName>hokuyo7</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser8" type="ray">
+        <pose>0 0 0.56 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam8/laser/scan</topicName>
+        <frameName>hokuyo8</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser9" type="ray">
+        <pose>0 0 0.52 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam9/laser/scan</topicName>
+        <frameName>hokuyo9</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser10" type="ray">
+        <pose>0 0 0.48 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam10/laser/scan</topicName>
+        <frameName>hokuyo10</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser11" type="ray">
+        <pose>0 0 0.44 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam11/laser/scan</topicName>
+        <frameName>hokuyo11</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser12" type="ray">
+        <pose>0 0 0.40 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam12/laser/scan</topicName>
+        <frameName>hokuyo12</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser13" type="ray">
+        <pose>0 0 0.36 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam13/laser/scan</topicName>
+        <frameName>hokuyo13</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser14" type="ray">
+        <pose>0 0 0.32 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam14/laser/scan</topicName>
+        <frameName>hokuyo14</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser15" type="ray">
+        <pose>0 0 0.28 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam15/laser/scan</topicName>
+        <frameName>hokuyo15</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+ <sensor name="laser16" type="ray">
+        <pose>0 0 0.24 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam16/laser/scan</topicName>
+        <frameName>hokuyo16</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser17" type="ray">
+        <pose>0 0 0.20 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam17/laser/scan</topicName>
+        <frameName>hokuyo17</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser18" type="ray">
+        <pose>0 0 0.16 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam18/laser/scan</topicName>
+        <frameName>hokuyo18</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser19" type="ray">
+        <pose>0 0 0.12 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam19/laser/scan</topicName>
+        <frameName>hokuyo19</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser20" type="ray">
+        <pose>0 0 0.08 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam20/laser/scan</topicName>
+        <frameName>hokuyo20</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+  <sensor name="laser21" type="ray">
+        <pose>0 0 0.04 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam21/laser/scan</topicName>
+        <frameName>hokuyo21</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser22" type="ray">
+        <pose>0 0 0.00 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam22/laser/scan</topicName>
+        <frameName>hokuyo22</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser23" type="ray">
+        <pose>0 0 -0.04 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam23/laser/scan</topicName>
+        <frameName>hokuyo23</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser24" type="ray">
+        <pose>0 0 -0.08 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam24/laser/scan</topicName>
+        <frameName>hokuyo24</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser25" type="ray">
+        <pose>0 0 -0.12 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam25/laser/scan</topicName>
+        <frameName>hokuyo25</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+ <sensor name="laser26" type="ray">
+        <pose>0 0 -0.16 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam26/laser/scan</topicName>
+        <frameName>hokuyo26</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser27" type="ray">
+        <pose>0 0 -0.20 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam27/laser/scan</topicName>
+        <frameName>hokuyo27</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser28" type="ray">
+        <pose>0 0 -0.24 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam28/laser/scan</topicName>
+        <frameName>hokuyo28</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser29" type="ray">
+        <pose>0 0 -0.28 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam29/laser/scan</topicName>
+        <frameName>hokuyo29</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser30" type="ray">
+        <pose>0 0 -0.32 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam30/laser/scan</topicName>
+        <frameName>hokuyo30</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser31" type="ray">
+        <pose>0 0 -0.36 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam31/laser/scan</topicName>
+        <frameName>hokuyo31</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser32" type="ray">
+        <pose>0 0 -0.40 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam32/laser/scan</topicName>
+        <frameName>hokuyo32</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser33" type="ray">
+        <pose>0 0 -0.44 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam33/laser/scan</topicName>
+        <frameName>hokuyo33</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser34" type="ray">
+        <pose>0 0 -0.48 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam34/laser/scan</topicName>
+        <frameName>hokuyo34</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser35" type="ray">
+        <pose>0 0 -0.52 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam35/laser/scan</topicName>
+        <frameName>hokuyo35</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+ <sensor name="laser36" type="ray">
+        <pose>0 0 -0.56 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam36/laser/scan</topicName>
+        <frameName>hokuyo36</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser37" type="ray">
+        <pose>0 0 -0.60 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam37/laser/scan</topicName>
+        <frameName>hokuyo37</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser38" type="ray">
+        <pose>0 0 -0.64 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam38/laser/scan</topicName>
+        <frameName>hokuyo38</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser39" type="ray">
+        <pose>0 0 -0.68 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam39/laser/scan</topicName>
+        <frameName>hokuyo39</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser40" type="ray">
+        <pose>0 0 -0.72 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam40/laser/scan</topicName>
+        <frameName>hokuyo40</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+
+#endif
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+  <sensor name="laser41" type="ray">
+        <pose>0 0 -0.76 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam41/laser/scan</topicName>
+        <frameName>hokuyo41</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser42" type="ray">
+        <pose>0 0 -0.80 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam42/laser/scan</topicName>
+        <frameName>hokuyo42</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+  <sensor name="laser43" type="ray">
+        <pose>0 0 -0.84 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>3.7</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN      
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam43/laser/scan</topicName>
+        <frameName>hokuyo43</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+     </link>
+    <pose frame=''>2.604690 1.460951 1.051840 0 0 -1.570000</pose>
+   </model>
+
+
+  <model name="pole2">
+   <static>1</static>
+
+    <link name="body">
+    <inertial>	
+	<mass>2</mass>
+	<inertia>
+	 <ixx>0.00038054</ixx>
+	 <iyy>0.00038054</iyy>
+	 <izz>0.00064533</izz>
+	 <ixy>0</ixy>
+	 <ixz>0</ixz>
+	 <iyz>0</iyz>
+	</inertia>
+       </inertial>
+	
+<!--pole Collision-->
+     <collision name="pc1">
+      <geometry>
+        <box>
+	  <size> 0.045 0.044 1.703672 </size>
+	</box>
+      </geometry>
+     </collision>
+    
+ <!--pole Visual-->
+    <visual name="pv1">
+        <material>
+            <script>
+              <name>Gazebo/Yellow</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+
+      <!--material>
+        <diffuse>1 1 0.5 1.0</diffuse>
+	<ambient>0.4 0.4 0.4 1.0</ambient>
+	<specular>0.4 0.4 0.4 1.0</specular>
+	<emissive>0.4 0.4 0.4 1.0</emissive>
+      </material-->
+      <geometry>
+        <box>
+	  <size> 0.045 0.044 1.703672 </size>
+	</box>
+      </geometry>
+     </visual>
+    
+    </link>
+   <pose frame=''>2.607221 -2.265362 1.051840 0 0 0</pose>
+  
+  </model>
+
+
+    <model name="pole3">
+     <static>1</static>
+
+      <link name="body">
+      <inertial>	
+	<mass>2</mass>
+	<inertia>
+	 <ixx>0.00038054</ixx>
+	 <iyy>0.00038054</iyy>
+	 <izz>0.00064533</izz>
+	 <ixy>0</ixy>
+	 <ixz>0</ixz>
+	 <iyz>0</iyz>
+	</inertia>
+       </inertial>
+	
+<!--pole Collision-->
+     <collision name="pc1">
+      <geometry>
+        <box>
+	  <size> 0.045 0.044 1.703672 </size>
+	</box>
+      </geometry>
+     </collision>
+    
+ <!--pole Visual-->
+    <visual name="pv1">
+        <material>
+            <script>
+              <name>Gazebo/Yellow</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+
+      <!--material>
+        <diffuse>1 1 0.5 1.0</diffuse>
+	<ambient>0.4 0.4 0.4 1.0</ambient>
+	<specular>0.4 0.4 0.4 1.0</specular>
+	<emissive>0.4 0.4 0.4 1.0</emissive>
+      </material-->
+      <geometry>
+        <box>
+	  <size> 0.045 0.044 1.703672 </size>
+	</box>
+      </geometry>
+     </visual>
+    
+     </link>
+    <pose frame=''>2.461106 -2.267904 1.051840 0 0 0</pose>
+   </model>
+
+ <model name="pole4">
+   <static>1</static>
+
+    <link name="body">
+    <inertial>	
+	<mass>2</mass>
+	<inertia>
+	 <ixx>0.00038054</ixx>
+	 <iyy>0.00038054</iyy>
+	 <izz>0.00064533</izz>
+	 <ixy>0</ixy>
+	 <ixz>0</ixz>
+	 <iyz>0</iyz>
+	</inertia>
+       </inertial>
+	
+<!--pole Collision-->
+     <collision name="pc1">
+      <geometry>
+        <box>
+	  <size> 0.045 0.044 1.703672 </size>
+	</box>
+      </geometry>
+     </collision>
+    
+ <!--pole Visual-->
+    <visual name="pv1">
+        <material>
+            <script>
+              <name>Gazebo/Yellow</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+
+      <!--material>
+        <diffuse>1 1 0.5 1.0</diffuse>
+	<ambient>0.4 0.4 0.4 1.0</ambient>
+	<specular>0.4 0.4 0.4 1.0</specular>
+	<emissive>0.4 0.4 0.4 1.0</emissive>
+      </material-->
+      <geometry>
+        <box>
+	  <size> 0.045 0.044 1.703672 </size>
+	</box>
+      </geometry>
+     </visual>
+    <sensor name="laser44" type="ray">
+        <pose>0 0 0.84 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam44/laser/scan</topicName>
+        <frameName>hokuyo44</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser45" type="ray">
+        <pose>0 0 0.80 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam45/laser/scan</topicName>
+        <frameName>hokuyo45</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser46" type="ray">
+        <pose>0 0 0.76 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam46/laser/scan</topicName>
+        <frameName>hokuyo46</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser47" type="ray">
+        <pose>0 0 0.72 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam47/laser/scan</topicName>
+        <frameName>hokuyo47</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser48" type="ray">
+        <pose>0 0 0.68 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam48/laser/scan</topicName>
+        <frameName>hokuyo48</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+ <sensor name="laser49" type="ray">
+        <pose>0 0 0.64 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam49/laser/scan</topicName>
+        <frameName>hokuyo49</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser50" type="ray">
+        <pose>0 0 0.60 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam50/laser/scan</topicName>
+        <frameName>hokuyo50</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser51" type="ray">
+        <pose>0 0 0.56 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam51/laser/scan</topicName>
+        <frameName>hokuyo51</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser52" type="ray">
+        <pose>0 0 0.52 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam52/laser/scan</topicName>
+        <frameName>hokuyo52</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser53" type="ray">
+        <pose>0 0 0.48 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam53/laser/scan</topicName>
+        <frameName>hokuyo53</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser54" type="ray">
+        <pose>0 0 0.44 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam54/laser/scan</topicName>
+        <frameName>hokuyo54</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser55" type="ray">
+        <pose>0 0 0.40 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam55/laser/scan</topicName>
+        <frameName>hokuyo55</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser56" type="ray">
+        <pose>0 0 0.36 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam56/laser/scan</topicName>
+        <frameName>hokuyo56</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser57" type="ray">
+        <pose>0 0 0.32 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam57/laser/scan</topicName>
+        <frameName>hokuyo57</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser58" type="ray">
+        <pose>0 0 0.28 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam58/laser/scan</topicName>
+        <frameName>hokuyo58</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+ <sensor name="laser59" type="ray">
+        <pose>0 0 0.24 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam59/laser/scan</topicName>
+        <frameName>hokuyo59</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser60" type="ray">
+        <pose>0 0 0.20 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam60/laser/scan</topicName>
+        <frameName>hokuyo60</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser61" type="ray">
+        <pose>0 0 0.16 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam61/laser/scan</topicName>
+        <frameName>hokuyo61</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser62" type="ray">
+        <pose>0 0 0.12 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam62/laser/scan</topicName>
+        <frameName>hokuyo62</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser63" type="ray">
+        <pose>0 0 0.08 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam63/laser/scan</topicName>
+        <frameName>hokuyo63</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+  <sensor name="laser64" type="ray">
+        <pose>0 0 0.04 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam64/laser/scan</topicName>
+        <frameName>hokuyo64</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser65" type="ray">
+        <pose>0 0 0.00 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam65/laser/scan</topicName>
+        <frameName>hokuyo65</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser66" type="ray">
+        <pose>0 0 -0.04 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam66/laser/scan</topicName>
+        <frameName>hokuyo66</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser67" type="ray">
+        <pose>0 0 -0.08 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam67/laser/scan</topicName>
+        <frameName>hokuyo67</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser68" type="ray">
+        <pose>0 0 -0.12 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam68/laser/scan</topicName>
+        <frameName>hokuyo68</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+ <sensor name="laser69" type="ray">
+        <pose>0 0 -0.16 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam69/laser/scan</topicName>
+        <frameName>hokuyo69</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+
+#endif
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser70" type="ray">
+        <pose>0 0 -0.20 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam70/laser/scan</topicName>
+        <frameName>hokuyo70</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser71" type="ray">
+        <pose>0 0 -0.24 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam71/laser/scan</topicName>
+        <frameName>hokuyo71</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser72" type="ray">
+        <pose>0 0 -0.28 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam72/laser/scan</topicName>
+        <frameName>hokuyo72</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser73" type="ray">
+        <pose>0 0 -0.32 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam73/laser/scan</topicName>
+        <frameName>hokuyo73</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser74" type="ray">
+        <pose>0 0 -0.36 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam74/laser/scan</topicName>
+        <frameName>hokuyo74</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser75" type="ray">
+        <pose>0 0 -0.40 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam75/laser/scan</topicName>
+        <frameName>hokuyo75</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser76" type="ray">
+        <pose>0 0 -0.44 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam76/laser/scan</topicName>
+        <frameName>hokuyo76</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser77" type="ray">
+        <pose>0 0 -0.48 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam77/laser/scan</topicName>
+        <frameName>hokuyo77</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser78" type="ray">
+        <pose>0 0 -0.52 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam78/laser/scan</topicName>
+        <frameName>hokuyo78</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+ <sensor name="laser79" type="ray">
+        <pose>0 0 -0.56 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam79/laser/scan</topicName>
+        <frameName>hokuyo79</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser80" type="ray">
+        <pose>0 0 -0.60 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam80/laser/scan</topicName>
+        <frameName>hokuyo80</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser81" type="ray">
+        <pose>0 0 -0.64 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN       
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam81/laser/scan</topicName>
+        <frameName>hokuyo81</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+    <sensor name="laser82" type="ray">
+        <pose>0 0 -0.68 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+        
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam82/laser/scan</topicName>
+        <frameName>hokuyo82</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser83" type="ray">
+        <pose>0 0 -0.72 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+#ifdef ROS_PLUGIN
+       <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam83/laser/scan</topicName>
+        <frameName>hokuyo83</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif 
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+
+  <sensor name="laser84" type="ray">
+        <pose>0 0 -0.76 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+        
+#ifdef ROS_PLUGIN
+      <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam84/laser/scan</topicName>
+        <frameName>hokuyo84</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+   <sensor name="laser85" type="ray">
+        <pose>0 0 -0.80 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+        
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam85/laser/scan</topicName>
+        <frameName>hokuyo85</frameName>
+        
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+
+        </plugin>  
+#endif
+
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+  <sensor name="laser86" type="ray">
+        <pose>0 0 -0.84 0 -0 0.017</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.017</min_angle>
+              <max_angle>0.017</max_angle>
+
+
+
+              <!--min_angle>-2.26889</min_angle>
+              <max_angle>2.268899</max_angle-->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>4.2</max>
+
+            <!--max>10</max-->
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+
+#ifdef ROS_PLUGIN
+        <plugin name="laser" filename="libgazebo_ros_laser.so" >
+        <topicName>/beam86/laser/scan</topicName>
+        <frameName>hokuyo86</frameName>      
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+        </plugin>  
+#endif
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+     </link>
+    <pose frame=''>-1.767010 -2.265653 1.051840 0 0 0</pose>
+   </model>
+

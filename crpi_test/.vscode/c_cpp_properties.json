@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "c:\\opt\\ros\\noetic\\x64\\include\\**",
+                "c:\\opt\\ros\\noetic\\x64\\include\\test_gazebo_package\\**",
+                "C:\\opt\\ros\\noetic\\x64\\tools\\vcpkg\\installed\\x64-windows\\include\\**",
+                "C:\\opt\\ros\\noetic\\x64\\tools\\vcpkg\\installed\\x64-windows\\include\\**",
+                "C:\\opt\\ros\\noetic\\crpi_test\\src\\test_gazebo_package\\include\\**",
+                "C:\\opt\\ros\\noetic\\crpi_test\\src\\crpi_math\\include\\**",
+                "C:\\opt\\ros\\noetic\\crpi_test\\src\\orocos_kdl\\include\\**"
+            ],
+            "name": "ROS",
+            "configurationProvider": "b2.catkin_tools"
+        }
+    ],
+    "version": 4
+}

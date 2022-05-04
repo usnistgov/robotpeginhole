@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="Metal_Peg_v2">
+    <link name="link">
+   <!--   <pose>0 0 0.018 0 0 0</pose> -->
+      <inertial>
+        <mass>0.0121</mass>
+        <inertia>
+          <ixx>1.3397422499999998e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.3397422499999998e-06</iyy>
+          <iyz>0</iyz>
+          <izz>6.58845e-08</izz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius> 0.0066 </radius>
+            <length> 0.030 </length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <!-- stainless steel 18-8 material properties -->
+            <poissons_ratio>0.305</poissons_ratio>
+            <elastic_modulus>2.0e+11</elastic_modulus>
+            <!--poissons_ratio>0.5</poissons_ratio>
+            <elastic_modulus>2.0e+9</elastic_modulus-->
+            <ode>
+              <kp>100000</kp>
+              <kd>100</kd>
+              <max_vel>100.0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <torsional>
+              <coefficient>1.0</coefficient>
+              <use_patch_radius>0</use_patch_radius>
+              <surface_radius>0.01</surface_radius>
+            </torsional>
+          </friction>
+        </surface>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius> 0.0066 </radius>
+            <length> 0.030 </length>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/White</name>
+          </script>
+        </material>
+      </visual>
+
+    </link>
+   <!-- 
+    <plugin name="SimplifiedContact" filename="libSimplifiedContactPlugin.so">
+      <collision_names>Metal_Peg_v2::link::collision</collision_names>
+      <attach_threshold>0.1</attach_threshold>
+      <detach_threshold>0.1</detach_threshold>
+      <rate>10.0</rate>
+      <debug> 1 </debug>
+    </plugin>
+    -->
+  </model>
+</sdf>

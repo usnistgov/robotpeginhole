@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+
+<!--
+  NIST shunk gripper (prefix)
+
+  Creates a shunk gripper with the passed in prefix. If there
+  is only one hand in the urdf then an empty prefix can be used "". If
+  there are multiple hands then a prefix followed by an "_" is needed.
+-->
+
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="shunk_gripper_model" params="prefix">
+
+  <link name="${prefix}finger_1">
+      <visual>
+         <origin rpy="0 0 0" xyz="0 0 0" />
+         <geometry>
+            <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/visual/${prefix}finger_1.STL" />
+         </geometry>
+         <material name="">
+            <color rgba="0.15 0.15 0.15 1.0" />
+         </material>
+      </visual>
+      <collision>
+         <origin rpy="0 0 0" xyz="0 0 0" />
+         <geometry>
+            <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/collision/${prefix}finger_1.STL" />
+         </geometry>
+      </collision>
+      <inertial>
+         <origin xyz="0 0 0" rpy="0 0 0" />
+         <mass value="1" />
+         <inertia ixx="1e-3" ixy="0.0" ixz="0.0" iyy="1e-3" iyz="0.0" izz="1e-3" />
+      </inertial>
+   </link>
+   <link name="${prefix}finger_2">
+      <visual>
+         <origin rpy="0 0 0" xyz="0 0 0" />
+         <geometry>
+            <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/visual/${prefix}finger_2.STL" />
+         </geometry>
+         <material name="">
+            <color rgba="0.15 0.15 0.15 1.0" />
+         </material>
+      </visual>
+      <collision>
+         <origin rpy="0 0 0" xyz="0 0 0" />
+         <geometry>
+            <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/collision/${prefix}finger_2.STL" />
+         </geometry>
+      </collision>
+      <inertial>
+         <origin xyz="0 0 0" rpy="0 0 0" />
+         <mass value="1" />
+         <inertia ixx="1e-3" ixy="0.0" ixz="0.0" iyy="1e-3" iyz="0.0" izz="1e-3" />
+      </inertial>
+   </link>
+   <joint name="${prefix}prism1" type="prismatic">
+      <origin rpy="-3.14159  0       1.5708" xyz="0.0 0.02    0.01099" />
+      <parent link="${prefix}link_6" />
+      <child link="${prefix}finger_1" />
+      <axis xyz="-1 0 0 " />
+      <limit effort="1000" lower="-0.008" upper="0.01" velocity="1000" />
+   </joint>
+   <joint name="${prefix}prism2" type="prismatic">
+    <origin rpy="-3.14159  0      -1.5708" xyz="0.0 0 -0.01099" />
+      <parent link="${prefix}link_6" />
+      <child link="${prefix}finger_2" />
+      <axis xyz="-1 0 0" />
+      <limit effort="1000" lower="-0.008" upper="0.0" velocity="1000" />
+   </joint>
+
+   <transmission name="trans_${prefix}prism1">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${prefix}prism1">
+         <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="${prefix}prism1_motor">
+         <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+         <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+   </transmission>
+   <transmission name="trans_${prefix}prism2">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${prefix}prism2">
+         <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="${prefix}prism2_motor">
+         <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+         <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+   </transmission>
+   <gazebo reference="${prefix}finger_1">
+      <material>Gazebo/White</material>
+      <turnGravityOff>true</turnGravityOff>
+   </gazebo>
+   <gazebo reference="${prefix}finger_2">
+      <material>Gazebo/White</material>
+      <turnGravityOff>true</turnGravityOff>
+   </gazebo>
+  </xacro:macro>
+</robot>

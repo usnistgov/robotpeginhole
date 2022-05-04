@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.4">
+   <model name="motoman_sia20d">
+      <link name="base_link">
+         <pose>0 0 0 0 -0 0</pose>
+         <gravity>false</gravity>
+         <inertial>
+            <pose>0 0 0 0 -0 0</pose>
+            <gravity>false</gravity>
+            <mass>150</mass>
+            <inertia>
+               <ixx>1</ixx>
+               <ixy>0</ixy>
+               <ixz>0</ixz>
+               <iyy>1</iyy>
+               <iyz>0</iyz>
+               <izz>1</izz>
+            </inertia>
+         </inertial>
+         <collision name="base_link_collision">
+            <pose>0 0 0 0 -0 0</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://motoman_sia20d_support/meshes/sia20d/collision/MOTOMAN_BASE.stl</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="base_link_visual">
+            <pose>0 0 0 0 -0 0</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://motoman_sia20d_support/meshes/sia20d/visual/MOTOMAN_BASE.stl</uri>
+               </mesh>
+            </geometry>
+            <material>
+               <script>
+                  <uri>file://media/materials/scripts/gazebo.material</uri>
+                  <name>Gazebo/White</name>
+               </script>
+            </material>
+         </visual>
+      </link>
+ 
+      <link name="link_s">
+         <pose>0 0 0.41 0 -0 0</pose>
+         <gravity>false</gravity>
+         <inertial>
+            <pose>0 0 0 0 -0 0</pose>
+            <mass>34.5</mass>
+            <inertia>
+               <ixx>0.502079701</ixx>
+               <ixy>0</ixy>
+               <ixz>0</ixz>
+               <iyy>0.502079701</iyy>
+               <iyz>0</iyz>
+               <izz>0.12956896</izz>
+            </inertia>
+         </inertial>
+         <collision name="link_s_collision">
+            <pose>0 0 0 0 -0 -3.14159</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://motoman_sia20d_support/meshes/sia20d/collision/MOTOMAN_AXIS_S.stl</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="link_s_visual">
+            <pose>0 0 0 0 -0 -3.14159</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://motoman_sia20d_support/meshes/sia20d/visual/MOTOMAN_AXIS_S.stl</uri>
+               </mesh>
+            </geometry>
+            <material>
+               <script>
+                  <uri>file://media/materials/scripts/gazebo.material</uri>
+                  <name>Gazebo/Blue</name>
+               </script>
+            </material>
+         </visual>
+      </link>
+      <joint type="revolute" name="joint_s">
+         <child>link_s</child>
+         <parent>base_link</parent>
+         <axis>
+            <xyz>0 0 1</xyz>
+            <limit>
+               <lower>-3.1416</lower>
+               <upper>3.1416</upper>
+               <effort>100</effort>
+               <velocity>2.26</velocity>
+            </limit>
+            <dynamics />
+         </axis>
+      </joint>
+      <link name="link_l">
+         <pose>0 0 0.41 0 -0 0</pose>
+         <self_collide>true</self_collide>
+         <gravity>false</gravity>
+         <inertial>
+            <pose>0 0 0 0 -0 0</pose>
+            <mass>30.6</mass>
+            <inertia>
+               <ixx>0.310135823</ixx>
+               <ixy>0</ixy>
+               <ixz>0</ixz>
+               <iyy>0.310135823</iyy>
+               <iyz>0</iyz>
+               <izz>0.12889481</izz>
+            </inertia>
+         </inertial>
+         <collision name="link_l_collision">
+            <pose>0 0 0 -1.57159 -7.34641e-006 7.34641e-006</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://motoman_sia20d_support/meshes/sia20d/collision/MOTOMAN_AXIS_L.stl</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="link_l_visual">
+            <pose>0 0 0 -1.57159 -7.34641e-006 7.34641e-006</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://motoman_sia20d_support/meshes/sia20d/visual/MOTOMAN_AXIS_L.stl</uri>
+               </mesh>
+            </geometry>
+            <material>
+               <script>
+                  <uri>file://media/materials/scripts/gazebo.material</uri>
+                  <name>Gazebo/White</name>
+               </script>
+            </material>
+         </visual>
+      </link>
+      <joint type="revolute" name="joint_l">
+         <child>link_l</child>
+         <parent>link_s</parent>
+         <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+               <lower>-1.91</lower>
+               <upper>1.91</upper>
+               <effort>100</effort>
+               <velocity>2.26</velocity>
+            </limit>
+            <dynamics />
+         </axis>
+      </joint>
+      <link name="link_e">
+         <pose>0 0 0.9 0 -0 0</pose>
+         <gravity>false</gravity>
+         <inertial>
+            <pose>0 0 0 0 -0 0</pose>
+            <mass>18.54</mass>
+            <inertia>
+               <ixx>0.147277445</ixx>
+               <ixy>0</ixy>
+               <ixz>0</ixz>
+               <iyy>0.147277445</iyy>
+               <iyz>0</iyz>
+               <izz>0.05217123</izz>
+            </inertia>
+         </inertial>
+         <collision name="link_e_collision">
+            <pose>0 0 0 0 -0 0</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://motoman_sia20d_support/meshes/sia20d/collision/MOTOMAN_AXIS_E.stl</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="link_e_visual">
+            <pose>0 0 0 0 -0 0</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://motoman_sia20d_support/meshes/sia20d/visual/MOTOMAN_AXIS_E.stl</uri>
+               </mesh>
+            </geometry>
+            <material>
+               <script>
+                  <uri>file://media/materials/scripts/gazebo.material</uri>
+                  <name>Gazebo/Blue</name>
+               </script>
+            </material>
+         </visual>
+      </link>
+      <joint type="revolute" name="joint_e">
+         <child>link_e</child>
+         <parent>link_l</parent>
+         <axis>
+            <xyz>0 0 1</xyz>
+            <limit>
+               <lower>-2.96</lower>
+               <upper>2.96</upper>
+               <effort>100</effort>
+               <velocity>2.96</velocity>
+            </limit>
+            <dynamics />
+         </axis>
+      </joint>
+      <link name="link_u">
+         <pose>0 0 0.9 0 -0 0</pose>
+         <gravity>false</gravity>
+         <inertial>
+            <pose>0 0 0 0 -0 0</pose>
+            <mass>12.9</mass>
+            <inertia>
+               <ixx>0.086548013</ixx>
+               <ixy>0</ixy>
+               <ixz>0</ixz>
+               <iyy>0.086548013</iyy>
+               <iyz>0</iyz>
+               <izz>0.02733095</izz>
+            </inertia>
+         </inertial>
+         <collision name="link_u_collision">
+            <pose>0 0 0 -1.57159 -9.26536e-005 7.34641e-006</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://motoman_sia20d_support/meshes/sia20d/collision/MOTOMAN_AXIS_U.stl</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="link_u_visual">
+            <pose>0 0 0 -1.57159 -9.26536e-005 7.34641e-006</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://motoman_sia20d_support/meshes/sia20d/visual/MOTOMAN_AXIS_U.stl</uri>
+               </mesh>
+            </geometry>
+            <material>
+               <script>
+                  <uri>file://media/materials/scripts/gazebo.material</uri>
+                  <name>Gazebo/White</name>
+               </script>
+            </material>
+         </visual>
+      </link>
+      <joint type="revolute" name="joint_u">
+         <child>link_u</child>
+         <parent>link_e</parent>
+         <axis>
+            <xyz>0 -1 0</xyz>
+            <limit>
+               <lower>-2.26</lower>
+               <upper>2.26</upper>
+               <effort>100</effort>
+               <velocity>2.96</velocity>
+            </limit>
+            <dynamics />
+         </axis>
+      </joint>
+      <link name="link_r">
+         <pose>0 0 1.32 0 -0 0</pose>
+         <gravity>false</gravity>
+         <inertial>
+            <pose>0 0 0 0 -0 0</pose>
+            <mass>7.3</mass>
+            <inertia>
+               <ixx>0.034967411</ixx>
+               <ixy>0</ixy>
+               <ixz>0</ixz>
+               <iyy>0.034967411</iyy>
+               <iyz>0</iyz>
+               <izz>0.01048203</izz>
+            </inertia>
+         </inertial>
+         <collision name="link_r_collision">
+            <pose>0 0 0 0 -0 0</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://motoman_sia20d_support/meshes/sia20d/collision/MOTOMAN_AXIS_R.stl</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="link_r_visual">
+            <pose>0 0 0 0 -0 0</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://motoman_sia20d_support/meshes/sia20d/visual/MOTOMAN_AXIS_R.stl</uri>
+               </mesh>
+            </geometry>
+            <material>
+               <script>
+                  <uri>file://media/materials/scripts/gazebo.material</uri>
+                  <name>Gazebo/Blue</name>
+               </script>
+            </material>
+         </visual>
+      </link>
+      <joint type="revolute" name="joint_r">
+         <child>link_r</child>
+         <parent>link_u</parent>
+         <axis>
+            <xyz>0 0 -1</xyz>
+            <limit>
+               <lower>-3.1416</lower>
+               <upper>3.1416</upper>
+               <effort>100</effort>
+               <velocity>3.48</velocity>
+            </limit>
+            <dynamics />
+         </axis>
+      </joint>
+      <link name="link_b">
+         <pose>0 0 1.32 0 -0 0</pose>
+         <gravity>false</gravity>
+         <inertial>
+            <pose>0 0 0 0 -0 0</pose>
+            <mass>6.6</mass>
+            <inertia>
+               <ixx>0.028669762</ixx>
+               <ixy>0</ixy>
+               <ixz>0</ixz>
+               <iyy>0.028669762</iyy>
+               <iyz>0</iyz>
+               <izz>0.0088123</izz>
+            </inertia>
+         </inertial>
+         <collision name="link_b_collision">
+            <pose>0 0 0 -1.57 0 0</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://motoman_sia20d_support/meshes/sia20d/collision/MOTOMAN_AXIS_B.stl</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="link_b_visual">
+            <pose>0 0 0 -1.57 0 0</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://motoman_sia20d_support/meshes/sia20d/visual/MOTOMAN_AXIS_B.stl</uri>
+               </mesh>
+            </geometry>
+            <material>
+               <script>
+                  <uri>file://media/materials/scripts/gazebo.material</uri>
+                  <name>Gazebo/White</name>
+               </script>
+            </material>
+         </visual>
+      </link>
+      <joint type="revolute" name="joint_b">
+         <child>link_b</child>
+         <parent>link_r</parent>
+         <axis>
+            <xyz>0 -1 0</xyz>
+            <limit>
+               <lower>-1.91</lower>
+               <upper>1.91</upper>
+               <effort>100</effort>
+               <velocity>3.48</velocity>
+            </limit>
+            <dynamics />
+         </axis>
+      </joint>
+      <link name="link_t">
+         <pose>0 0 1.5 0 -0 0</pose>
+         <gravity>false</gravity>
+         <inertial>
+            <pose>0 0 0 0 -0 0</pose>
+            <mass>9.36</mass>
+            <inertia>
+               <ixx>0.026345268</ixx>
+               <ixy>0</ixy>
+               <ixz>0</ixz>
+               <iyy>0.026345268</iyy>
+               <iyz>0</iyz>
+               <izz>0.03381399</izz>
+            </inertia>
+         </inertial>
+         <collision name="link_t_collision">
+            <pose>0 0 0 0 -0 0</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://motoman_sia20d_support/meshes/sia20d/collision/MOTOMAN_AXIS_T.stl</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="link_t_visual">
+            <pose>0 0 0 0 -0 0</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://motoman_sia20d_support/meshes/sia20d/visual/MOTOMAN_AXIS_T.stl</uri>
+               </mesh>
+            </geometry>
+            <material>
+               <script>
+                  <uri>file://media/materials/scripts/gazebo.material</uri>
+                  <name>Gazebo/Blue</name>
+               </script>
+            </material>
+         </visual>
+      </link>
+      <joint type="revolute" name="joint_t">
+         <child>link_t</child>
+         <parent>link_b</parent>
+         <axis>
+            <xyz>0 0 -1</xyz>
+            <limit>
+               <lower>-3.1416</lower>
+               <upper>3.1416</upper>
+               <effort>100</effort>
+               <velocity>6.97</velocity>
+            </limit>
+            <dynamics />
+         </axis>
+      </joint>
+      
+         <link name="link_leftfinger">
+            <pose>0.10 0   1.6 0 -0 0</pose>
+            <gravity>false</gravity>
+            <inertial>
+               <pose frame="">0 0 0 0 -0 0</pose>
+               <mass>2</mass>
+               <inertia>
+                  <ixx>0.02</ixx>
+                  <ixy>0</ixy>
+                  <ixz>0</ixz>
+                  <iyy>0.02</iyy>
+                  <iyz>0</iyz>
+                  <izz>0.001</izz>
+               </inertia>
+            </inertial>
+            <collision name="link5_leftfinger_collision">
+               <pose frame="">0 0 0 0 -0 0</pose>
+               <geometry>
+                  <cylinder>
+                     <length>0.1</length>
+                     <radius>0.04</radius>
+                  </cylinder>
+               </geometry>
+               <surface>
+                  <contact>
+                     <ode />
+                  </contact>
+                  <friction>
+                     <ode />
+                  </friction>
+               </surface>
+            </collision>
+            <visual name="link5_leftfinger_visual">
+               <pose frame="">0 0 0 1.570796 0 0</pose>
+               <geometry>
+                  <mesh>
+                     <scale>0.0025 0.0025 0.0025</scale>
+                     <uri>model://gripper/Finger_Sides_Closer.STL</uri>
+                  </mesh>
+               </geometry>
+               <material>
+                  <script>
+                     <name>Gazebo/Red</name>
+                     <uri>__default__</uri>
+                  </script>
+               </material>
+            </visual>
+            <gravity>1</gravity>
+            <velocity_decay />
+            <self_collide>0</self_collide>
+         </link>
+         <link name="link_rightfinger">
+            <pose>-0.10 0   1.6 0 -0 0</pose>
+            <gravity>false</gravity>
+            <static>true</static>
+            <inertial>
+               <pose frame="">0 0 0 0 -0 0</pose>
+               <mass>2</mass>
+               <inertia>
+                  <ixx>0.02</ixx>
+                  <ixy>0</ixy>
+                  <ixz>0</ixz>
+                  <iyy>0.02</iyy>
+                  <iyz>0</iyz>
+                  <izz>0.001</izz>
+               </inertia>
+            </inertial>
+            <collision name="link5_rightfinger_collision">
+               <pose frame="">0 0 0 0 -0 0</pose>
+               <geometry>
+                  <cylinder>
+                     <length>0.1</length>
+                     <radius>0.04</radius>
+                  </cylinder>
+               </geometry>
+               <surface>
+                  <contact>
+                     <ode />
+                  </contact>
+                  <friction>
+                     <ode />
+                  </friction>
+               </surface>
+            </collision>
+            <visual name="link5_rightfinger_visual">
+               <pose frame="">0 0 0 1.570796 0 3.1415926536</pose>
+               <geometry>
+                  <mesh>
+                     <scale>0.0025 0.0025 0.0025</scale>
+                     <uri>model://gripper/Finger_Sides_Closer.STL</uri>
+                  </mesh>
+               </geometry>
+               <material>
+                  <script>
+                     <name>Gazebo/Red</name>
+                     <uri>__default__</uri>
+                  </script>
+               </material>
+            </visual>
+            <gravity>1</gravity>
+            <velocity_decay />
+            <self_collide>0</self_collide>
+         </link>   
+           
+   <joint name='joint_leftfinger' type='prismatic'>
+      <child>link_leftfinger</child>
+      <parent>link_t</parent>
+      <axis>
+        <xyz> 1 0 0</xyz>
+        <limit>
+          <lower>-0.10</lower>
+          <upper>0.10</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <joint name='joint_rightfinger' type='prismatic'>
+      <child>link_rightfinger</child>
+      <parent>link_t</parent>
+      <axis>
+        <xyz> 1 0 0</xyz>
+        <limit>
+          <lower>-0.10</lower>
+          <upper>0.10</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>  
+   </model>
+</sdf>
+
+

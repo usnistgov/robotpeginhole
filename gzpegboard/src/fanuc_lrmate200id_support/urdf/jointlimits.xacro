@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+<!-- Joint 1 -->
+<xacro:property name="joint1upper" value="1.57"/>
+<xacro:property name="joint1lower" value="-1.57"/>
+<xacro:property name="joint1velocity" value="7.85"/>
+<xacro:property name="joint1effort" value="-1"/>
+
+
+<!-- Joint 2 -->
+<xacro:property name="joint2upper" value="2.530727"/>
+<xacro:property name="joint2lower" value="-1.745329"/>
+<xacro:property name="joint2velocity" value="6.63"/>
+<xacro:property name="joint2effort" value="-1"/>
+
+<!-- Joint 3 -->
+<xacro:property name="joint3upper" value="4.886922"/>
+<xacro:property name="joint3lower" value="-2.450966"/>
+<xacro:property name="joint3velocity" value="9.08"/>
+<xacro:property name="joint3effort" value="-1"/>
+
+
+<!-- Joint 4 -->
+<xacro:property name="joint4upper" value="1.57"/>
+<xacro:property name="joint4lower" value="-1.57"/>
+<xacro:property name="joint4velocity" value="9.60"/>
+<xacro:property name="joint4effort" value="-1"/>
+
+<!-- Joint 5 -->
+<xacro:property name="joint5upper" value="2.18"/>
+<xacro:property name="joint5lower" value="-2.18"/>
+<xacro:property name="joint5velocity" value="9.51"/>
+<xacro:property name="joint5effort" value="-1"/>
+
+<!-- Joint 6 -->
+<xacro:property name="joint6upper" value="6.285"/>
+<xacro:property name="joint6lower" value="-6.285"/>
+<xacro:property name="joint6velocity" value="17.45"/>
+<xacro:property name="joint6effort" value="-1"/>
+
+
+</robot>
+

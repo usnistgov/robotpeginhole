@@ -1,0 +1,10 @@
+string model_name                               # name of model
+---
+# joint state
+string[] name
+float64[] position
+float64[] velocity
+float64[] effort
+# service return status
+bool success                         # return true if get successful
+string status_message                # comments if available

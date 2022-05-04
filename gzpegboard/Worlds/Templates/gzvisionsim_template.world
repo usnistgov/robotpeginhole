@@ -1,0 +1,13 @@
+
+
+#ifdef GZVISIONSIM
+   <!-- Vision Simulator Plugin Provider - gives positions of gears, etc. -->
+   <plugin filename="libgzmodelplugin.so" name="model_info">
+#ifdef DEBUG
+                <debug> 1 </debug>
+#else
+                 <debug> 0 </debug>              
+#endif
+  </plugin>
+#endif
+ 

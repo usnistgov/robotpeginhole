@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="agility_lab">
+    <link name="link">
+      <pose>0 0 0.0 0 0 0</pose>
+      <inertial>
+        <mass>0.390</mass>
+        <inertia>
+          <ixx>-2.60597536e+15</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>-1.67956341e+14</iyy>
+          <iyz>0</iyz>
+          <izz>6.76761951e+14</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://Agility_lab/meshes/Agility_Lab_Robot_Area.dae</uri>
+               </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+              <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://Agility_lab/meshes/Agility_Lab_Robot_Area.dae</uri>
+               </mesh>
+        </geometry>
+
+      </visual>
+    </link>
+  </model>
+</sdf>
