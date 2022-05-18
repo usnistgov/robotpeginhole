@@ -1,0 +1,147 @@
+% ----------------------------------------------------------------------
+%   filename:      abstract.tex
+%   version:       1.1, 5/28/1997
+%   description:   This is a LaTeX version 2.09 template 
+%                  for the extended abstract of an ASME DETC paper.
+%   usage:         latex abstract
+% ----------------------------------------------------------------------
+\documentstyle[11pt]{article}
+\pagestyle{empty}
+
+\setlength{\oddsidemargin}{1in}
+\setlength{\evensidemargin}{1in}
+\setlength{\marginparwidth}{0.0in}
+\setlength{\topmargin}{0.5in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\textwidth}{4.5in}
+\setlength{\textheight}{7.5in}
+\setlength{\parindent}{0.25in}
+\setlength{\parskip}{0.0in}
+
+%%%% Change detc to the short name of your conference %%%%%%%%%%%%%
+\def\confshortname{detc}
+%%%% Change 1998 to the year of the conference %%%%%%%%%%%%%%%%%%%%
+\def\confyear{1998}
+
+\begin{document}
+
+\newfont{\hvb}{cmssbx10}
+\newfont{\hv}{cmss10}
+\newfont{\tir}{cmr10}
+
+\setlength{\baselineskip}{10pt}
+{\scriptsize{\hvb
+\begin{flushright}
+%Extended Abstract \\
+%%%%%%%%%%%%%%%%%%%%%%%  paper number %%%%%%%%%%%%%%%%%%%%%%%%%%%
+DETC98/DAC-1234      %% change DETC98/DAC-1234 to the paper number
+                     %% provided by ASME for your paper.
+\end{flushright}
+}}
+
+\begin{center}
+{\footnotesize{\hvb
+%%%%%%%%%%%%%%%%%%%%%%%%%  paper title   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+AN ARTICLE CREATED USING \LaTeX\ IN ASME FORMAT\\
+}}
+
+\vspace{10pt}
+\setlength{\baselineskip}{11pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%   first author %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\footnotesize
+{\hvb Harry H. Cheng}, {\hv Associate Professor} \\
+{\hv
+Integration Engineering Laboratory\\
+Department of Mechanical and Aeronautical Engineering \\
+University of California, Davis, CA 95616\\
+Tel: 530-752-5020, Fax: 530-752-4158\\ 
+Email: hhcheng@ucdavis.edu, WWW: http://iel.ucdavis.edu\\
+}}
+
+\vspace{10pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%   Second/Third authors %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\footnotesize
+{\hvb First Coauthor}, {\hv Title} \\
+{\hvb Second Coauthor}, {\hv Title} \\
+{\hv
+Department or Division Name \\
+Company or College Name\\
+City, State, Zip Code, Country (only if not U.S.)\\
+Phone number, Fax number \\ 
+Email address, WWW URL address\
+}}
+
+%%%%%%%%%%%%%%%% You may omit information for other authors %%%%%%%%%%%%%%%%%
+%{\footnotesize
+%{\hvb First Coauthor}, {\hv Title} \\
+%{\hv
+%Department or Division Name \\
+%Company or College Name\\
+%}}
+
+\end{center}
+
+\vspace{22pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%    Abstract Text    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\footnotesize{\tir
+This article illustrates preparation of the extended abstract of
+an ASME paper using \LaTeX.
+The \LaTeX\  template \verb+abstract.tex+
+that creates this extended abstract is available on the WWW at
+the conference Web site 
+or at \verb@http://iel.ucdavis.edu/code/.@
+The extended abstract of an ASME paper should not exceed one page
+with keywords at the end.\\
+
+Instructions for submitting the electronic version of 
+an ASME paper through ftp for publication in the CD-ROM proceedings 
+are given as follows:
+\begin{itemize}
+\item
+Rename your files with paper number as file name (replace forword slash by underscore), 
+plus a meaningful
+suffix such as {\bf .ps} (Postscript), 
+{\bf .tex} (\LaTeX),
+{\bf .pdf} (Portable document format),
+{\bf .WP} (WordPerfect),
+{\bf .Word} (MS Word),
+{\bf .doc} (Other word-processing format).
+\item
+Compress your files, {\bf Zip} for PC, {\bf Stuffit} for Mac, {\bf tar.Z} for Unix.
+\item
+Log in to {\bf ftp.edoc.com} as an 'anonymous' user.
+\item
+Use your email address as password.
+\item
+At the {\tt ftp} prompt, type {\tt cd \confshortname} to change to directory {\tt \confshortname}.
+\item
+Transfer files by {\tt put} command as follows,
+\begin{verbatim}
+ put DECT98_DAC_1234.tar.Z   (submit one tar file only for Unix)
+ put DECT98_DAC_1234_abs.tex
+\end{verbatim}
+\item
+Finish file transfer by {\tt quit} command.
+\end{itemize}
+
+
+\vspace{10pt}
+{\bf Keywords:} ASME, paper format, \LaTeX.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}}
+
+\vspace{\fill}
+{\scriptsize{\hv
+\begin{flushbottom}
+\begin{flushright}
+Copyright \copyright\ \confyear\ by ASME
+\end{flushright}
+\end{flushbottom}
+}}
+
+\end{document}
+
