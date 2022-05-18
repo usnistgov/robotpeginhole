@@ -1,7 +1,7 @@
 #include "test_gazebo_package/wm.h"
 
 double gzPegboardScaleFactor = 0.002;
-double dLengthPeg = 50.8 * gzPegboardScaleFactor; // in meters - scale is 0.002
+double dGzLengthPeg = 8.8 * gzPegboardScaleFactor; // in meters - scale is 0.002
 // Fanuc taskboard peg array of holes
 // 6.35mm=1/2 in   50.8=2in
 double zWrldMinPegArray = 0.991;     // GZ world coord in meters as reported by gazebo
@@ -71,26 +71,26 @@ CPegHoleArray holes("holesarray",p2);
  * @brief definiiton of local offset locations of holes in peg array
  */
 std::vector<CPegArrayHole> p3 = {
-    CPegArrayHole("OffsetPeg1", "Full", "round", tf::Vector3(0.0508, -0.0508, 0.0143)),
-    CPegArrayHole("OffsetPeg2", "Open", "square", tf::Vector3(0.0508, 0., 0.)),
-    CPegArrayHole("OffsetPeg3", "Full", "round", tf::Vector3(0., -0.0508, 0.0143)),
+    CPegArrayHole("OffsetPeg1", "Full", "round", tf::Vector3(-0.0508, -0.0508, 0.0143)),
+    CPegArrayHole("OffsetPeg2", "Open", "square", tf::Vector3(-0.0508, 0., 0.)),
+    CPegArrayHole("OffsetPeg3", "Full", "round", tf::Vector3(-0.0508, 0.0508, 0.0143)),
     CPegArrayHole("OffsetPeg4", "Open", "square", tf::Vector3(0., -0.0508, 0.0143)),
     CPegArrayHole("OffsetPeg5", "Full", "round", tf::Vector3(0., 0., 0.)),
-    CPegArrayHole("OffsetPeg6", "Open", "square", tf::Vector3(0.0508, 0., -0.0129)),
-    CPegArrayHole("OffsetPeg7", "Full", "round", tf::Vector3(-0.0508, -0.0508, 0.0143)),
-    CPegArrayHole("OffsetPeg8", "Open", "square", tf::Vector3(-0.0508, 0., 0.)),
-    CPegArrayHole("OffsetPeg9", "Full", "round", tf::Vector3(-0.0508, 0.0508, -0.0129))};
+    CPegArrayHole("OffsetPeg6", "Open", "square", tf::Vector3(0., 0.0508, -0.0129)),
+    CPegArrayHole("OffsetPeg7", "Full", "round", tf::Vector3(0.0508, -0.0508, 0.0143)),
+    CPegArrayHole("OffsetPeg8", "Open", "square", tf::Vector3(0.0508, 0., 0.)),
+    CPegArrayHole("OffsetPeg9", "Full", "round", tf::Vector3(0.0508, 0.0508, -0.0129))};
 
     std::vector<CPegArrayHole> p4 = {
-    CPegArrayHole("OffsetHole1", "Open", "round", tf::Vector3(0.0508, -0.0508, 0.0143)),
-    CPegArrayHole("OffsetHole2", "Open", "square", tf::Vector3(0.0508, 0., 0.)),
-    CPegArrayHole("OffsetHole3", "Open", "round", tf::Vector3(0., -0.0508, 0.0143)),
+     CPegArrayHole("OffsetHole1", "Full", "round", tf::Vector3(-0.0508, -0.0508, 0.0143)),
+    CPegArrayHole("OffsetHole2", "Open", "square", tf::Vector3(-0.0508, 0., 0.)),
+    CPegArrayHole("OffsetHole3", "Full", "round", tf::Vector3(-0.0508, 0.0508, 0.0143)),
     CPegArrayHole("OffsetHole4", "Open", "square", tf::Vector3(0., -0.0508, 0.0143)),
-    CPegArrayHole("OffsetHole5", "Open", "round", tf::Vector3(0., 0., 0.)),
-    CPegArrayHole("OffsetHole6", "Open", "square", tf::Vector3(0.0508, 0., -0.0129)),
-    CPegArrayHole("OffsetHole7", "Open", "round", tf::Vector3(-0.0508, -0.0508, 0.0143)),
-    CPegArrayHole("OffsetHole8", "Open", "square", tf::Vector3(-0.0508, 0., 0.)),
-    CPegArrayHole("OffsetHole9", "Open", "round", tf::Vector3(-0.0508, 0.0508, -0.0129))};
+    CPegArrayHole("OffsetHole5", "Full", "round", tf::Vector3(0., 0., 0.)),
+    CPegArrayHole("OffsetHole6", "Open", "square", tf::Vector3(0., 0.0508, -0.0129)),
+    CPegArrayHole("OffsetHole7", "Full", "round", tf::Vector3(0.0508, -0.0508, 0.0143)),
+    CPegArrayHole("OffsetHole8", "Open", "square", tf::Vector3(0.0508, 0., 0.)),
+    CPegArrayHole("OffsetHole9", "Full", "round", tf::Vector3(0.0508, 0.0508, -0.0129))};
 
 CPegArrayHoleOffsets supplybasearray("supplybasearray",p3);
 CPegArrayHoleOffsets supplypegarray("supplypegarray",p3);
@@ -104,22 +104,22 @@ CPegArrayHoleOffsets destpegarray("destpegarray",p4);
 #endif
 
 #ifdef PEGARRAY
-std::map<std::string, CPegArray *> pegarray_names;
-CPegArray::CPegArray(std::string name)
-{
-    this->name = name;
-    pegarray_names[name] = this;
-    // // This is established pegarray dimensions, 4/1/2022
-    scale = 0.002;
-    xlen = 44.45000076293945 * 2. * scale;
-    ylen = 3.174999237060547 * 2. * scale;
-    zlen = 88.90000915527344 * scale;
-}
-CPegArray &CPegArray::find(std::string name)
-{
-    static CPegArray dummy("dummy.pegarray");
-    if (pegarray_names.find(name) != pegarray_names.end())
-        return *pegarray_names[name];
-    return dummy;
-}
+// std::map<std::string, CPegArray *> pegarray_names;
+// CPegArray::CPegArray(std::string name)
+// {
+//     this->name = name;
+//     pegarray_names[name] = this;
+//     // // This is established pegarray dimensions, 4/1/2022
+//     scale = 0.002;
+//     xlen = 44.45000076293945 * 2. * scale;
+//     ylen = 3.174999237060547 * 2. * scale;
+//     zlen = 88.90000915527344 * scale;
+// }
+// CPegArray &CPegArray::find(std::string name)
+// {
+//     static CPegArray dummy("dummy.pegarray");
+//     if (pegarray_names.find(name) != pegarray_names.end())
+//         return *pegarray_names[name];
+//     return dummy;
+// }
 #endif

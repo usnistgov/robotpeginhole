@@ -7,7 +7,7 @@
 #include "crpi_gazebo.h"
 #include "tiny_kdl.h"
 #include <boost/algorithm/string/predicate.hpp>
-
+#include <cstdarg>
 // Big compile hurdle for now
 //#include <motion_prims/AssemblyPrims.h>
 
@@ -23,6 +23,35 @@ int nLogFTVals = 5;
 bool bTwist = 0;
 bool bWiggle = 0;
 bool bDeadReckoning = false;
+bool bHoleTop=false;
+
+// typedef tf::Pose * PosePtr;
+// tf::Pose kineqn(tf::Pose *solve,...) 
+// {
+//    std::va_list valist;
+//    tf::Pose final=solve->inverse();
+//    tf::Pose *tmp;
+//    std::va(valist, solve); //initialize valist for num number of arguments
+//    while (tmp!=NULL) { //access all the arguments assigned to valist
+//       final= final * (*tmp);
+//    }
+//    va_end(valist); //clean memory reserved for valist
+//    return final;
+// }
+
+tf::Pose kineqn( std::initializer_list<tf::Pose > list )
+//tf::Pose kineqn( std::vector<tf::Pose > list )
+{
+    tf::Pose final;
+    final = final.getIdentity();
+    //for(size_t i=0; i< list.size(); i++ )
+    for( auto elem : list )
+    {
+      final= final * elem;
+      std::cout << "kineqn Final Pose = " << conversion::dumpPoseSimple(final) << "\n";
+    }
+   return final;
+   }
 
 void resetLogStream()
 {
@@ -106,37 +135,96 @@ void testcurrentPose()
   std::cout << "Current Pose = " << conversion::dumpPoseRPY(p) << "\n";
 }
 
+void Experiment::movePeg2TopHole(std::string pegname, std::string holename, tf::Quaternion qbend)
+{
+
+  std::cout << "movePeg2TopHole: "<< pegname << "to top of " << holename  << "\n";
+  tf::Pose wrldRawHole1;
+  tf::Pose wrldOffsetHole1;
+  tf::Pose rbtOffsetHole1;
+  tf::Pose rbtRawHole1;
+ // tf::Pose rbtHole1;
+
+  // Acquire Peg (uncertain where on peg) and retract
+ // acquirePeg(pegname);
+
+  // USE HARD CODED SDF POSITIONS
+  CPegArrayHole &hole = holes.find(holename);
+  tf::Vector3 wBottomHolePos = hole.offset; // hole.location; // bottom of taskboard shelf from peg insertion
+  tf::Vector3 wvTopOfPegInHolePos = tf::Vector3(wBottomHolePos.x(), wBottomHolePos.y(), 1.0799);
+  wrldRawHole1=tf::Pose (qBend, wvTopOfPegInHolePos);
+  std::cout << "RAW Insert hole1 at World Coord Pose" << conversion::dumpVectorSimple(wBottomHolePos) << "\n";
+  rbtRawHole1 = robot._arm->toRobotCoord(wrldRawHole1);
+  std::cout << "RAW Top Hole  Robot Coord Pose = " << conversion::dumpPoseSimple(rbtRawHole1) << "\n";
+
+ 
+  tf::Vector3 pegarrayboard;
+  CPegArrayHole activeoffsethole = destpegarray.find("Offset"+holename);
+  std::cout << holename << "OFFSET PegArray Centroid World coord  = " << conversion::dumpVectorSimple(activeoffsethole.centroid.getOrigin()) << "\n";
+
+  tf::Vector3 wOffTopPegHolePos = activeoffsethole.curTopZLocation(); // uses centroid and offset based location
+  std::cout << holename << "OFFSET PegArray Top Hole World coord  = " << conversion::dumpVectorSimple(wOffTopPegHolePos) << "\n";
+  wrldOffsetHole1=tf::Pose (qBend, wOffTopPegHolePos);
+
+  // std::vector<tf::Pose> eqn = {robot._arm->GripperInv,
+  //                              robot._arm->basePoseInverse,
+  //                              wrldOffsetHole1};
+
+  //  // Really want Goal=Base*Robot*Gripper*Peg                                
+  // wrldSolvePose = kineqn({robot._arm->basePoseInverse,
+  //                                 wrldHole1,
+  //                                 robot._arm->Gripper} );
+  // std::cout << "Solved kineqn Peg Pose = " << conversion::dumpPoseSimple(wrldSolvePose) << "\n";
+
+  // Transform from world to robot space
+  robot._arm->bDebug=true;
+  rbtOffsetHole1 = robot._arm->toRobotCoord(wrldOffsetHole1);
+  robot._arm->bDebug=false;
+  std::cout << "OFFSET Top Hole Robot Coord Pose = " << conversion::dumpPoseSimple(rbtOffsetHole1) << "\n";
+   
+     // This solves  Goal=Base*Robot*Gripper  and gives a Robot Pose in robot coord space
+  tf::Pose rSolvePose = kineqn({robot._arm->basePoseInverse,
+                                  wrldOffsetHole1} );
+                                  //robot._arm->Gripper} );
+
+  std::cout << "OFFSET Solved kineqn Pose = " << conversion::dumpPoseSimple(rSolvePose) << "\n";
+
+  tf::Pose rbtHole1=rbtOffsetHole1;
+
+  // MOve to retract position above hole
+  tf::Pose rHoleApproach = robot._arm->retract(rbtHole1, tf::Vector3(0.0, 0.0, .040));
+  std::cout << "MOVE Robot Coord Retract Pose" << dumpPoseSimple(rHoleApproach) << std::endl;
+  robot.MoveTo(Convert<tf::Pose, robotPose>(rHoleApproach), true);
+
+  std::cout << "MOVE Robot Coord Hole Pose" << dumpPoseSimple(rbtHole1) << std::endl;
+  robot.MoveTo(Convert<tf::Pose, robotPose>(rbtHole1), true);
+  std::cout << "FINISH movePeg2TopHole: "<< pegname << "to top of " << holename  << "\n";
+
+}
+
 void Experiment::acquirePeg(std::string pegname)
 {
-  //CTaskBoardHole &peg = pegs.find(pegname);
 
   // Peg1 World defined Bottom World Coord    0.27,  -1.10,   0.93,
   // Peg1 Offset defined Bottom World Coord    0.27,  -1.10,   1.11,
   activepeg = pegs.find(pegname);
-  wldBottomPegHolePos = activepeg.location; // bottom of taskboard shelf
+  wldBottomPegHolePos = activepeg.offset; // bottom of taskboard shelf
   std::cout << pegname << " World defined Bottom World Coord " << conversion::dumpVectorSimple(wldBottomPegHolePos) << "\n";
 
-  CPegArrayHole activeoffsetpeg = supplybasearray.find("Offset"+pegname);
-  tf::Vector3 offBottonPegHolePos = activeoffsetpeg.curTopZLocation(); // uses centroid and offset based location
-  std::cout << pegname << " Offset defined Bottom World Coord " << conversion::dumpVectorSimple(offBottonPegHolePos) << "\n";
-
-  // change to top of hole KLUDGE: actually a fudge value?
+  // working - change to top of hole KLUDGE: actually a fudge value?
   wldTopHolePos = tf::Vector3(wldBottomPegHolePos.x(), wldBottomPegHolePos.y(), 1.0799); // 1.0799 where is this from?
   std::cout << pegname << " Top Hole World coord  = " << conversion::dumpVectorSimple(wldTopHolePos) << "\n";
 
-  // activepeg = supplypegarray.find(pegname);
-  tf::Vector3 pegarrayboard;
-  CPegArrayHole activeoffsethole = supplypegarray.find("Offset"+pegname);
-  tf::Vector3 offTopPegHolePos = activeoffsethole.curTopZLocation(); // uses centroid and offset based location
-  std::cout << pegname << " Offset Top Hole World coord  = " << conversion::dumpVectorSimple(offTopPegHolePos) << "\n";
 
   // This should be top of peg but doesn't seem to work. :(
   // off by 0.05 meters?
-  wldTrueTopHolePos = tf::Vector3(wldBottomPegHolePos.x(), wldBottomPegHolePos.y(), wldBottomPegHolePos.z() + dLengthPeg);
+  wldTrueTopHolePos = tf::Vector3(wldBottomPegHolePos.x(), wldBottomPegHolePos.y(), wldBottomPegHolePos.z() + dGzLengthPeg);
   std::cout << pegname << " actual Top in World Coord = " << conversion::dumpVectorSimple(wldTrueTopHolePos) << "\n";
-  if (trial > 1)
-    wldTopHolePos = wldTrueTopHolePos;
+ 
+  // if (trial > 1)
+  //   wldTopHolePos = wldTrueTopHolePos;
   // grasp top of the peg
+
   wrldPegtopPose = tf::Pose(qBend, wldTopHolePos);
 
   // Transform rfrom world to robot space
@@ -155,7 +243,7 @@ void Experiment::acquirePeg(std::string pegname)
   robot._arm->Dwell(dDwellTime);
 
   //robot.SetAbsoluteSpeed(.1);
-  rbtPegretractPose = robot._arm->retract(rbtPegtopPose, tf::Vector3(0.0, 0.0, dLengthPeg + .040));
+  rbtPegretractPose = robot._arm->retract(rbtPegtopPose, tf::Vector3(0.0, 0.0, dGzLengthPeg + .040));
   robot.MoveTo(Convert<tf::Pose, robotPose>(rbtPegretractPose), true);
   robot._arm->Dwell(dDwellTime);
 
@@ -167,16 +255,16 @@ void Experiment::acquirePeg(std::string pegname)
 tf::Pose Experiment::insertPegDeadReckoning(std::string holename)
 {
   CPegArrayHole &hole = holes.find(holename);
-  tf::Pose rbtHole1 = insertPegDeadReckoningLocation(hole.location);
+  tf::Pose rbtHole1 = insertPegDeadReckoningLocation(holename); 
   robot.SetTool(1.0);
-  tf::Pose holeretract = robot._arm->retract(rbtHole1, tf::Vector3(0.0, 0.0, dLengthPeg + .060)); // kludge
+  tf::Pose holeretract = robot._arm->retract(rbtHole1, tf::Vector3(0.0, 0.0, dGzLengthPeg + .060)); // kludge
   robot.MoveTo(Convert<tf::Pose, robotPose>(holeretract), true);
   return rbtHole1;
 }
 tf::Pose Experiment::insertPegTwist(std::string holename)
 {
   CPegArrayHole &hole = holes.find(holename);
-  tf::Pose rbtHole1 = insertPegDeadReckoningLocation(hole.location);
+  tf::Pose rbtHole1 = insertPegDeadReckoningLocation(holename); 
   tf::Pose holetwist;
   tf::Quaternion bend;
   int n = 0;
@@ -208,7 +296,7 @@ void Experiment::approachPegHole(std::string holename)
 {
   CPegArrayHole &hole = holes.find(holename);
   double xfudge = 0.02;
-  tf::Vector3 wBottomHolePos = hole.location; // bottom of taskboard shelf from peg insertion
+  tf::Vector3 wBottomHolePos = hole.offset; // bottom of taskboard shelf from peg insertion
   // change to top of hole + fudge in z and x
   tf::Vector3 wvTopHolePos = tf::Vector3(wBottomHolePos.x() + xfudge, wBottomHolePos.y(), zWrldMaxPegArray);
   tf::Pose wTophole1(qBend, wvTopHolePos);
@@ -221,13 +309,13 @@ void Experiment::approachPegHole(std::string holename)
   // move above oft-center hole location - have to add in length of peg
   // xfudge already added in
   // location in robot coordinate system
-  tf::Pose rHoleapproach = robot._arm->retract(rTophole1, tf::Vector3(0.0, 0.0, dLengthPeg + .060));
+  tf::Pose rHoleapproach = robot._arm->retract(rTophole1, tf::Vector3(0.0, 0.0, dGzLengthPeg + .060));
   std::cout << "TopHole1 Robot Coord Approch = " << conversion::dumpPoseSimple(rHoleapproach) << "\n";
   robot.MoveTo(Convert<tf::Pose, robotPose>(rHoleapproach), true);
   robot._arm->Dwell(dDwellTime);
 
   // Now move to "touching" top of pegarray - move away in X so contact is made and obvious
-  tf::Pose rHoletouch = robot._arm->retract(rTophole1, tf::Vector3(0.0, 0.0, dLengthPeg));
+  tf::Pose rHoletouch = robot._arm->retract(rTophole1, tf::Vector3(0.0, 0.0, dGzLengthPeg));
   std::cout << "Holetouch Robot Coord Near = " << conversion::dumpPoseSimple(rHoletouch) << "\n";
   robot.MoveTo(Convert<tf::Pose, robotPose>(rHoletouch), true);
   robot._arm->Dwell(dDwellTime);
@@ -238,22 +326,22 @@ void Experiment::guardedMovePegArray(std::string holename, double ft_threahold, 
   CPegArrayHole &hole = holes.find(holename);
 
   // bottom of taskboard shelf from peg insertion
-  tf::Vector3 wBottomHolePos = hole.location;
+  tf::Vector3 wBottomHolePos = hole.offset;
 
   // change to top of hole + fudge in z and x
   tf::Vector3 wvTopHolePos = tf::Vector3(wBottomHolePos.x() + fudge.x(), wBottomHolePos.y(), zWrldMaxPegArray);
   tf::Pose wTophole1(qBend, wvTopHolePos);
   tf::Pose rTophole1 = robot._arm->toRobotCoord(wTophole1);
-  tf::Pose rHoleapproach = robot._arm->retract(rTophole1, tf::Vector3(0.0, 0.0, dLengthPeg + .060));
-  tf::Pose rHoletouch = robot._arm->retract(rTophole1, tf::Vector3(0.0, 0.0, dLengthPeg));
+  tf::Pose rHoleapproach = robot._arm->retract(rTophole1, tf::Vector3(0.0, 0.0, dGzLengthPeg + .060));
+  tf::Pose rHoletouch = robot._arm->retract(rTophole1, tf::Vector3(0.0, 0.0, dGzLengthPeg));
   // this hits amost the bottom of the hole - the tier
-  tf::Pose rGuardFinal = robot._arm->retract(rTophole1, tf::Vector3(0.0, 0.0, -dLengthPeg));
+  tf::Pose rGuardFinal = robot._arm->retract(rTophole1, tf::Vector3(0.0, 0.0, -dGzLengthPeg));
   // subtract off grasped end which raises current peg lowest Z
-  tf::Pose rGuardApproachFinal = robot._arm->retract(rTophole1, tf::Vector3(0.0, 0.0, dLengthPeg - 0.04));
+  tf::Pose rGuardApproachFinal = robot._arm->retract(rTophole1, tf::Vector3(0.0, 0.0, dGzLengthPeg - 0.04));
 
   //std::cout << "TopHole1 World Coord Pose = " << conversion::dumpPoseSimple(wTophole1) << "\n";
 
-  std::cout << "Length of Peg  = " << dLengthPeg << "\n";
+  std::cout << "Length of Peg  = " << dGzLengthPeg << "\n";
   std::cout << "TopHole1 Robot Coord Pose = " << conversion::dumpPoseSimple(rTophole1) << "\n";
   std::cout << "TopHole1 Robot Coord Approch = " << conversion::dumpPoseSimple(rHoleapproach) << "\n";
   std::cout << "Holetouch Robot Coord Near = " << conversion::dumpPoseSimple(rHoletouch) << "\n";
@@ -330,7 +418,7 @@ tf::Pose Experiment::getHoleLocation(std::string name,
   CPegArrayHole &hole = tb->find(name);
 
   // bottom of taskboard shelf from peg insertion
-  tf::Vector3 wvBottomHolePos = hole.location;
+  tf::Vector3 wvBottomHolePos = hole.offset;
   tf::Vector3 wvTopHolePos = tf::Vector3(wvBottomHolePos.x(), wvBottomHolePos.y(), zWrldMaxPegArray);
   tf::Pose wBottomhole1(q, wvBottomHolePos);
   tf::Pose wTophole1(q, wvTopHolePos);
@@ -363,14 +451,24 @@ tf::Pose Experiment::getHoleLocation(std::string name,
   return wHoleapproach;
 }
 
-tf::Pose Experiment::insertPegDeadReckoningLocation(tf::Vector3 holelocation)
-{
 
-  tf::Vector3 wBottomHolePos = holelocation; // hole.location; // bottom of taskboard shelf from peg insertion
+tf::Pose Experiment::insertPegDeadReckoningLocation(std::string holename) // tf::Vector3 holelocation)
+{
+  CPegArrayHole &hole = holes.find(holename);
+
+  tf::Vector3 wBottomHolePos = hole.offset; // hole.location; // bottom of taskboard shelf from peg insertion
   tf::Vector3 wvTopOfPegInHolePos = tf::Vector3(wBottomHolePos.x(), wBottomHolePos.y(), 1.0799);
   tf::Pose wrldHole1(qBend, wvTopOfPegInHolePos);
 
   std::cout << "\n\n\nInsert Peg into empty hole\nEmpty hole1 at " << conversion::dumpVectorSimple(wBottomHolePos) << "\n";
+
+  // activepeg = supplypegarray.find(pegname);
+  tf::Vector3 pegarrayboard;
+  CPegArrayHole activeoffsethole = destpegarray.find("Offset"+holename);
+  tf::Vector3 offTopPegHolePos = activeoffsethole.curTopZLocation(); // uses centroid and offset based location
+  std::cout << holename << " PegArray Top Hole World coord  = " << conversion::dumpVectorSimple(offTopPegHolePos) << "\n";
+
+
   // change to top of hole - why?
   // should be same Z as peg1 - assumes bottom+peg height?
 
@@ -381,7 +479,7 @@ tf::Pose Experiment::insertPegDeadReckoningLocation(tf::Vector3 holelocation)
   std::cout << "Hole Robot Coord Pose = " << conversion::dumpPoseSimple(rbtHole1) << "\n";
 
   // MOve to retract position above hole
-  tf::Pose rHoleApproach = robot._arm->retract(rbtHole1, tf::Vector3(0.0, 0.0, dLengthPeg + .040));
+  tf::Pose rHoleApproach = robot._arm->retract(rbtHole1, tf::Vector3(0.0, 0.0, dGzLengthPeg + .040));
   std::cout << "Hole Robot Coord Retract Pose" << dumpPoseSimple(rHoleApproach) << std::endl;
   //robot.SetAbsoluteSpeed(.01);
   robot.MoveTo(Convert<tf::Pose, robotPose>(rHoleApproach), true);

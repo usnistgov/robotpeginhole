@@ -33,41 +33,41 @@ struct CPegArrayHole
     std::string name;
     std::string state;
     std::string holetype;
-    tf::Vector3 location;
+    tf::Vector3 offset;
     tf::Vector3  wCurlocation;
     CPegArrayHole()
     {
         name = "empty";
     }
-    CPegArrayHole(std::string name, std::string state, std::string holetype, tf::Vector3 location)
+    CPegArrayHole(std::string name, std::string state, std::string holetype, tf::Vector3 offset)
     {
         this->name = name;
         this->state = state;
         this->holetype = holetype;
-        this->location = location;
+        this->offset = offset;
     }
     tf::Vector3 topOfHole(tf::Vector3 centroid)
     {
-        return centroid + location;
+        return centroid + offset;
     }
     tf::Vector3 curTopZLocation()
     {
         // location is also an offset
         tf::Matrix3x3 m(centroid.getRotation());
-        tf::Vector3 offset = m * location ;
+        tf::Vector3 rotOffset = m * offset ; // rotate pegarray offset matrix if necessary
         tf::Vector3 center = centroid.getOrigin();
         std::cout << name << " centroid" << conversion::dumpPoseRPY(centroid) << "\n";
-        std::cout << name << " location" << conversion::dumpVectorSimple(location) << "\n";
-        std::cout << name << " offset" << conversion::dumpVectorSimple(offset) << "\n";
+        std::cout << name << " location" << conversion::dumpVectorSimple(offset) << "\n";
+        std::cout << name << " offset" << conversion::dumpVectorSimple(rotOffset) << "\n";
         std::cout << name << " center" << conversion::dumpVectorSimple(center) << "\n";
 
-        std::cout << name << " curTopZLocation" << conversion::dumpVectorSimple(tf::Vector3(center.x() + offset.x(), 
-        center.y() + offset.y(), 
-        center.z() + offset.z() + zlen())) << "\n";
+        std::cout << name << " curTopZLocation" << conversion::dumpVectorSimple(tf::Vector3(center.x() + rotOffset.x(), 
+        center.y() + rotOffset.y(), 
+        center.z() + rotOffset.z() + zlen())) << "\n";
 
-        return tf::Vector3(center.x() + offset.x(),
-                           center.y() + offset.y(),
-                           center.z() + offset.z() + zlen());
+        return tf::Vector3(center.x() + rotOffset.x(),
+                           center.y() + rotOffset.y(),
+                           center.z() + rotOffset.z() + zlen());
     }
     double xlen() { return _xlen*_scale; }
     double ylen() { return _ylen*_scale; }
@@ -91,9 +91,9 @@ struct CPegHoleArray : public std::vector<CPegArrayHole>
         copy(other.begin(), other.end(), back_inserter(*this));
         _name=name;
         _scale = 0.002;
-        _xlen = 44.45000076293945 * 2. ;
-        _ylen = 3.174999237060547 * 2. ;
-        _zlen = 88.90000915527344 ;
+        _xlen = 44.45000076293945/10.0 * 2. ;
+        _ylen = 3.174999237060547/10.0 * 2. ;
+        _zlen =  8.8; // 88.90000915527344 ; // empiral observation using move in Gazebo
         for(size_t i=0; i< this->size(); i++)
         {
             this->at(i)._scale=_scale;
@@ -123,9 +123,9 @@ struct CPegHoleArray : public std::vector<CPegArrayHole>
         std::stringstream ss;
         for (size_t i = 0; i < this->size(); i++)
             ss << this->at(i).name << ":" << this->at(i).state << ":"
-               << this->at(i).location.x() << ":"
-               << this->at(i).location.y() << ":"
-               << this->at(i).location.z() << "\n";
+               << this->at(i).offset.x() << ":"
+               << this->at(i).offset.y() << ":"
+               << this->at(i).offset.z() << "\n";
         return ss.str();
     }
 
@@ -153,7 +153,9 @@ struct CPegHoleArray : public std::vector<CPegArrayHole>
 
     double xlen() { return _xlen*_scale; }
     double ylen() { return _ylen*_scale; }
-    double zlen() { return _zlen*_scale; }
+    double zlen() { 
+        return _zlen*_scale; 
+        }
     void scale(double &scale)
     {
         _scale = scale;
@@ -173,78 +175,78 @@ struct CPegHoleArray : public std::vector<CPegArrayHole>
 
 typedef CPegHoleArray CPegArrayHoleOffsets ;
 
-struct CPegArray
-{
-    //static std::map<std::string, CPegArray *> names;
-    CPegArray(std::string name);
+// struct CPegArray
+// {
+//     //static std::map<std::string, CPegArray *> names;
+//     CPegArray(std::string name);
     
-    CPegArray &find(std::string name);
+//     CPegArray &find(std::string name);
 
-    /**
-     * @brief determine if returned peg array is null/dummy
-     * 
-     * @param pegarray pegarray to test if null
-     * @return true  if null
-     * @return false  if actual peg array
-     */
-    bool isNullPegboard(CPegArray & pegarray)
-    {
-        return pegarray.name=="dummy.pegarray";
-    }
+//     /**
+//      * @brief determine if returned peg array is null/dummy
+//      * 
+//      * @param pegarray pegarray to test if null
+//      * @return true  if null
+//      * @return false  if actual peg array
+//      */
+//     bool isNullPegboard(CPegArray & pegarray)
+//     {
+//         return pegarray.name=="dummy.pegarray";
+//     }
 
-    std::string toString()
-    {
-        std::stringstream ss;
-        ss << "Pegarray=" << name << "\n";
-        ss << "\t xlen=" << xlen << "\n";
-        ss << "\t ylen=" << ylen << "\n";
-        ss << "\t zlen=" << zlen << "\n";
-        ss << "\t scale=" << scale << "\n";
-        ss << "\t centroid=(" << centroid.x() << ","
-           << centroid.y() << ","
-           << centroid.z() << ")\n";
-        return ss.str();
-    }
-    std::string name;
-    double xlen;
-    double ylen;
-    double zlen;
-    double scale;
-    tf::Vector3 centroid;
+//     std::string toString()
+//     {
+//         std::stringstream ss;
+//         ss << "Pegarray=" << name << "\n";
+//         ss << "\t xlen=" << xlen << "\n";
+//         ss << "\t ylen=" << ylen << "\n";
+//         ss << "\t zlen=" << zlen << "\n";
+//         ss << "\t scale=" << scale << "\n";
+//         ss << "\t centroid=(" << centroid.x() << ","
+//            << centroid.y() << ","
+//            << centroid.z() << ")\n";
+//         return ss.str();
+//     }
+//     std::string name;
+//     double xlen;
+//     double ylen;
+//     double zlen;
+//     double scale;
+//     tf::Vector3 centroid;
 
-    /**
-     * @brief set the centroid for the peg array. Used for future calculations.
-     * 
-     * @param centroid given xyz of the pegarray centroid (z is minimum of object)
-     */
-    void setCentroid(tf::Vector3 centroid)
-    {
-        this->centroid = centroid;
-    }
+//     /**
+//      * @brief set the centroid for the peg array. Used for future calculations.
+//      * 
+//      * @param centroid given xyz of the pegarray centroid (z is minimum of object)
+//      */
+//     void setCentroid(tf::Vector3 centroid)
+//     {
+//         this->centroid = centroid;
+//     }
 
-    /***
-     * topZarray returns the top Z based in the model, based on current centroid Z. 
-     * Use for example, determing top of a hole given a hole xyz offset in in pegarray,
-     * and then computing top of the hole.
-      **/
-    double topZpegarray()
-    {
-        return this->centroid.z() + zlen;
-    }
+//     /***
+//      * topZarray returns the top Z based in the model, based on current centroid Z. 
+//      * Use for example, determing top of a hole given a hole xyz offset in in pegarray,
+//      * and then computing top of the hole.
+//       **/
+//     double topZpegarray()
+//     {
+//         return this->centroid.z() + zlen;
+//     }
 
-    /**
-     * @brief getZ add zoffset using centroid Z and z length to top of pegboard. 
-     * Use for example, how far in positive Z direction is a peg when
-     * sitting in hole.
-     * 
-     * @param zoffset given offset to add to pegboard current location and offset
-     * @return double Z value given pegboard current centroid location
-     */
-    double gettopZoffset(double zoffset)
-    {
-        return centroid.z() + zlen + zoffset;
-    }
-};
+//     /**
+//      * @brief getZ add zoffset using centroid Z and z length to top of pegboard. 
+//      * Use for example, how far in positive Z direction is a peg when
+//      * sitting in hole.
+//      * 
+//      * @param zoffset given offset to add to pegboard current location and offset
+//      * @return double Z value given pegboard current centroid location
+//      */
+//     double gettopZoffset(double zoffset)
+//     {
+//         return centroid.z() + zlen + zoffset;
+//     }
+// };
 
 
 // Global variables
@@ -259,7 +261,7 @@ extern CrpiRobotParams params;
 extern crpi_robot::CrpiGazebo robot;
 extern tf::Quaternion qBend;
 
-extern double dLengthPeg;       /// in meters - scale is 0.002
+extern double dGzLengthPeg;       /// in meters - scale is 0.002
 extern double zWrldMinPegArray; /// world coord in meters as reported by gazebo
 extern double zSizePegArray;    /// in meters (scale is 0.002 mm->meters) twice as big
 extern double zWrldMaxPegArray; /// zMinPegArray+zSizePegArray;  // in meters using calculator

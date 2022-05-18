@@ -29,6 +29,8 @@
 
 //rosrun test_gazebo_package test_gazebo_package rosbreak:=1 test:=rpy
 //rosrun test_gazebo_package test_gazebo_package rosbreak:=1 twist:=1
+//rosrun test_gazebo_package test_gazebo_package rosbreak:=1 holetop:=1
+
 
 #include "TestGazeboRobot.h"
 #include <test_gazebo_package/experiment.h>
@@ -67,8 +69,8 @@ tf::Quaternion qBend; //(0, 0.707107, 0, 0.707107);
 
 int main(int argc, char **argv)
 {
-    CPegArray holearray("insertion.pegholesarray");
-    CPegArray pegarray("supply.holepegarray");
+   // CPegArray holearray("insertion.pegholesarray");
+  //  CPegArray pegarray("supply.holepegarray");
 
     std::cout << "Hello World!\n";
     std::cout << "******** break = " << bBreak << "\n";
@@ -86,7 +88,7 @@ int main(int argc, char **argv)
     bWiggle = (int)atoi(getCmdOption(args, "wiggle:=", "0").c_str());
     bTwist = (int)atoi(getCmdOption(args, "twist:=", "0").c_str());
     sTest = getCmdOption(args, "test:=", "none");
-
+    bHoleTop=(int)atoi(getCmdOption(args, "holetop:=", "0").c_str());
     // if no break then delay for Gazebo visual to finish loading.
     while (bBreak)
     {
@@ -94,10 +96,10 @@ int main(int argc, char **argv)
         Sleep(1000);
     }
 #ifdef PEGARRAY
-    holearray.setCentroid(tf::Vector3(10.,20.,30.));
-    std::cout << holearray.toString();
-    pegarray.setCentroid(tf::Vector3(30.,60.,90.));
-    std::cout << pegarray.toString();
+    // holearray.setCentroid(tf::Vector3(10.,20.,30.));
+    // std::cout << holearray.toString();
+    // pegarray.setCentroid(tf::Vector3(30.,60.,90.));
+    // std::cout << pegarray.toString();
 #endif  
     try
     {
@@ -110,8 +112,9 @@ int main(int argc, char **argv)
 
         robot._arm->GripperInv = robot._arm->Gripper.inverse();
 
+        // Peg length
         robot._arm->Grasped = tf::Pose(tf::Quaternion(0.0, 0.0, 0.0, 1.0),
-                                       tf::Vector3(0.0, 0.0, 50.8 * gzPegboardScaleFactor));
+                                       tf::Vector3(0.0, 0.0, dGzLengthPeg));
 
         robot._arm->GraspedInv = robot._arm->Grasped.inverse();
 
@@ -214,8 +217,8 @@ int main(int argc, char **argv)
             tf::Pose wBottomHoleLocation = exp.getHoleLocation("Hole1", bend, tf::Vector3(0, 0, 0), WORLD_COORD, BOTTOM);
             CPegArrayHole &hole = holes.find("Hole1");
             std::cout << "RPY wBottomHoleLocation=" << conversion::dumpPoseSimple(wBottomHoleLocation) << "\n";
-            std::cout << "RPY hole.location=" << conversion::dumpVectorSimple(hole.location) << "\n";
-            exp.moveHoleLocation(hole.location, bend);
+            std::cout << "RPY hole.location=" << conversion::dumpVectorSimple(hole.offset) << "\n";
+            exp.moveHoleLocation(hole.offset, bend);
         }
         else if (bDeadReckoning)
         {
@@ -241,27 +244,15 @@ int main(int argc, char **argv)
             exp.insertPegDeadReckoning("Hole1");
             // mild miss, with dither into hole using force
         }
-        else if (nLogFTVals > 0)
+        else if (bHoleTop)
         {
+
+            std::cout <<  " PegArray Z len  = " << destpegarray.zlen() << "\n";            
+
             qBend = tf::Quaternion(0, 0.707107, 0, 0.707107);
-            bLogFile = true; // set so reset log stream does new file?
-            for (size_t i = 0; i < nLogFTVals; i++)
-            {
-                // reset up log file naming
-                resetLogStream();
-
-                Experiment exp(robot._arm);
-                exp.n = 1; // reset experiment logging time serieies variable to 1
-                exp.trial++;
-                exp.acquirePeg("Peg1");
-                exp.approachPegHole("Hole1");
-                exp.guardedMovePegArray("Hole1", 0.025, tf::Vector3(0.02, 0.0, 0.0), 10);
-
-                exp.approachPegHole("Hole1"); // retract from hole
-                CPegArrayHole &peghole = pegs.find("Peg1");
-                exp.insertPegDeadReckoningLocation(peghole.location);
-                robot._arm->home();
-            }
+            Experiment exp(robot._arm);
+            exp.movePeg2TopHole("Peg1","Hole1",qBend);
+            // mild miss, with dither into hole using force
         }
         else if ((sTest.compare(0, strlen("tilt"), "tilt") == 0))
         {
@@ -293,8 +284,8 @@ int main(int argc, char **argv)
             exp.approachPegHole("Hole1"); // retract from hole
 
             // Reset peg world to original setup
-            CPegArrayHole &peghole = pegs.find("Peg1");
-            exp.insertPegDeadReckoningLocation(peghole.location);
+            // CPegArrayHole &peghole = pegs.find("Peg1");
+            exp.insertPegDeadReckoningLocation("Peg1"); //peghole.location);
             robot._arm->home();
 
             // Now we should move in -z until we detect a discernable positive z force.

@@ -6,6 +6,8 @@
 #include "crpi_util.h"
 #include "crpi_gazebo.h"
 #include "test_gazebo_package/wm.h"
+
+// Some test  routine
 extern void testConversions(); // Test conversions
 extern void testcurrentRobotJoints();
 extern void testcurrentPose();
@@ -16,11 +18,7 @@ extern int nLogFTVals;
 extern bool bTwist;
 extern bool bWiggle;
 extern bool bDeadReckoning;
-
-//extern void acquirePeg(std::string pegname);
-//extern void insertPegDeadReckoning(std::string holename);
-//extern void approachPegHole(std::string holename);
-//extern void guardedMovePegArray(std::string holename, double ft_threahold, tf::Vector3 fudge, size_t updaterate = 10);
+extern bool bHoleTop;
 
 extern std::ostream *logfp;
 
@@ -34,6 +32,10 @@ inline double fromDegree(double ang)
 }
 typedef enum { ROBOT_COORD=1, WORLD_COORD=2 } COORD_TYPE;
 typedef enum { APROACH=1, TOP=2, BOTTOM=3 } HOLE_LOCATION;
+
+//extern tf::Pose kineqn(tf::Pose *solve,...) ;
+extern tf::Pose kineqn( std::initializer_list<tf::Pose > list );
+//extern tf::Pose kineqn( std::vector<tf::Pose > list );
 
 class Experiment
 {
@@ -50,7 +52,8 @@ public:
     void acquirePeg(std::string pegname);
     tf::Pose insertPegDeadReckoning(std::string holename);
     tf::Pose insertPegTwist (std::string holename);
-    tf::Pose insertPegDeadReckoningLocation(tf::Vector3 holevector);
+    tf::Pose insertPegDeadReckoningLocation(std::string holenam); //tf::Vector3 holevector);
+    void movePeg2TopHole(std::string pegname, std::string holename, tf::Quaternion qbend);
     void moveHoleLocation(tf::Vector3 holelocation, tf::Quaternion qbend);
     void guardedMovePegArray(std::string holename,
                              double ft_threahold,

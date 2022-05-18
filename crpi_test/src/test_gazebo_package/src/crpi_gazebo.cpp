@@ -301,10 +301,15 @@ tf::Pose CRobotImpl::retract(tf::Pose pose, tf::Vector3 v)
 tf::Pose CRobotImpl::toRobotCoord(tf::Pose pose)
 {
 	if (bDebug)
-		std::cout << "With base" << dumpPoseSimple(pose) << std::endl;
+	{
+		std::cout << "toRobotCoord World pose" << dumpPoseSimple(pose) << std::endl;
+		std::cout << "toRobotCoord Base" << conversion::dumpPoseSimple(basePose) << std::endl;
+		std::cout << "toRobotCoord BaseInverse" << conversion::dumpPoseSimple(basePoseInverse) << std::endl;
+
+	}
 	pose = this->basePoseInverse * pose;
 	if (bDebug)
-		std::cout << "Wout base" << dumpPoseSimple(pose) << std::endl;
+		std::cout << "toRobotCoord Robot pose" << dumpPoseSimple(pose) << std::endl;
 	return pose;
 }
 tf::Pose CRobotImpl::toWorldCoord(tf::Pose pose)
