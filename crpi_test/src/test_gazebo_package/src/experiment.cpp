@@ -1,5 +1,5 @@
 
-
+#include "stdafx.h"
 #include "test_gazebo_package/experiment.h"
 #include <test_gazebo_package/conversions.h>
 #include "traj_math.h"

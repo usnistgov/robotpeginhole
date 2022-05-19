@@ -19,6 +19,7 @@
 #define STRING2(X) #X
 #define STRING(x) "WIN VERSION="##STRING2(x)
 #pragma message(STRING(_MSC_VER))
+#include "stdafx.h"
 #include "conversions.h"
 #if 0
 // why? only VS2019 IDE?

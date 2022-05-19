@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "test_gazebo_package/wm.h"
 
 double gzPegboardScaleFactor = 0.002;

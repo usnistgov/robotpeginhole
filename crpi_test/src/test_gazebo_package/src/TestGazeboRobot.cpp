@@ -31,7 +31,7 @@
 //rosrun test_gazebo_package test_gazebo_package rosbreak:=1 twist:=1
 //rosrun test_gazebo_package test_gazebo_package rosbreak:=1 holetop:=1
 
-
+#include "stdafx.h"
 #include "TestGazeboRobot.h"
 #include <test_gazebo_package/experiment.h>
 #include <iostream>
