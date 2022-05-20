@@ -1,5 +1,7 @@
 ## Robot Peg-in-hole Repository Details
 
+Note: additional more detailed documentation can be found in the /documentation folder as Adobe pdf files.
+
 Software was developed for peg-in-hole experiments that consisted of two
 ROS workspaces:
 
@@ -201,7 +203,7 @@ multiple ROS workspace nodes mandatory.
     to the settings under the down arrow on the top bar.
 
 2.  Create a new types of Windows, click the downward arrow button and
-    select "$+$Add new profile" and add "ROS Noetic" terminal.
+    select "+Add new profile" and add "ROS Noetic" terminal.
 
 3.  Listing [\[ls:noeticwinterm\]](#ls:noeticwinterm){reference-type="ref"
     reference="ls:noeticwinterm"} shows the text to copy into ROS
